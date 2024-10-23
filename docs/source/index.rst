@@ -18,3 +18,4 @@ Contents
    data_submission
    encounter
    population
+   glossary
