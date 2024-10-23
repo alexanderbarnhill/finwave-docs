@@ -16,4 +16,5 @@ Contents
 .. toctree::
 
    data_submission
-   api
+   encounter
+   population
