@@ -1,16 +1,15 @@
-Welcome to Lumache's documentation!
+Welcome to finwave's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**finwave** is an open data platform for the curation and management of marine mammal populations around the world.
+It is based on the idea that experts and professionals for the conservation of marine environments
+deserve a **uniform** way to organize their data and benefit from state-of-the-art machine learning technology to increase their productivity and enhance their workflow.
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
 
 .. note::
-
+s
    This project is under active development.
 
 Contents

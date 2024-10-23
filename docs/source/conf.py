@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'finwave'
+copyright = '2022-2024, Bay Cetology'
+author = 'Alex Barnhill'
 
 release = '0.1'
-version = '0.1.0'
+version = '3.7.1'
 
 # -- General configuration
 
