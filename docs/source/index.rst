@@ -5,11 +5,9 @@ Welcome to finwave's documentation!
 It is based on the idea that experts and professionals for the conservation of marine environments
 deserve a **uniform** way to organize their data and benefit from state-of-the-art machine learning technology to increase their productivity and enhance their workflow.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`data_submission` section for further information regarding getting started submitting your data
 
 .. note::
-s
    This project is under active development.
 
 Contents
@@ -17,5 +15,5 @@ Contents
 
 .. toctree::
 
-   usage
+   data_submission
    api
