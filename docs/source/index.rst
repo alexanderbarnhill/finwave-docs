@@ -14,6 +14,7 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 3
 
    data_submission
    encounter
