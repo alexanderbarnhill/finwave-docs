@@ -42,7 +42,7 @@ Users can select any date, as long as it is in the past.
 Location Selection
 ~~~~~~~~~~~~~~~~~~
 
-.. image:: image/submission/location-selection.png
+.. image:: img/submission/location-selection.png
    :alt: Location Selection Map
    :align: center
    :width: 800px
@@ -50,14 +50,14 @@ Location Selection
 
 Users have two ways to select a location. Either by clicking somewhere on the map where the encounter took place, in which the coordinates will automatically be extracted
 
-.. image:: image/submission/location-selection-pin-drop.png
+.. image:: img/submission/location-selection-pin-drop.png
    :alt: Pin Drop Results
    :align: center
    :width: 400px
 
 or by specifying the coordinates in Degrees Decimal Minutes (DDM) format.
 
-.. image:: image/submission/location-selection-coordinates.png
+.. image:: img/submission/location-selection-coordinates.png
    :alt: DDM Selection
    :align: center
    :width: 400px
