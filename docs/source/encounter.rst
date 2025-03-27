@@ -29,12 +29,13 @@ Encounter Status Icons
 On the right side of the overlay, icons provide quick visual indicators for the encounter status:
 
 1. **Analysis Status Icon:**
-   - .. image:: img/encounters/overview/icons/green_circ.png
-      :alt: Analysis Complete
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Green Circle (Outline):** Analysis complete.
+
+.. |green_icon| image:: img/encounters/overview/icons/green_circ.png
+   :width: 24px
+   :alt: Analysis Complete
+
+- ** |green_icon| Green Circle (Outline):** Analysis complete.
+
 
    - .. image:: img/encounters/overview/icons/yellow_circ.png
       :alt: Analysis in Progress
@@ -51,6 +52,7 @@ On the right side of the overlay, icons provide quick visual indicators for the 
       **Red Circle (Outline):** New encounter, analysis not yet started.
 
 2. **Encounter Completion Icon:**
+
    - .. image:: img/encounters/overview/icons/complete_circ.png
       :alt: Complete Encounter
       :width: 24px
@@ -71,7 +73,9 @@ On the right side of the overlay, icons provide quick visual indicators for the 
       :align: middle
       :class: icon
       **Circle with Question Mark:** Unknown if all animals were photographed.
+
 3. **Encounter Completion Icon:**
+
    - .. image:: img/encounters/overview/icons/pred_event.png
       :alt: Predation Event
       :width: 24px
@@ -80,6 +84,7 @@ On the right side of the overlay, icons provide quick visual indicators for the 
       **White Full Circle:** All animals present were photographed (complete encounter).
 
 4. **License Details Icon:**
+
    - .. image:: img/encounters/overview/icons/cc.png
       :alt: Creative Commons
       :width: 24px
@@ -108,37 +113,45 @@ Search and Filter Options
 The encounter overview page provides a powerful search and filter interface, allowing users to refine encounter results using the following options:
 
 1. **Data Source:**
+
    - **All Public Data:** Display encounters accessible to the public.
    - **Data from My Organizations:** Show encounters from the user’s associated organizations.
    - **Both:** Combine public data and data from the user’s organizations.
 
 2. **Encounter Completion Status:**
+
    - **Complete:** All animals present were photographed.
    - **Incomplete:** Some animals present were not photographed.
    - **Unknown:** Encounter completion status is unknown.
 
 3. **Behavioral Annotations:**
+
    - Population-specific behaviors defined by population administrators.
    - Users can filter encounters based on observed behaviors.
 
 4. **Analysis Status:**
+
    - **New:** Encounter is newly uploaded, and analysis has not started.
    - **In Progress:** Encounter analysis is ongoing.
    - **Finished:** Analysis is complete, and results are available.
 
 5. **Individuals of Interest:**
+
    - Multi-select for selecting specific individuals.
    - Allows focusing on encounters where selected individuals were identified.
 
 6. **Photographers:**
+
    - Multi-select for choosing one or more photographers.
    - Helps refine encounters based on the image contributors.
 
 7. **Locations:**
+
    - Multi-select to filter by geographical locations.
    - Useful for narrowing down encounters to specific areas of interest.
 
 8. **Date Range:**
+
    - Specify a date range to filter encounters that occurred within a particular timeframe.
 
 ----------------------------------------
