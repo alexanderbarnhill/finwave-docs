@@ -16,6 +16,7 @@ Contents
 .. toctree::
    :maxdepth: 3
 
+   onboarding
    data_submission
    encounter
    population
