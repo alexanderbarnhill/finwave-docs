@@ -100,6 +100,12 @@ On the right side of the overlay, icons provide quick visual indicators for the 
 
 - |attribution| : Attribution of the photographer is required for use.
 
+.. |private| image:: img/encounters/overview/icons/private.png
+   :width: 24px
+   :alt: Private
+
+- |private| : This encounter is private and can only be seen by other members of the same organization under which the encounter was submitted.
+
 
 ----------------------------------------
 Search and Filter Options
