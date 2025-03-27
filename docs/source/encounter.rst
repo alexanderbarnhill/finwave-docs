@@ -34,77 +34,72 @@ On the right side of the overlay, icons provide quick visual indicators for the 
    :width: 24px
    :alt: Analysis Complete
 
-- ** |green_icon| Green Circle (Outline):** Analysis complete.
+- |green_icon| : Analysis complete.
 
+.. |yellow_icon| image:: img/encounters/overview/icons/yellow_circ.png
+   :width: 24px
+   :alt: Analysis in progress
 
-   - .. image:: img/encounters/overview/icons/yellow_circ.png
-      :alt: Analysis in Progress
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Yellow Circle (Outline):** Analysis in progress.
+- |yellow_icon| : Analysis in progress.
 
-   - .. image:: img/encounters/overview/icons/red_circ.png
-      :alt: New Encounter
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Red Circle (Outline):** New encounter, analysis not yet started.
+.. |red_icon| image:: img/encounters/overview/icons/red_circ.png
+   :width: 24px
+   :alt: New Encounter
+
+- |yellow_icon| : New Encounter
 
 2. **Encounter Completion Icon:**
 
-   - .. image:: img/encounters/overview/icons/complete_circ.png
-      :alt: Complete Encounter
-      :width: 24px
-      :align: middle
-      :class: icon
-      **White Full Circle:** All animals present were photographed (complete encounter).
 
-   - .. image:: img/encounters/overview/icons/incomplete.png
-      :alt: Incomplete Encounter
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Circle with Missing Piece:** Incomplete encounter (not all animals present were photographed).
+.. |complete_icon| image:: img/encounters/overview/icons/complete_circ.png
+   :width: 24px
+   :alt: Complete Encounter
 
-   - .. image:: img/encounters/overview/icons/unknown_circ.png
-      :alt: Unknown Encounter Status
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Circle with Question Mark:** Unknown if all animals were photographed.
+- |complete_icon| : All animals present were photographed (complete encounter).
+
+.. |incomplete_icon| image:: img/encounters/overview/icons/incomplete.png
+   :width: 24px
+   :alt: Incomplete Encounter
+
+- |incomplete_icon| : Incomplete encounter (not all animals present were photographed).
+
+.. |unknown_icon| image:: img/encounters/overview/icons/unknown_circ.png
+   :width: 24px
+   :alt: Unknown
+
+- |unknown_icon| : Unknown if all animals were photographed.
+
 
 3. **Encounter Completion Icon:**
 
-   - .. image:: img/encounters/overview/icons/pred_event.png
-      :alt: Predation Event
-      :width: 24px
-      :align: middle
-      :class: icon
-      **White Full Circle:** All animals present were photographed (complete encounter).
+
+.. |pred_event| image:: img/encounters/overview/icons/pred_event.png
+   :width: 24px
+   :alt: Predation Event
+
+- |pred_event| : This encounter represents a predation event
+
 
 4. **License Details Icon:**
 
-   - .. image:: img/encounters/overview/icons/cc.png
-      :alt: Creative Commons
-      :width: 24px
-      :align: middle
-      :class: icon
-      **CC (Creative Commons):** Public domain or shared under a creative commons license.
+.. |cc| image:: img/encounters/overview/icons/cc.png
+   :width: 24px
+   :alt: Creative Commons
 
-   - .. image:: img/encounters/overview/icons/non_com.png
-      :alt: Non-Commercial
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Dollar Sign with Strike-Through:** Non-commercial use only.
+- |cc| : Public domain or shared under a creative commons license.
 
-   - .. image:: img/encounters/overview/icons/att.png
-      :alt: Attribution Required
-      :width: 24px
-      :align: middle
-      :class: icon
-      **Circle with Person:** Attribution of the photographer is required for use.
+.. |non_com| image:: img/encounters/overview/icons/non_com.png
+   :width: 24px
+   :alt: Non-Commercial
+
+- |non_com| : Non-commercial use only.
+
+.. |attribution| image:: img/encounters/overview/icons/att.png
+   :width: 24px
+   :alt: Attribution
+
+- |attribution| : Attribution of the photographer is required for use.
+
 
 ----------------------------------------
 Search and Filter Options
