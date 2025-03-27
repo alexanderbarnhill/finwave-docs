@@ -20,4 +20,5 @@ Contents
    data_submission
    encounter
    population
+   settings
    glossary
