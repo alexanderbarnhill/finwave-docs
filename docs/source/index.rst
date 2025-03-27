@@ -21,4 +21,5 @@ Contents
    encounter
    population
    settings
+   machine_learning
    glossary

@@ -59,3 +59,68 @@ Because we are aware of the fact that differing organizations have differing nam
 for administrators to add alternative IDs to each individual. These will be displayed on the main page as
 
 <main ID> / <alternate ID 1> / <alternate ID 2> ....
+
+
+.. _main_settings:
+
+-----------------------
+Main Settings
+-----------------------
+From this page the administrator can update things such as
+
+- The display name
+- The species name
+- The population abbreviation
+
+- The name of the location where the population is centered
+
+
+As well as things like the submission settings. Here the admin can specify:
+
+- If a user has to request to join the population
+- If the photos submitted to the population should be :ref:`Auto-tagged <auto_tag>`
+
+.. image:: img/settings/population/main/main_settings.png
+   :alt: Main Population Settings
+   :width: 800px
+   :align: center
+
+
+-----------------------
+Description
+-----------------------
+This module allows the administrator to specify a blurb which will accompany the population statistics on the dedicated
+'about' page for the population.
+
+.. image:: img/settings/population/main/population_details.png
+   :alt: Population Description
+   :width: 800px
+   :align: center
+
+-----------------------
+Prey
+-----------------------
+
+.. image:: img/settings/population/main/population_prey.png
+   :alt: Population Prey
+   :width: 800px
+   :align: center
+
+-----------------------
+Behavior
+-----------------------
+
+.. image:: img/settings/population/main/population_behavior.png
+   :alt: Population Behavior
+   :width: 800px
+   :align: center
+
+
+-----------------------
+Banner
+-----------------------
+
+.. image:: img/settings/population/main/population_banner.png
+   :alt: Population Banner
+   :width: 800px
+   :align: center
