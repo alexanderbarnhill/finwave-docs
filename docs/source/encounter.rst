@@ -70,7 +70,7 @@ On the right side of the overlay, icons provide quick visual indicators for the 
 - |unknown_icon| : Unknown if all animals were photographed.
 
 
-3. **Encounter Completion Icon:**
+3. **Encounter Predation Icon:**
 
 
 .. |pred_event| image:: img/encounters/overview/icons/pred_event.png
