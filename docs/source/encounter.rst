@@ -46,7 +46,7 @@ On the right side of the overlay, icons provide quick visual indicators for the 
    :width: 24px
    :alt: New Encounter
 
-- |yellow_icon| : New Encounter
+- |red_icon| : New Encounter
 
 2. **Encounter Completion Icon:**
 
