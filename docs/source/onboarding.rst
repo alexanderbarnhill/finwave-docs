@@ -89,66 +89,9 @@ The storage browser can be found `here <https://azure.microsoft.com/en-us/produc
    :width: 800px
 
 
-The process is as follows:
-
-1. We will create an account for you to be able to access this storage.
-2. You will receive an email from Microsoft inviting you to participate in our organization
-
-.. image:: img/onboarding/storage_browser/invitation.png
-   :alt: Azure Invitation
-   :align: center
-   :width: 800px
-
-3. After accepting the invitation, you can now sign in and :ref:`connect <storage_browser_authentication>`  to the storage browser. We will provide you with a
-link which you can use in the storage browser to directly connect to our storage. You can then upload / download / delete things
-as you wish.
-
-.. _storage_browser_authentication:
-
-Azure Storage Browser Authentication
------------------------------------------
-
-
-.. |sign_in| image:: img/onboarding/storage_browser/sign_in.png
-   :width: 24px
-   :alt: Sign In
-
-After being able to sign in after receiving the invitation, you are ready to connect.
-
-1. Click on the Account button (represented by |sign_in|)
-2. Click the "Sign In to Azure" link in the account management panel on the left side of the browser.
-3. Select "Azure" from the Select Azure Environment screen and hit "next"
-4. You will be redirected to the Azure sign in page in your browser
-5. If you do not see the account listed which is associated with your invitation, click "Use another account" and enter in your email
-6. Click "Sign In Options"
-7. Click "Sign in to an organization"
-8. Enter the domain name baycetology.onmicrosoft.com
-9. Enter your credentials and authenticate
-10. Return to the storage browser and you should see something similar to this
-
-.. image:: img/onboarding/storage_browser/connected.png
-   :alt: Azure Account Connected
-   :align: center
-   :width: 250px
-
-
-
-Azure Storage Browser Authentication Issues
------------------------------------------
-Sometimes it can be the case that Microsoft struggles with accounts that are already associated
-with a Microsoft account.
-
-In this case, you will want to try:
-
-1. Log out of microsoft completely
-2. Remove the account from the storage browser
-3. Start again with the :ref:`browser connection <storage_browser_authentication>`
-
-
 
 Azure Storage Browser Connection
 ----------------------------------------
-Once you are authenticated in the storage browser, you are ready to connect to the storage container.
 
 .. |connect| image:: img/onboarding/storage_browser/connect.png
    :width: 24px
