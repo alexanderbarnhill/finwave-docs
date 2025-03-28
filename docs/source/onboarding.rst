@@ -55,6 +55,7 @@ We offer multiple ways to upload your data to Finwave:
 1. **Azure Storage Browser:**
    - We provide credentials to upload data directly to Azure storage.
    - You can use the Azure Storage Browser tool to facilitate the upload.
+   - More information found :ref:`here <storage_browser>`.
 
 2. **Cloud Storage Platforms:**
    - You can send data directly via platforms such as Google Drive or Microsoft OneDrive.
@@ -64,6 +65,73 @@ We offer multiple ways to upload your data to Finwave:
    - Our onboarding tool automates encounter data upload directly to Finwave.
    - Currently, this involves running a Python script via the command line.
    - A cross-platform GUI tool is in development to streamline this process.
+
+
+
+.. _storage_browser:
+
+Azure Storage Browser
+----------------------------------------
+Probably the easiest way of getting data to us is by using the tool that Azure already provides
+for desktop access to cloud data.
+
+The storage browser can be found `here <https://azure.microsoft.com/en-us/products/storage/storage-explorer>`_.
+
+
+.. image:: img/onboarding/storage_browser/browser.png
+   :alt: Azure Storage Browser
+   :align: center
+   :width: 800px
+
+
+The process is as follows:
+
+1. We will create an account for you to be able to access this storage.
+2. You will receive an email from Microsoft inviting you to participate in our organization
+
+.. image:: img/onboarding/storage_browser/invitation.png
+   :alt: Azure Invitation
+   :align: center
+   :width: 800px
+
+3. After accepting the invitation, you can now sign in and :ref:`connect <storage_browser_connection`  to the storage browser. We will provide you with a
+link which you can use in the storage browser to directly connect to our storage. You can then upload / download / delete things
+as you wish.
+
+.. _storage_browser_connection:
+
+Azure Storage Browser Connection
+-----------------------------------------
+
+
+.. |sign_in| image:: img/onboarding/storage_browser/sign_in.png
+   :width: 24px
+   :alt: Sign In
+
+After being able to sign in after receiving the invitation, you are ready to connect.
+
+1. Click on the Account button (represented by |sign_in|)
+2. Click the "Sign In to Azure" link in the account management panel on the left side of the browser.
+3. Select "Azure" from the Select Azure Environment screen and hit "next"
+4. You will be redirected to the Azure sign in page in your browser
+5. If you do not see the account listed which is associated with your invitation, click "Use another account" and enter in your email
+6. Click "Sign In Options"
+7. Click "Sign in to an organization"
+8. Enter the domain name baycetology.onmicrosoft.com
+9. Enter your credentials and authenticate
+10. Return to the storage browser and you should see something similar to this
+
+.. image:: img/onboarding/storage_browser/connected.png
+   :alt: Azure Account Connected
+   :align: center
+   :width: 250px
+
+
+
+
+
+
+
 
 ----------------------------------------
 Uploading Individual Photos
@@ -75,6 +143,9 @@ For individual photos, the preferred method is to:
 - Place individual photos in folders where the **folder name corresponds to the identity of the individual.**
 
 Maintaining a consistent folder structure and metadata organization ensures seamless integration with Finwave and facilitates accurate identification and encounter management.
+
+
+
 
 ----------------------------------------
 Contact and Support
