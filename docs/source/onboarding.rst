@@ -166,7 +166,7 @@ another if we need to.
 Once connected, you should see something like this:
 
 
-.. image:: img/onboarding/storage_browser/storage_container.png
+.. image:: img/onboarding/storage_browser/storage_containers.png
    :alt: Azure Storage Containers
    :align: center
    :width: 250px
