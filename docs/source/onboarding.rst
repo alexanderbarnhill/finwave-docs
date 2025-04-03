@@ -127,6 +127,9 @@ upload your data in any form you wish, keeping in mind our requirements for :ref
 
 
 
+Azure Storage Browser Issues
+----------------------------------------
+- **Loading circle never goes away**: On **Windows** computers, the installation of the Storage Browser may also require the installation of **.NET**, which is a collection of system packages that the software needs. It may therefore be necessary to run the installation as an **Administrator** and **not** select the option *Install Only For Me*
 
 ----------------------------------------
 Uploading Individual Photos
