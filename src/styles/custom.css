@@ -1,0 +1,32 @@
+/* finwave brand overrides for Starlight */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Accent colors — primary-500 / primary-600 */
+  --sl-color-accent-low: #1558b8;
+  --sl-color-accent: #3b8fff;
+  --sl-color-accent-high: #d6e7ff;
+
+  /* Font */
+  --sl-font: 'Open Sans', sans-serif;
+}
+
+/* Dark theme overrides */
+:root[data-theme='dark'] {
+  --sl-color-bg: #1c1c1c;
+  --sl-color-bg-nav: #232323;
+  --sl-color-bg-sidebar: #232323;
+  --sl-color-hairline-light: #3a3a3a;
+  --sl-color-hairline: #3a3a3a;
+}
+
+/* Light theme overrides */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d6e7ff;
+  --sl-color-accent: #1f6fe6;
+  --sl-color-accent-high: #0e3f85;
+  --sl-color-bg: #fafafa;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+}

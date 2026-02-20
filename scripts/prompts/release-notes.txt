@@ -1,0 +1,12 @@
+Summarize the following changelog entries into user-facing release notes. Group by: New Features, Improvements, Bug Fixes. Use bullet points. Each bullet should be one sentence describing what changed and why it matters to users. Skip internal/infrastructure changes unless they affect performance or reliability. No technical implementation details.
+---
+Summarize the following changelog into release notes.
+
+<changelog>
+{spec_section}
+</changelog>
+
+Version title: {title}
+Date: {description}
+
+Output format: Markdown with YAML frontmatter containing title, description, and sidebar order ({order}). Group changes under ## New Features, ## Improvements, and ## Bug Fixes headings. Only include sections that have content. Do not wrap the output in a code fence.

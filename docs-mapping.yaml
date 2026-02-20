@@ -1,0 +1,627 @@
+pages:
+  # ── Web Application — Getting Started ──
+  - output: web/getting-started/welcome.md
+    title: "Welcome to finwave"
+    description: "What finwave is, who it's for, and key concepts"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "new users"
+    order: 1
+
+  - output: web/getting-started/quickstart.md
+    title: "Quick Start"
+    description: "Create an account, join a population, and log your first encounter"
+    type: tutorial
+    model: sonnet
+    spec: null
+    section: null
+    audience: "new users"
+    order: 2
+
+  - output: web/getting-started/navigation.md
+    title: "Navigating the App"
+    description: "App layout, sidebar, top navigation, and user menu"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "new users"
+    order: 3
+
+  # ── Web Application — Core Concepts ──
+  - output: web/core-concepts/encounters.md
+    title: "Encounters"
+    description: "What an encounter is and how images, metadata, and IDs relate"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: web/core-concepts/individuals.md
+    title: "Individuals"
+    description: "Individual profiles, ID codes, and life history"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: web/core-concepts/populations.md
+    title: "Populations"
+    description: "What a population is, including species and regions"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 3
+
+  - output: web/core-concepts/organizations.md
+    title: "Organizations"
+    description: "Organization membership, roles, and data ownership"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 4
+
+  - output: web/core-concepts/annotations.md
+    title: "Annotations"
+    description: "What annotations are, ML vs human annotations, and the annotator"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 5
+
+  - output: web/core-concepts/roles-permissions.md
+    title: "Roles & Permissions"
+    description: "Role hierarchy and what each role can do"
+    type: concept
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 6
+
+  # ── Web Application — Features — Encounters ──
+  - output: web/features/encounters/browsing.md
+    title: "Browsing Encounters"
+    description: "Search, filter, sort, and map view for encounters"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: web/features/encounters/creating.md
+    title: "Creating Encounters"
+    description: "Upload images, enter metadata, and submit encounters"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: web/features/encounters/editing.md
+    title: "Editing Encounters"
+    description: "Edit encounter details, add or remove images"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 3
+
+  # ── Web Application — Features — Individuals ──
+  - output: web/features/individuals/browsing.md
+    title: "Browsing Individuals"
+    description: "Individual list, search, and profiles"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: web/features/individuals/profiles.md
+    title: "Individual Profiles"
+    description: "Profile page, sighting history, and profile images"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: web/features/individuals/merging.md
+    title: "Merging Individuals"
+    description: "Merging duplicate individuals"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "researchers and administrators"
+    order: 3
+
+  # ── Web Application — Features — Annotator ──
+  - output: web/features/annotator/overview.md
+    title: "Annotator Overview"
+    description: "What the annotator does and when to use it"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: web/features/annotator/confirming.md
+    title: "Confirming Predictions"
+    description: "Confirming ML predictions in the annotator"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: web/features/annotator/editing.md
+    title: "Editing Annotations"
+    description: "Resizing boxes, changing sides, and changing IDs"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 3
+
+  - output: web/features/annotator/manual-annotations.md
+    title: "Manual Annotations"
+    description: "Adding annotations the model missed"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 4
+
+  # ── Web Application — Features (standalone) ──
+  - output: web/features/submissions.md
+    title: "Submissions"
+    description: "My Submissions view and submission status tracking"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 5
+
+  - output: web/features/comments.md
+    title: "Comments"
+    description: "Commenting on encounters"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "all users"
+    order: 6
+
+  # ── Web Application — Workbench ──
+  - output: web/workbench/overview.md
+    title: "Workbench Overview"
+    description: "What the Workbench is and how to get access"
+    type: concept
+    model: sonnet
+    spec: workbench-spec.md
+    section: "1. Purpose"
+    audience: "population administrators and researchers"
+    order: 1
+
+  - output: web/workbench/catalog-builder.md
+    title: "Catalog Builder"
+    description: "Building population graphs and relationships"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "2. Catalog Builder"
+    audience: "researchers and administrators"
+    order: 2
+
+  - output: web/workbench/review-queue.md
+    title: "Review Queue"
+    description: "Creating tasks, assigning reviewers, and working tasks"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "3. Review Queue"
+    audience: "researchers and administrators"
+    order: 3
+
+  # ── Web Application — Workbench — Analyses ──
+  - output: web/workbench/analyses/social-network.md
+    title: "Social Network Analysis"
+    description: "Social network analysis and community detection"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "5. Analyses"
+    audience: "researchers"
+    order: 1
+
+  - output: web/workbench/analyses/discovery-curve.md
+    title: "Discovery Curves"
+    description: "Discovery curves and what they show"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "5. Analyses"
+    audience: "researchers"
+    order: 2
+
+  - output: web/workbench/analyses/composition.md
+    title: "Composition Analysis"
+    description: "Age and sex composition analysis"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "5. Analyses"
+    audience: "researchers"
+    order: 3
+
+  # ── Web Application — ML Center ──
+  - output: web/ml-center/overview.md
+    title: "ML Center Overview"
+    description: "What the ML Center shows and metrics explained"
+    type: concept
+    model: sonnet
+    spec: ml-metrics-spec.md
+    section: "1. Purpose"
+    audience: "population administrators"
+    order: 1
+
+  - output: web/ml-center/detection-metrics.md
+    title: "Detection Metrics"
+    description: "Precision, recall, F1, IoU, and box correction rate"
+    type: feature
+    model: sonnet
+    spec: ml-metrics-spec.md
+    section: "Detection Performance"
+    audience: "population administrators"
+    order: 2
+
+  - output: web/ml-center/classification-metrics.md
+    title: "Classification Metrics"
+    description: "Side accuracy metrics"
+    type: feature
+    model: sonnet
+    spec: ml-metrics-spec.md
+    section: "Classification Performance"
+    audience: "population administrators"
+    order: 3
+
+  - output: web/ml-center/identification-metrics.md
+    title: "Identification Metrics"
+    description: "ID accuracy metrics"
+    type: feature
+    model: sonnet
+    spec: ml-metrics-spec.md
+    section: "Identification Performance"
+    audience: "population administrators"
+    order: 4
+
+  - output: web/ml-center/revision-rate.md
+    title: "Revision Rate"
+    description: "What revision rate means and how to interpret it"
+    type: concept
+    model: sonnet
+    spec: ml-metrics-spec.md
+    section: "Revision Rate"
+    audience: "population administrators"
+    order: 5
+
+  # ── Web Application — Administration ──
+  - output: web/administration/population-settings.md
+    title: "Population Settings"
+    description: "Configuring a population"
+    type: config
+    model: haiku
+    spec: null
+    section: null
+    audience: "population administrators"
+    order: 1
+
+  - output: web/administration/member-management.md
+    title: "Member Management"
+    description: "Inviting members and assigning roles"
+    type: feature
+    model: sonnet
+    spec: null
+    section: null
+    audience: "population administrators"
+    order: 2
+
+  - output: web/administration/workbench-access.md
+    title: "Workbench Access"
+    description: "Configuring Workbench tool permissions"
+    type: feature
+    model: sonnet
+    spec: workbench-spec.md
+    section: "4. Permissions Model"
+    audience: "population administrators"
+    order: 3
+
+  - output: web/administration/organization-settings.md
+    title: "Organization Settings"
+    description: "Organization profile and verification"
+    type: config
+    model: haiku
+    spec: null
+    section: null
+    audience: "organization administrators"
+    order: 4
+
+  - output: web/administration/public-pages.md
+    title: "Public Pages"
+    description: "Configuring public population landing pages"
+    type: feature
+    model: sonnet
+    spec: public-population-pages-spec.md
+    section: "1. Purpose"
+    audience: "population administrators"
+    order: 5
+
+  # ── Web Application — Troubleshooting ──
+  - output: web/troubleshooting/common-issues.md
+    title: "Common Issues"
+    description: "Frequently asked questions and known issues"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: web/troubleshooting/upload-errors.md
+    title: "Upload Errors"
+    description: "Image upload failures, size limits, and supported formats"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: web/troubleshooting/ml-issues.md
+    title: "ML Issues"
+    description: "Why metrics show unexpected values"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "population administrators"
+    order: 3
+
+  # ── Desktop Client — Getting Started ──
+  - output: desktop/getting-started/what-is-it.md
+    title: "What Is the Desktop Client?"
+    description: "Purpose, organization-first design, and how it relates to the web app"
+    type: concept
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "1. Purpose"
+    audience: "organization administrators"
+    order: 1
+
+  - output: desktop/getting-started/installation.md
+    title: "Installation"
+    description: "Download, install, and system requirements"
+    type: tutorial
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "Installation"
+    audience: "IT teams and administrators"
+    order: 2
+
+  - output: desktop/getting-started/setup.md
+    title: "Initial Setup"
+    description: "Organization binding, population selection, and first scan"
+    type: tutorial
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "Setup"
+    audience: "organization administrators"
+    order: 3
+
+  - output: desktop/getting-started/for-it-teams.md
+    title: "For IT Teams"
+    description: "Security overview, audit log, permissions model, and deployment"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "11. Security, Transparency & IT Compliance"
+    audience: "IT administrators and security teams"
+    order: 4
+
+  # ── Desktop Client — Discovery & Manifesting ──
+  - output: desktop/discovery/discovery.md
+    title: "Discovery"
+    description: "Scanning directories, what's detected, and supported file types"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "3. Discovery"
+    audience: "organization administrators"
+    order: 1
+
+  - output: desktop/discovery/manifesting.md
+    title: "Manifesting"
+    description: "How manifests work and the iterative flow"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "4. Manifesting"
+    audience: "organization administrators"
+    order: 2
+
+  - output: desktop/discovery/manifest-editing.md
+    title: "Manifest Editing"
+    description: "Adjusting rules, previewing, and approving manifests"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "4. Manifesting"
+    audience: "organization administrators"
+    order: 3
+
+  - output: desktop/discovery/directory-management.md
+    title: "Directory Management"
+    description: "Adding and removing directories, start/stop watching, rescan"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "3. Discovery"
+    audience: "organization administrators"
+    order: 4
+
+  # ── Desktop Client — Onboarding ──
+  - output: desktop/onboarding/overview.md
+    title: "Onboarding Overview"
+    description: "The upload pipeline and what to expect"
+    type: concept
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "5. Onboarding"
+    audience: "organization administrators"
+    order: 1
+
+  - output: desktop/onboarding/pre-training.md
+    title: "Pre-Training"
+    description: "Optional ID model pre-training and training data extraction"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "6. Pre-Training"
+    audience: "organization administrators"
+    order: 2
+
+  - output: desktop/onboarding/upload-process.md
+    title: "Upload Process"
+    description: "Progress, pausing, resuming, and error handling"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "5. Onboarding"
+    audience: "organization administrators"
+    order: 3
+
+  # ── Desktop Client — Synchronization ──
+  - output: desktop/sync/how-sync-works.md
+    title: "How Sync Works"
+    description: "File watching, encounter detection, and confirmation flow"
+    type: concept
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "7. Ongoing Synchronization"
+    audience: "organization administrators"
+    order: 1
+
+  - output: desktop/sync/configuration.md
+    title: "Sync Configuration"
+    description: "Quiet hours, bandwidth limits, and auto-confirm settings"
+    type: config
+    model: haiku
+    spec: desktop-client-spec.md
+    section: "7.6 Sync Configuration"
+    audience: "organization administrators"
+    order: 2
+
+  - output: desktop/sync/troubleshooting.md
+    title: "Sync Troubleshooting"
+    description: "Network issues, duplicate detection, and manifest changes"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "organization administrators"
+    order: 3
+
+  # ── Desktop Client — IT & Security ──
+  - output: desktop/it-security/security-model.md
+    title: "Security Model"
+    description: "Permissions, sandboxing, and filesystem access scope"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "11. Security, Transparency & IT Compliance"
+    audience: "IT administrators and security teams"
+    order: 1
+
+  - output: desktop/it-security/audit-log.md
+    title: "Audit Log"
+    description: "What's logged, how to export, and syslog forwarding"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "11.5 Audit & Activity Log"
+    audience: "IT administrators"
+    order: 2
+
+  - output: desktop/it-security/deployment.md
+    title: "Deployment"
+    description: "Silent install, MDM/group policy, and locked settings"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "11. Security, Transparency & IT Compliance"
+    audience: "IT administrators"
+    order: 3
+
+  - output: desktop/it-security/network.md
+    title: "Network Requirements"
+    description: "Allowed domains, certificate pinning, and telemetry policy"
+    type: feature
+    model: sonnet
+    spec: desktop-client-spec.md
+    section: "11. Security, Transparency & IT Compliance"
+    audience: "IT administrators"
+    order: 4
+
+  # ── Release Notes ──
+  - output: release-notes/index.md
+    title: "Release Notes"
+    description: "Latest release summary and links to all versions"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "all users"
+    order: 1
+
+  - output: release-notes/2026-02.md
+    title: "February 2026"
+    description: "Release notes for February 2026"
+    type: release-notes
+    model: haiku
+    spec: null
+    section: null
+    audience: "all users"
+    order: 2
+
+  - output: release-notes/2026-01.md
+    title: "January 2026"
+    description: "Release notes for January 2026"
+    type: release-notes
+    model: haiku
+    spec: null
+    section: null
+    audience: "all users"
+    order: 3
