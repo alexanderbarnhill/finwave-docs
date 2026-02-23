@@ -39,6 +39,7 @@ Workbench tools are organized into three categories:
 - **[Social Network Analysis](/web/workbench/analyses/social-network/)** -- Generate social network graphs from co-occurrence data with community detection.
 - **[Discovery Curves](/web/workbench/analyses/discovery-curve/)** -- Visualize how quickly new individuals are being discovered over time.
 - **[Composition Analysis](/web/workbench/analyses/composition/)** -- Break down your population by age and sex demographics.
+- **[Capture History Export](/web/workbench/analyses/capture-history/)** -- Generate capture history matrices for mark-recapture population analysis.
 
 ## Finding the Workbench
 

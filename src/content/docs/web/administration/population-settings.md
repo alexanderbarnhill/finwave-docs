@@ -27,7 +27,7 @@ Navigate to **Administration > Populations** and select your population. The set
 - **Individuals** — Browse, search, and manage individuals in your population.
 - **Review Animals** — Review provisionally created animals awaiting confirmation.
 - **Catalog** — Access the Catalog Builder for managing population graphs (requires finwave Pro).
-- **Analysis** — Run population analyses including social network analysis, discovery curves, and composition breakdowns (requires finwave Pro).
+- **Analysis** — Run population analyses including social network analysis, discovery curves, composition breakdowns, and capture history exports (requires finwave Pro).
 - **ML Center** — View ML model performance metrics for your population's detection, classification, and identification models.
 - **Review Tasks** — Create and manage review tasks for collaborative data validation (requires finwave Pro).
 - **Data Access** — Configure data export and API access settings.
