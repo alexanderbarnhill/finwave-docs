@@ -66,4 +66,5 @@ By default, administrators and professionals have access. Experts and novices do
 - [Workbench Overview](/web/workbench/overview/) -- all Workbench tools and how access works
 - [Discovery Curves](/web/workbench/analyses/discovery-curve/) -- tracking new individual discovery rates
 - [Composition Analysis](/web/workbench/analyses/composition/) -- demographic breakdown of the population
+- [Capture History Export](/web/workbench/analyses/capture-history/) -- generate capture history matrices for mark-recapture analysis
 - [Individuals](/web/core-concepts/individuals/) -- how individuals are represented in finwave
