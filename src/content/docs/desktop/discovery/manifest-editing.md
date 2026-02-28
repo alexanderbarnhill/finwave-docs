@@ -7,118 +7,104 @@ sidebar:
 
 In this guide you will learn:
 
-- How to read the manifest preview and sample encounters
-- What confidence indicators mean and how to act on them
-- How to change field sources, regex patterns, and grouping strategy
-- How versioning works and how to approve a manifest
+- How the manifest editor is structured
+- How to configure field sources for each encounter property
+- How path patterns and ID verifier integration work
+- How to preview, approve, and version manifests
 
-## The manifest preview
+## The manifest editor
 
-The manifest preview is the core of the editing experience. After the client generates a draft manifest, you see a preview showing how your data would map to finwave encounters. This preview updates in real time as you make changes.
+The manifest editor is where you define how your data maps to finwave encounters. Each manifest is linked to a scan job and a population, and consists of field mapping rules that tell the client where to find each encounter property -- dates, locations, photographer names, and individual IDs.
 
-<!-- screenshot: Manifest preview showing sample encounters with mapped fields -->
+The editor has two main areas: the **field configuration panel** on the left, and the **preview panel** on the right.
 
-The preview displays:
+## Field sources
 
-- **Sample encounters** -- 10 to 20 encounters shown as cards or table rows with all mapped fields visible
-- **Source indicators** -- each field value shows where it came from (for example, "2024-07-15 -- from folder name" or "Haro Strait -- from spreadsheet column D")
-- **Confidence indicators** -- color-coded signals for each field showing extraction reliability
-- **Unmapped items** -- images or spreadsheet rows that did not map to any encounter
-- **Field source summary** -- aggregate statistics showing the breakdown of sources across all encounters
+For each encounter property, you choose a **source** that tells the client where to extract the value from. The available sources vary by field.
 
-## Confidence indicators
+### Date and time
 
-Each mapped field displays a confidence indicator:
+| Source | How it works |
+|--------|-------------|
+| EXIF | Uses DateTimeOriginal or DateTimeDigitized from image EXIF data |
+| Folder name | Extracts a date from the folder name using a path pattern and date format |
+| File name | Extracts a date from the image file name using a path pattern and date format |
 
-| Color | Meaning | Action |
-|-------|---------|--------|
-| Green | Exact match from structured data (spreadsheet cell, EXIF field) | No action needed |
-| Yellow | Pattern-matched from a folder name or file name | Verify a few samples to confirm the pattern is correct |
-| Red | Missing or ambiguous -- the field could not be reliably extracted | Provide a different source or accept that this field will be empty |
+When using folder or file name sources, you also select a **date format** to tell the client how to parse the extracted string. Supported formats include `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `MM-DD-YYYY`, and variants with underscores or dots as separators.
 
-:::tip
-Focus your review on yellow and red indicators. Green fields are extracted from structured sources and are almost always correct. Yellow fields depend on pattern matching, which works well but benefits from a quick spot-check. Red fields need your input to resolve.
-:::
+### Location
 
-<!-- screenshot: Close-up of encounter card showing green/yellow/red confidence indicators with source labels -->
+| Source | How it works |
+|--------|-------------|
+| EXIF | Uses GPS coordinates from image EXIF data |
+| Folder name | Extracts a location name from the folder path using a path pattern |
+| IPTC | Uses the Location or City field from IPTC metadata |
 
-## Editing field sources
+### GPS coordinates
 
-You can change the source for any encounter field. For each field (date, location, photographer, individuals), you choose:
+| Source | How it works |
+|--------|-------------|
+| EXIF | Uses GPS latitude and longitude from image EXIF data |
+| Spreadsheet | Maps latitude and longitude from spreadsheet columns you select |
 
-- **Which source to use** -- EXIF, IPTC, folder name, file name, spreadsheet column, database table, or manual entry
-- **Which specific data point** -- for example, which spreadsheet column or which regex pattern to apply
-- **A fallback source** -- if the primary source is empty for a given encounter, the client tries the fallback
+When using the spreadsheet source, you choose which columns contain the latitude and longitude values from the columns detected during discovery.
 
-<!-- screenshot: Field source editor showing dropdown for date source selection -->
+### Photographer
 
-## Editing regex patterns
+| Source | How it works |
+|--------|-------------|
+| IPTC | Uses the Creator or Caption field from IPTC metadata |
+| EXIF | Uses the Artist field from EXIF data |
+| Folder name | Extracts a photographer name from the folder path using a path pattern |
 
-When a field is extracted from folder names or file names using pattern matching, you can adjust the regex pattern. The client shows:
+### Individuals
 
-- The current pattern and what it matches
-- A sample of folder names with highlighted matches
-- Unmatched folder names so you can see what the pattern misses
+| Source | How it works |
+|--------|-------------|
+| Folder name | Extracts individual IDs from folder names using a path pattern |
+| File name | Extracts individual IDs from file names using a path pattern |
+| IPTC | Extracts IDs from the Caption or Keywords IPTC fields |
 
-For individual ID parsing, you set:
+## Path patterns
 
-- **The ID pattern** -- a regex that matches your organization's ID codes (for example, `[TGJ]\d{3}[A-Z]?` for codes like T002B)
-- **The separator** -- how multiple IDs are delimited in a single value (comma, semicolon, newline)
+When a field source is set to "folder name" or "file name," you define a **path pattern** that tells the client which part of the path contains the relevant data. Path patterns use a segment-based syntax to match directory levels and extract values.
 
-:::caution
-Changes to regex patterns affect all encounters that rely on pattern-matched fields. Review the updated preview carefully after modifying a pattern, paying attention to encounters that previously matched correctly.
-:::
+For example, if your folders are structured as `/Photos/2024/2024-07-15_HaroStrait/`, you would define a pattern that extracts the date from the third segment.
 
-## Changing the grouping strategy
+The editor shows sample paths from your scan results so you can see what the pattern matches.
 
-You can switch between the four encounter grouping strategies:
+## ID verifier integration
 
-- **Folder-based** -- set which folder depth represents the encounter boundary
-- **Spreadsheet-referenced** -- select the spreadsheet and map its columns to encounter fields
-- **Time-proximity** -- configure the time window (in minutes) and GPS proximity radius (in kilometers) for grouping
-- **Hybrid** -- use folder boundaries with metadata cross-referencing for validation
+If your population has an identifier verifier configured (defining the format of individual ID codes like `T002B` or `J047`), the manifest editor automatically loads it and compiles a regex pattern. This pattern is used to extract and validate individual IDs from whatever source you choose (folder names, file names, or IPTC data).
 
-When you change the grouping strategy, the preview regenerates to show how encounters would be formed under the new strategy. Compare the encounter count and mapping quality before committing.
+The editor shows the compiled regex and example IDs that the pattern would match.
+
+## Previewing the manifest
+
+Click **Preview** to generate a sample of up to 20 encounters using your current field mappings. The preview shows:
+
+- **Sample encounters** with all mapped fields visible
+- **Field coverage statistics** -- what percentage of encounters have a value for each field
+- How each field was extracted (which source provided the value)
+
+Review the preview to verify your mappings are producing correct results before approving.
 
 ## Versioning
 
-Every edit you make creates a new manifest version. The client saves all previous versions automatically, so you never lose work.
+Manifests support versioning. Each time you save changes, a new version is created. You can view all versions of a manifest for a given scan job, and each version shows its status (draft or approved).
 
-- **Version numbers** increment sequentially (v1, v2, v3, and so on)
-- **All versions are retained** in `~/.finwave/manifests/{population_id}/`
-- **Reverting** to an older version creates a new version with the old version's rules, preserving the full audit trail
-
-You can view the complete version history from the [Directory Management](/desktop/discovery/directory-management/) view.
-
-## Unmapped items
-
-The preview includes an unmapped section showing images not assigned to any encounter and spreadsheet rows referencing files the scan did not find. Review these to determine whether you need to adjust the grouping strategy, add a directory, or accept that some items are not relevant.
+The sidebar shows the active manifest version for each scan job, along with the encounter count badge if a preview has been generated.
 
 ## Approving the manifest
 
-When you are satisfied with the mapping, click **Approve** to finalize the manifest. Approval records your username and the timestamp. The approved manifest is then used for:
-
-- [Onboarding](/desktop/onboarding/overview/) -- uploading historical data to finwave
-- [Synchronization](/desktop/sync/how-sync-works/) -- interpreting new files detected in watched directories
+When you are satisfied with the mapping, click **Approve** to finalize the manifest. Approval records your username and a timestamp. You can revert an approved manifest back to draft if you need to make further changes.
 
 :::note
-Approving a manifest does not trigger any uploads. It only finalizes the mapping rules. You initiate onboarding or synchronization separately.
+Approving a manifest does not trigger any uploads. It only finalizes the mapping rules. Upload functionality will be available when [onboarding](/desktop/onboarding/overview/) ships.
 :::
-
-## Validation report
-
-After approval, the client runs the manifest against the full dataset and produces a validation report:
-
-- Total encounters the manifest would create
-- Total images mapped to encounters
-- Images that remain unmapped
-- Warnings: encounters with no date, encounters with no images, duplicate image assignments, date mismatches between sources
-
-Review the validation report before proceeding to onboarding.
 
 ## Related
 
 - [Manifesting](/desktop/discovery/manifesting/) -- how manifests are generated and the iterative workflow
 - [Discovery](/desktop/discovery/discovery/) -- how scan results feed into manifesting
 - [Directory Management](/desktop/discovery/directory-management/) -- version history, rescanning, and re-manifesting
-- [Onboarding](/desktop/onboarding/overview/) -- using the approved manifest to upload data

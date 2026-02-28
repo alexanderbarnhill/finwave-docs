@@ -18,12 +18,12 @@ Download the finwave Desktop installer from your organization's finwave admin pa
 
 | Platform | Installer | Format |
 |----------|-----------|--------|
-| Windows | `finwave-Desktop-x.x.x-setup.exe` | Authenticode-signed EXE |
-| macOS | `finwave-Desktop-x.x.x.dmg` | Apple-notarized DMG |
-| Linux | `finwave-desktop_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | GPG-signed package |
+| Windows | `finwave-Desktop-x.x.x-setup.exe` | EXE installer |
+| macOS | `finwave-Desktop-x.x.x.dmg` | DMG disk image |
+| Linux | `finwave-desktop_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | Package or portable image |
 
 :::tip
-All release builds are code-signed. Your operating system should verify the signature automatically during installation. If you see a warning about an unsigned or unverified application, do not proceed -- contact your IT team or finwave support.
+If your operating system warns you about an unverified application during installation, consult your IT team or finwave support for guidance.
 :::
 
 ## System requirements
@@ -34,11 +34,11 @@ All release builds are code-signed. Your operating system should verify the sign
 | RAM | 4 GB | 8 GB+ (for large scans with 100K+ images) |
 | Disk space | 200 MB for the application | Additional space for local scan data and training crops in `~/.finwave/` |
 | Display | 1280 x 720 | 1920 x 1080+ |
-| Network | Required for onboarding and sync | Broadband recommended for large uploads |
+| Network | Required for authentication | Broadband recommended for future upload features |
 | Webview | System webview (Edge WebView2 on Windows, WebKit on macOS/Linux) | Kept up to date by your OS |
 
 :::note
-Discovery and manifesting work entirely offline. You only need a network connection for authentication, onboarding, and synchronization.
+Discovery and manifesting work entirely offline after you sign in. You only need a network connection for authentication.
 :::
 
 ## Install on Windows
@@ -77,29 +77,15 @@ chmod +x finwave-Desktop-x.x.x.AppImage
 ./finwave-Desktop-x.x.x.AppImage
 ```
 
-## Verify the download
-
-If your IT team requires build verification, you can compare the installer's checksum against the published hash on the finwave releases page. Each release includes SHA-256 checksums for every platform artifact.
-
-```bash
-sha256sum finwave-Desktop-x.x.x-setup.exe
-```
-
-Compare the output against the value listed on the release page.
-
 ## First launch
 
 When you open the desktop client for the first time, it opens in a full window (not minimized to the system tray). You will be guided through the [Initial Setup](/desktop/getting-started/setup/) flow to authenticate, select your organization, and configure which populations the client manages.
 
-On subsequent launches, the client starts minimized to the system tray and resumes from its previous state. You can configure whether the client launches automatically at system startup in Settings.
+On subsequent launches, the client resumes from its previous state.
 
 :::caution
 Do not close the setup window before completing the initial configuration. The client cannot operate until it is bound to an organization.
 :::
-
-## Silent installation
-
-For IT teams deploying across multiple machines, the client supports silent installation with pre-configured settings. See [For IT Teams](/desktop/getting-started/for-it-teams/) for details on command-line flags, MDM profiles, and group policy support.
 
 ## Related
 

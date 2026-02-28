@@ -8,7 +8,7 @@ sidebar:
 In this guide you will learn:
 
 - What the desktop client is and how it differs from the finwave web app
-- The four problems it solves: Discovery, Manifesting, Onboarding, and Synchronization
+- The problems it solves: Discovery, Manifesting, and (coming soon) Onboarding and Synchronization
 - How the organization-first model works
 - How multiple users share a single installation
 
@@ -20,28 +20,30 @@ Think of it as "the Center for Whale Research's data tool" rather than "Jane's f
 
 ## What it solves
 
-Research organizations coming to finwave often have decades of photo-ID data stored in ad-hoc folder structures, spreadsheets, PowerPoint catalogs, and naming conventions unique to their group. The desktop client handles four stages of getting that data into finwave:
+Research organizations coming to finwave often have decades of photo-ID data stored in ad-hoc folder structures, spreadsheets, PowerPoint catalogs, and naming conventions unique to their group. The desktop client handles getting that data into finwave through a staged workflow:
 
 1. **Discovery** -- Scans local directories to find all relevant files (images, spreadsheets, documents) that contain encounter data and individual ID information.
 2. **Manifesting** -- Analyzes the discovered data to build a versioned mapping from your organization's data structure to finwave's encounter schema.
-3. **Onboarding** -- Uploads historical data to finwave using the approved manifest, with optional pre-training of ID models from extracted training data.
-4. **Synchronization** -- Watches local directories for new data and continuously syncs to finwave using the established manifest, without requiring you to visit the web interface.
+3. **Onboarding** *(coming soon)* -- Will upload historical data to finwave using the approved manifest, with optional pre-training of ID models from extracted training data.
+4. **Synchronization** *(coming soon)* -- Will watch local directories for new data and continuously sync to finwave using the established manifest.
+
+Today, the desktop client fully supports **Discovery** and **Manifesting**. You can scan your directories, build and refine manifests, and approve encounter mappings. The Onboarding and Synchronization stages are under active development.
 
 ## Everything stays local until you approve
 
-All discovery and manifesting runs locally on your machine. The desktop client scans your files, extracts metadata, and builds encounter mappings without sending any data to finwave's servers. Data only leaves your machine when you explicitly approve an upload during onboarding or synchronization.
+All discovery and manifesting runs locally on your machine. The desktop client scans your files, extracts metadata, and builds encounter mappings without sending any data to finwave's servers. Data only leaves your machine when you explicitly approve an upload.
 
 This is critical for organizations with data governance requirements -- you can review exactly what will be uploaded before anything is transmitted.
 
 ## Built on Tauri
 
-The desktop client is built on [Tauri](https://tauri.app/), which pairs a Rust backend for filesystem access and background processing with your system's native webview running Angular UI components. The Angular components are shared with the finwave web application, so the interface is familiar if you already use finwave in the browser.
+The desktop client is built on [Tauri](https://tauri.app/), which pairs a Rust backend for filesystem access, local database management, and background processing with your system's native webview running Angular UI components. The Angular components are shared with the finwave web application, so the interface is familiar if you already use finwave in the browser.
 
-Tauri's architecture means the client is lightweight (under 50 MB RAM when idle), uses OS-native file watching, and enforces strict permission boundaries at the system level.
+Tauri's architecture means the client is lightweight (under 50 MB RAM when idle) and enforces strict permission boundaries at the system level.
 
 ## Multi-user support
 
-Because the client is bound to an organization rather than a user, multiple people can use the same installation. This is common in research labs with a shared workstation. Each user logs in with their own finwave credentials, sees the organization's data filtered by their role, and has their actions attributed to their account in the audit log. Logging out does not affect the organization binding or any configuration.
+Because the client is bound to an organization rather than a user, multiple people can use the same installation. This is common in research labs with a shared workstation. Each user logs in with their own finwave credentials, sees the organization's data filtered by their role, and has their actions attributed to their account in the activity log. Logging out does not affect the organization binding or any configuration.
 
 :::note
 The organization binding is permanent. If you need to reconfigure the client for a different organization, an organization admin must perform a full reset from Settings. This wipes all local data and returns the client to the first-launch flow.
@@ -53,10 +55,21 @@ Your role within the organization determines what you can do in the desktop clie
 
 | Role | Capabilities |
 |------|-------------|
-| Organization admin | Full access: discovery, manifesting, onboarding, sync config, directory management, all settings |
-| Population admin | Discovery, manifesting, onboarding, sync for their populations. Cannot change organization-level settings |
-| Professional | Confirm staged encounters, work review tasks. Cannot change manifests or directory config |
-| Expert / Novice | View-only on sync status. Cannot initiate discovery, manifesting, or onboarding |
+| Organization admin | Full access: discovery, manifesting, directory management, all settings |
+| Population admin | Discovery, manifesting for their populations. Cannot change organization-level settings |
+| Professional | View scan results and manifests. Cannot change manifests or directory config |
+| Expert / Novice | View-only on scan status |
+
+## Current features
+
+The desktop client currently includes:
+
+- **Workspace dashboard** -- Overview of scan jobs, directories, manifests, and recent activity
+- **Scan jobs** -- Create and run scans that discover files, extract metadata (EXIF, IPTC, spreadsheet columns), and detect folder naming patterns
+- **Manifest editor** -- Build, refine, and approve encounter mappings with source priority, regex patterns, and preview of sample encounters
+- **Directory management** -- Add, pause, resume, and rescan watched directories
+- **Activity log** -- Audit trail of all actions taken in the client
+- **Settings** -- User preferences, organization binding, and developer tools
 
 ## Related
 

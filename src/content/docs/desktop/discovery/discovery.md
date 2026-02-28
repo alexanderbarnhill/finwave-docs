@@ -14,21 +14,19 @@ In this guide you will learn:
 
 ## What discovery does
 
-Discovery scans one or more directories you select and builds a structured inventory of everything it finds. It classifies files by type, extracts metadata from images, and analyzes folder naming patterns to understand how your data is organized.
+Discovery is a two-phase process. First, a **scan job** walks one or more directories you select and builds a file tree, classifying every file by type and counting totals. Then, a **discovery phase** digs deeper -- extracting EXIF metadata from images, analyzing spreadsheet structures, and detecting folder naming patterns.
 
 All of this happens locally. No data leaves your machine during discovery.
 
-## Selecting directories to scan
+## Creating a scan job
 
-You start by selecting one or more root directories through a folder picker. Common patterns include:
+You create a scan job from the workspace or the sidebar. You select one or more root directories through a folder picker and optionally filter by file type. Common patterns include:
 
 - A single top-level "Photos" folder with year, date, or location subfolders
 - Multiple drives or external hard drives covering different years
 - A mix of image folders and spreadsheet or document folders in different locations
 
-Discovery scans all selected roots recursively. You can exclude specific subdirectories (such as "Processed," "Backup," or "Personal") before or during the scan by right-clicking any folder in the tree view.
-
-<!-- screenshot: Root directory selection with folder picker and estimated file counts -->
+The scan runs in the background and does not block the UI. While running, you see a progress bar and live file count.
 
 ## Supported file types
 
@@ -36,97 +34,70 @@ Every file found during scanning is classified into one of these categories:
 
 | Category | Extensions | What is extracted |
 |----------|-----------|-------------------|
-| Image | `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff`, `.bmp` | EXIF/IPTC metadata, pixel dimensions, thumbnail |
-| RAW Image | `.cr2`, `.nef`, `.arw`, `.dng`, `.orf`, `.rw2` | EXIF/IPTC metadata, pixel dimensions, thumbnail |
-| Spreadsheet | `.xlsx`, `.xls`, `.csv`, `.tsv` | Column headers, row counts, cell samples |
+| Image | `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff`, `.bmp` | EXIF/IPTC metadata, pixel dimensions |
+| RAW Image | `.cr2`, `.nef`, `.arw`, `.dng`, `.orf`, `.rw2` | EXIF/IPTC metadata, pixel dimensions |
+| Spreadsheet | `.xlsx`, `.xls`, `.csv`, `.tsv` | Column headers, row counts, sample rows, candidate columns |
 | Document | `.docx`, `.doc`, `.pdf` | Text extraction (for ID catalogs, field notes) |
-| Presentation | `.pptx`, `.ppt` | Slide text and embedded images (for visual catalogs) |
-| Database | `.mdb`, `.accdb`, `.sqlite`, `.db` | Table schemas, row counts |
-| Irrelevant | Everything else | Ignored |
+| Data | `.mdb`, `.accdb`, `.sqlite`, `.db` | Table schemas, row counts |
+| Other | Everything else | Counted but not processed further |
 
 :::tip
 RAW image formats are fully supported because many researchers shoot in RAW. EXIF extraction works on RAW files using the same libraries as standard image formats.
 :::
 
-## Image metadata extraction
+## Scan results: the file tree
 
-For every image file, discovery extracts the following metadata when available:
+When the scan completes, you see a summary card with the total file count, total size, and a breakdown by category. You can click any category card to filter the results.
 
-**EXIF data:**
-- Date and time (DateTimeOriginal or DateTimeDigitized)
-- GPS coordinates (latitude and longitude)
-- Camera make and model
-- Lens and focal length
+Below the summary, the **file tree** shows every file and directory found during the scan. You can expand and collapse directories, filter by category, and use Expand All / Collapse All buttons to navigate large trees. Each directory shows its file count and total size.
 
-**IPTC / XMP data:**
-- Caption or description
-- Keywords
-- Creator (photographer name)
-- Location and city
+## Running discovery
 
-**Derived data:**
-- Pixel dimensions (width and height)
-- A small thumbnail for preview display
+After a scan completes, click **Run Discovery** to start the deeper analysis phase. Discovery processes the scan results in two passes:
 
-This metadata feeds directly into the [manifesting](/desktop/discovery/manifesting/) process, where it helps determine encounter dates, locations, and photographer attribution.
+**Image metadata extraction** -- For every image file, discovery extracts:
 
-## Folder structure analysis
+- **EXIF data:** Date and time (DateTimeOriginal or DateTimeDigitized), GPS coordinates, camera make and model, lens and focal length
+- **IPTC / XMP data:** Caption, keywords, creator (photographer name), location
 
-Beyond individual files, discovery analyzes folder names for encoded encounter information. Many organizations use structured naming conventions for their directories. Discovery detects patterns including:
+**Spreadsheet analysis** -- For each spreadsheet, discovery extracts:
+
+- Column headers and sheet names
+- Sample rows (for previewing content)
+- **Candidate columns** -- columns that likely contain encounter-relevant data (dates, GPS coordinates, individual IDs, photographer names). These are highlighted in the UI to help you understand which spreadsheets are useful.
+
+**Folder pattern detection** -- Discovery analyzes folder names for encoded encounter information:
 
 - **Date patterns** -- ISO dates, US-format dates, year-month-day variants
-- **GPS coordinate patterns** -- latitude and longitude embedded in folder names
-- **Individual ID patterns** -- if you provide a pattern (such as `T###X` for Bigg's orcas or `J##` for Southern Residents), discovery matches them in folder names
-- **Location name patterns** -- matched against a user-provided location list, or treated as free text
-- **Photographer name patterns** -- names embedded in folder or subfolder names
+- **Location patterns** -- place names or GPS coordinates in folder names
+- **Individual ID patterns** -- matched against your population's identifier format
+- **Photographer patterns** -- names embedded in folder or subfolder names
 
-For example, discovery recognizes structure in folders like:
-```
-/Photos/2024/2024-07-15_HaroStrait_JSmith/
-/Surveys/Survey_2023-08-20_T002B_T036A/
-/Data/NorthernResidents/2022/July/Trip3/
-```
+Each detected pattern shows a confidence score so you can judge its reliability.
 
-This analysis uses pattern matching and regex, not machine learning. Detected patterns are presented to you during [manifesting](/desktop/discovery/manifesting/) for confirmation.
+## Discovery results
 
-## Spreadsheet and document scanning
+After discovery completes, three summary cards appear:
 
-For non-image files, discovery extracts enough structure to understand their contents:
-
-- **Spreadsheets:** Column headers and a sample of rows (first 50 and last 50). Discovery looks for columns matching encounter fields: dates, locations, GPS coordinates, photographer names, individual IDs, and image file references.
-- **Documents and presentations:** Text content is extracted and scanned for patterns suggesting ID catalogs, field notes, or sighting logs.
-- **Databases:** Table schemas and sample rows are read, with the same column-matching logic as spreadsheets.
-
-## During the scan
-
-Discovery runs in the background and does not block the UI. While a scan is running, you see:
-
-- A file count and current directory indicator
-- A progress bar showing overall completion
-- Live results populating as files are discovered -- you can browse images and spreadsheets before the scan finishes
-- The option to exclude folders by right-clicking them in the tree view
-
-<!-- screenshot: Discovery progress view with live file count and directory tree -->
+- **Images** -- Total images, how many have GPS, how many have DateTime, date range of your data, and camera models used. Click to expand a detailed metadata table with filtering (All / Has GPS / No GPS).
+- **Spreadsheets** -- Total spreadsheet count. Click to expand details showing column headers, sample rows, candidate columns, and any extraction errors.
+- **Folder Patterns** -- Total patterns detected, grouped by type (date, location, individual, photographer). Click to expand the full pattern list with confidence scores and matched folder paths.
 
 :::note
-For large collections (100,000+ images), discovery may take minutes to hours. You can pause and resume the scan at any time. Scan progress is saved locally, so closing the application does not lose work.
+For large collections (100,000+ images), discovery may take minutes to hours depending on how many images need EXIF extraction. You can monitor progress through the progress bar, which shows the current phase, count, and the file being processed.
 :::
 
-## Scan results
+## Format detection
 
-When discovery completes, you see a summary including:
+If discovery finds spreadsheets that match a known data format (for example, a specific research organization's standard sighting log structure), a **format detection banner** appears. You can accept a detected format to pre-configure your manifest with the correct column mappings, or dismiss it if the detection is wrong.
 
-- Total files found, broken down by type
-- Total image count and cumulative file size
-- Date range of your data (from EXIF or folder dates)
-- Detected folder naming patterns
-- Candidate data sources -- spreadsheets or databases that appear to be sighting logs, ranked by likely usefulness
+## Generating a manifest
 
-Scan results are stored locally in `~/.finwave/` and persist between sessions. You can rescan a directory at any time from the [Directory Management](/desktop/discovery/directory-management/) view.
+Once discovery is complete, click **Generate Manifest** to create a draft manifest from the discovery results. If your organization has multiple populations, you choose which population the manifest is for. The manifest is created as a draft that you can then review and refine in the [manifest editor](/desktop/discovery/manifest-editing/).
 
 ## Related
 
-- [Manifesting](/desktop/discovery/manifesting/) -- turn scan results into encounter mappings
+- [Manifesting](/desktop/discovery/manifesting/) -- turn discovery results into encounter mappings
 - [Manifest Editing](/desktop/discovery/manifest-editing/) -- review and adjust the draft manifest
 - [Directory Management](/desktop/discovery/directory-management/) -- add, pause, and rescan directories
-- [What Is the Desktop Client?](/desktop/getting-started/what-is-it/) -- overview of the four-stage workflow
+- [What Is the Desktop Client?](/desktop/getting-started/what-is-it/) -- overview of the staged workflow

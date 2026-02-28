@@ -9,15 +9,14 @@ In this guide you will learn:
 
 - What a manifest is and why it matters
 - How the client maps your data structure to finwave encounters
-- The four encounter grouping strategies
 - How source priority determines where each field comes from
 - The iterative propose-review-refine workflow
 
 ## What manifesting does
 
-Manifesting takes the results of [discovery](/desktop/discovery/discovery/) and builds a **manifest** -- a versioned, declarative document that describes how to interpret your organization's data as finwave encounters. It answers questions like: "Which folder level is the encounter boundary?", "Where does the date come from -- EXIF, folder names, or a spreadsheet?", and "How are individual IDs encoded?"
+Manifesting takes the results of [discovery](/desktop/discovery/discovery/) and builds a **manifest** -- a versioned, declarative document that describes how to interpret your organization's data as finwave encounters. It answers questions like: "Where does the date come from -- EXIF, folder names, or a spreadsheet?", "How are individual IDs encoded?", and "Which folder level is the encounter boundary?"
 
-The manifest is the bridge between your data structure and finwave's schema. Once approved, it drives both historical [onboarding](/desktop/onboarding/overview/) and ongoing [synchronization](/desktop/sync/how-sync-works/).
+The manifest is the bridge between your data structure and finwave's encounter schema.
 
 ## finwave's encounter schema
 
@@ -36,92 +35,66 @@ Manifesting determines, for each potential encounter in your scanned data, where
 Each encounter field can come from multiple sources. The manifest records which source is authoritative for each field. The general priority order, from most to least reliable:
 
 **Date and time:**
-1. Spreadsheet or database sighting date column
-2. EXIF DateTimeOriginal
-3. Date pattern in folder name
-4. Date pattern in file name
-5. File modified date (least reliable)
+1. EXIF DateTimeOriginal
+2. Date pattern in folder name
+3. Date pattern in file name
 
 **Location:**
-1. Spreadsheet or database location column
-2. EXIF GPS coordinates
-3. IPTC location fields
-4. Location pattern in folder name
+1. EXIF GPS coordinates
+2. IPTC location fields
+3. Location pattern in folder name
+
+**GPS coordinates:**
+1. EXIF GPS
+2. Spreadsheet columns (latitude/longitude)
 
 **Photographer:**
-1. Spreadsheet or database photographer column
-2. IPTC Creator field
-3. EXIF Artist field
-4. Photographer pattern in folder name
+1. IPTC Creator field
+2. EXIF Artist field
+3. Photographer pattern in folder name
 
 **Individual IDs:**
-1. Spreadsheet or database ID column
-2. IPTC keywords (if IDs are stored as keywords)
-3. ID pattern in folder name
-4. ID pattern in file name
+1. ID pattern in folder name
+2. ID pattern in file name
+3. IPTC keywords or caption
 
-You can override these priorities during [manifest editing](/desktop/discovery/manifest-editing/).
+You can override these priorities in the [manifest editor](/desktop/discovery/manifest-editing/).
 
-## Encounter grouping strategies
+## Generating a manifest
 
-The most challenging part of manifesting is determining which images belong to the same encounter. The client supports four strategies:
+After discovery completes, click **Generate Manifest** on the scan job detail page. If your organization has multiple populations, choose which population the manifest is for. The client uses the discovery results -- image metadata, spreadsheet analysis, and folder patterns -- to produce a draft manifest with best-guess field mappings.
 
-### Folder-based grouping
-
-Each folder at a specified depth represents one encounter. You tell the client which folder level is the encounter boundary.
-
-```
-/Photos/2024/2024-07-15_HaroStrait/   <-- this folder = one encounter
-  IMG_001.jpg
-  IMG_002.jpg
-  IMG_003.jpg
-```
-
-### Spreadsheet-referenced grouping
-
-A spreadsheet contains one row per encounter, with a column referencing image filenames or a folder path. The client maps each row to its corresponding images.
-
-### Time-proximity grouping
-
-Images are grouped by EXIF timestamp within a configurable window (for example, all photos within two hours at the same GPS location form one encounter). This is the fallback when no folder or spreadsheet structure exists.
-
-### Hybrid grouping
-
-Folder structure defines the encounter boundary, but metadata (date, GPS) is cross-referenced for validation. If a folder contains images spanning three different days, the client flags it for your review.
+If discovery detected a known spreadsheet format, the format's column mappings are applied automatically.
 
 ## The manifesting workflow
 
-Manifesting is an iterative, user-guided process with five stages:
+Manifesting is an iterative, user-guided process:
 
-**1. Analyze** -- The client examines scan results, detects folder naming patterns, identifies spreadsheet structures, and scores each data source by likely usefulness.
+**1. Generate** -- A draft manifest is created from discovery results with initial field mappings.
 
-**2. Propose** -- A draft manifest is generated with best-guess mappings. You see a summary like: "We found 12,340 images across 847 folders. Based on your folder structure, each dated folder appears to be one encounter. We found a spreadsheet with columns that match encounter fields."
+**2. Review** -- Open the manifest in the [manifest editor](/desktop/discovery/manifest-editing/) to see how fields are mapped. Each field shows its source (EXIF, folder name, IPTC, spreadsheet) and the extraction rule.
 
-**3. Review** -- You examine sample encounters (10 to 20) with all mapped fields visible. Each field shows its value and which source it came from.
+**3. Refine** -- Adjust any mapping that is incorrect. Change the source for a field, update path patterns, select different spreadsheet columns, or modify ID extraction rules. Each change creates a new manifest version.
 
-**4. Refine** -- You correct anything that is wrong. "The date should come from the folder name, not the spreadsheet." "Individual IDs are in the IPTC keywords field." Each correction creates a new manifest version.
+**4. Preview** -- Generate a preview to see up to 20 sample encounters with all mapped fields. Check field coverage statistics to verify the mappings work across your dataset.
 
-**5. Validate** -- The approved manifest runs against the full dataset. You see a report: encounters created, images mapped, images unmapped, and any warnings (missing dates, duplicate assignments, date mismatches between sources).
+**5. Approve** -- When the preview looks correct, approve the manifest. Approval locks the mapping rules and records your username and timestamp.
 
 :::note
-Each time you make a correction, the manifest version increments and the preview updates. Old versions are retained so you can always revert. See [Manifest Editing](/desktop/discovery/manifest-editing/) for details on the editing interface.
+Each time you save changes, the manifest version increments. Old versions are retained so you can always view or revert to a previous version.
 :::
-
-## Manifest storage
-
-Manifests are stored locally in `~/.finwave/manifests/{population_id}/` as versioned JSON files. Every revision is kept, so you can roll back to any previous version. The approved manifest is also sent to the finwave backend (encrypted, associated with the population) for reference during onboarding and synchronization.
 
 ## ID parsing
 
-If your data includes individual identification codes, the manifest records how to parse them:
+If your data includes individual identification codes, the manifest uses your population's identifier verifier configuration to parse them:
 
-- **Pattern** -- a regex for extracting IDs (for example, `[TGJ]\d{3}[A-Z]?` for Bigg's-style codes)
-- **Separator** -- how multiple IDs are delimited in a single field (comma, semicolon, newline)
-- **Source** -- where IDs come from (spreadsheet column, folder name, file name, or IPTC keywords)
+- **Pattern** -- a regex compiled from your population's ID verifier rules (for example, `[TGJ]\d{3}[A-Z]?` for Bigg's-style codes)
+- **Source** -- where IDs come from (folder name, file name, or IPTC fields)
+
+The manifest editor shows the compiled regex and example IDs so you can verify the pattern matches your data.
 
 ## Related
 
 - [Discovery](/desktop/discovery/discovery/) -- how scan results are generated
 - [Manifest Editing](/desktop/discovery/manifest-editing/) -- review and adjust draft mappings
 - [Directory Management](/desktop/discovery/directory-management/) -- re-manifest and version history
-- [Onboarding](/desktop/onboarding/overview/) -- upload data using the approved manifest

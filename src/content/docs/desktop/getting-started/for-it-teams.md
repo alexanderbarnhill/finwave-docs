@@ -1,6 +1,6 @@
 ---
 title: "For IT Teams"
-description: "Security overview, audit log, permissions model, and deployment"
+description: "Security overview, audit log, and network requirements"
 sidebar:
   order: 4
 ---
@@ -9,119 +9,82 @@ In this guide you will learn:
 
 - What filesystem and network access the desktop client has
 - How the Tauri permission model restricts the application
-- What the audit log records and how to export it
-- How to deploy the client across your organization using silent install, MDM, or group policy
-- How credentials and data are secured
+- How local data is encrypted
+- What the activity log records and how to export it
 
 ## Security posture at a glance
 
-The finwave Desktop client is a background service that scans filesystems, reads image metadata, and uploads data to a cloud API. IT teams should understand exactly what it does and does not do.
+The finwave Desktop client scans local directories, extracts image metadata, and builds manifests that map your data to finwave's encounter format. All scanning and manifesting runs locally -- no data leaves your machine during these operations.
 
 | Capability | Status |
 |-----------|--------|
-| Read user-selected directories | Allowed (user must explicitly grant each directory) |
-| Write to user data directories | Denied (enforced by Tauri sandbox) |
-| Write to `~/.finwave/` | Allowed (app data only) |
+| Read user-selected directories | Allowed (user selects directories through folder picker) |
+| Write to application data directory | Allowed (encrypted database, logs, config) |
 | Network requests | HTTPS to a single configurable API domain only |
 | Telemetry or analytics | None. No data sent to third parties. |
-| Clipboard, screen capture, email, contacts | Denied (not requested) |
-| Audit log | Always on. Cannot be disabled. |
+| Clipboard, screen capture, shell execution | Not permitted (capabilities not declared) |
+| Activity log | Always on. Cannot be disabled. |
 
 ## Tauri permission model
 
-The client is built on Tauri v2, which uses a capability-based permission system enforced at the OS level. The declared permissions are:
+The client is built on Tauri v2, which uses a capability-based permission system. The declared permissions are:
 
-- `fs:read-files` -- read files in user-selected directories only
-- `fs:read-dirs` -- list directory contents
-- `fs:write-app-data` -- write to `~/.finwave/` only
-- `dialog:open` -- folder picker dialogs
-- `notification:default` -- desktop notifications
-- `shell:open` -- open URLs in the default browser
-- `http:default` -- HTTPS requests to the configured finwave API domain only
-- `os:default` -- OS info (platform, version)
-- `autostart:default` -- launch on startup (user-configurable)
+- `fs:allow-read-file` -- Read files in directories selected by the user
+- `fs:allow-read-dir` -- List directory contents for scanning
+- `fs:allow-write-file` -- Write application data (database, logs, config)
+- `dialog:allow-open` -- Native folder picker dialogs
+- `notification:default` -- Desktop notifications
+- `shell:allow-open` -- Open URLs in the default browser
+- `http:default` -- HTTPS requests to the finwave API
+- `os:default` -- OS information for diagnostics
+- `autostart:default` -- Launch on system startup (user-configurable)
 
-Notably absent: no `fs:write-files` for user directories, no `clipboard`, no `shell:execute`, no `global-shortcut`, no `window:allow-screen-capture`. The `fs` scope restriction is OS-level sandboxing, not application-level -- it cannot be bypassed by application code.
+Notably excluded: `clipboard`, `shell:execute`, `global-shortcut`.
+
+## Local data encryption
+
+The client stores scan data and manifests in a local SQLite database encrypted with SQLCipher:
+
+- 256-bit random key generated per organization
+- Key stored with restricted file permissions (`0600` on Unix)
+- Database unlocked on sign-in, locked (connection closed) on sign-out
+- Automatic migration from any unencrypted legacy database
 
 ## Network transparency
 
-The client communicates exclusively with a single configurable API domain (default: `api.finwave.io`). All traffic is standard HTTPS (TLS 1.2+). There are no third-party analytics services, no crash reporting endpoints, no external telemetry of any kind.
+The client communicates exclusively with your configured finwave API domain. All traffic is HTTPS. There are no third-party analytics, crash reporting, or telemetry endpoints.
 
-**Certificate pinning** is enabled. The client pins the finwave API's TLS certificate chain to prevent man-in-the-middle attacks. If the certificate does not match, the connection is refused and an error is logged.
+For firewall rules, allow outbound HTTPS (port 443) to your finwave API domain. No inbound rules are required.
 
-Verify the client's network behavior by inspecting the API domain in the app's configuration, monitoring network traffic with your own tools, or reviewing network entries in the audit log.
+## Activity log
 
-## Activity audit log
+The client maintains an append-only activity log recording application startup, filesystem operations, database events, and errors. Logs are stored as daily JSON line files in the application data directory.
 
-The client maintains a comprehensive, append-only audit log at `~/.finwave/logs/`. Logs are rotated daily. Every significant action is recorded, including:
+Users can review, filter, and export the log from **Settings > Activity Log** in the application. Exports are available in JSON or CSV format.
 
-| Category | What is logged |
-|----------|---------------|
-| Filesystem | Directory added/removed from watch, scan started/completed with file counts, batched file reads during metadata extraction |
-| Network | API request method, endpoint, response code, bytes transferred, upload start/completion, connection state changes |
-| Auth | Login, logout, token refresh, token expiry, re-authentication prompts |
-| Config | Manifest created/updated/approved, sync config changes, directory watch state changes |
-| Sync | Encounter staged/confirmed/skipped/uploaded, duplicate detection, sync cycle summaries |
-| Error | Any error with full context (failed uploads, scan errors, permission denied, timeouts) |
+The log never contains file contents, authentication tokens, or spreadsheet values.
 
-The log never contains file contents, pixel data, authentication tokens, or spreadsheet values.
+## Authentication
 
-:::tip
-Open **Settings > Transparency & Audit** in the desktop client to see a summary of permissions, recent activity, and network requests. Use **Export Full Audit Log** to generate a CSV or JSON file that your SIEM or monitoring platform can ingest.
-:::
+The client uses JWT-based authentication with the finwave API. Users sign in with their finwave credentials. After signing in, users bind the client to their organization and selected populations.
 
-## Credential storage
+## Current feature scope
 
-API tokens are stored exclusively in OS-native credential storage:
+The desktop client currently supports:
 
-- **macOS:** Keychain Services
-- **Windows:** Windows Credential Manager (DPAPI)
-- **Linux:** Secret Service API (GNOME Keyring / KDE Wallet)
+- **Discovery** -- Scanning directories, extracting image metadata, analyzing spreadsheets and folder patterns
+- **Manifesting** -- Building and editing encounter field mappings with versioning and preview
+- **Directory management** -- Adding, pausing, resuming, removing, and rescanning directories
 
-Credentials are never written to config files, log files, or local databases. They exist only in the OS keychain and in-memory during the session.
+**Not yet available:** Onboarding (uploading encounters to finwave) and automatic synchronization are under development.
 
-## Code-signed builds
+## Enterprise deployment
 
-All release builds are signed:
-
-- **macOS:** Apple Developer ID, notarized with Apple
-- **Windows:** Authenticode EV code signing certificate
-- **Linux:** GPG-signed packages
-
-SHA-256 checksums are published with each release for integrity verification. Auto-updates verify the new binary's signature before applying; if verification fails, the update is rejected and an error is logged.
-
-## Silent installation
-
-For deploying across multiple machines, the client supports silent installation with pre-configured settings:
-
-```bash
-finwave-desktop install \
-  --api-url=https://api.finwave.io \
-  --data-dir=/opt/finwave-data \
-  --autostart=true \
-  --silent
-```
-
-## MDM and group policy support
-
-You can lock settings via managed configuration so users cannot change them:
-
-- **Windows:** Group Policy registry keys
-- **macOS:** Managed preferences (MDM profile)
-- **Linux:** System-wide config file at `/etc/finwave/policy.json`
-
-Locked settings appear grayed out in the app UI with a note: "This setting is managed by your organization."
-
-Lockable settings include: API endpoint URL, autostart behavior, auto-confirm (force off to require manual review), data directory location, bandwidth limits, and allowed directory roots.
-
-## Centralized logging
-
-The audit log can optionally be forwarded to a syslog endpoint or written to a network share, allowing you to aggregate logs from all desktop clients into your SIEM or monitoring platform.
+Enterprise deployment features (silent installation, MDM/group policy, managed settings) are planned but not yet available. See [Deployment](/desktop/it-security/deployment/) for current installation steps.
 
 ## Related
 
-- [What Is the Desktop Client?](/desktop/getting-started/what-is-it/) -- purpose and design overview
-- [Installation](/desktop/getting-started/installation/) -- download and install steps
-- [Initial Setup](/desktop/getting-started/setup/) -- first-launch configuration flow
-- [Audit Log](/desktop/it-security/audit-log/) -- detailed audit log reference
-- [Security Model](/desktop/it-security/security-model/) -- full security architecture
+- [Security Model](/desktop/it-security/security-model/) -- Full security architecture and encryption details
+- [Activity Log](/desktop/it-security/audit-log/) -- Detailed activity log reference
+- [Network Requirements](/desktop/it-security/network/) -- Firewall rules and telemetry policy
+- [Installation](/desktop/getting-started/installation/) -- Download and install steps

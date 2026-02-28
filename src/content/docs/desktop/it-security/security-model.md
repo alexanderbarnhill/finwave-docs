@@ -1,87 +1,81 @@
 ---
 title: "Security Model"
-description: "Permissions, sandboxing, and filesystem access scope"
+description: "Tauri permissions, filesystem access, and local data encryption"
 sidebar:
   order: 1
 ---
 
-## What you'll learn
+In this guide you will learn:
 
-- How the finwave desktop client restricts its own access to your system
-- What Tauri capabilities are used and what they permit
-- How filesystem scope is enforced
-- What the client explicitly cannot do
+- How the Tauri capability model restricts the desktop client
+- What filesystem and network permissions are declared
+- How the local database is encrypted
+- How authentication tokens are handled
 
 ## Overview
 
-The finwave desktop client is built on Tauri, a framework that uses a capability-based permission model. Rather than granting the application broad access to your system, each permission is declared explicitly and scoped as narrowly as possible. The client operates on a principle of minimal privilege: it reads your data where you tell it to, and writes only to its own application directory.
+The finwave desktop client is built on Tauri v2, which uses a capability-based permission model. Permissions are declared in the application's capability manifests and enforced by the Tauri framework at the webview boundary.
 
-## Filesystem access
+## Declared capabilities
 
-The client's filesystem access follows two strict rules:
-
-1. **Read-only access to user directories** -- The client can read files and list directories, but only within paths you have explicitly selected (watched directories and any directories you open via the file dialog). It cannot read arbitrary locations on your system.
-
-2. **Write access limited to application data** -- The client can write files only within `~/.finwave/`. This is where it stores configuration, training data crops, logs, and cached state. It never writes to your image directories, documents folder, or any other user-owned location.
-
-<!-- screenshot: Permissions summary in the IT Dashboard showing read/write scope -->
-
-## Tauri capability permissions
-
-The desktop client declares the following Tauri capabilities:
+The client declares the following Tauri permissions:
 
 | Permission | Purpose |
 |---|---|
-| `fs:read-files` | Read image files and spreadsheets from user-selected directories |
-| `fs:read-dirs` | List directory contents to discover images and build manifests |
-| `fs:write-app-data` | Write configuration, logs, training crops, and state to `~/.finwave/` |
-| `dialog:open` | Show native file/folder picker dialogs for directory selection |
-| `notification:default` | Send desktop notifications for sync events and upload progress |
-| `shell:open` | Open URLs in the default browser (e.g., links to the web application) |
-| `http:default` | Make HTTPS requests to the configured finwave API server |
-| `os:default` | Read basic OS information (platform, version) for diagnostics |
-| `autostart:default` | Register/unregister the client to start at system login |
+| `core:default` | Standard Tauri window and event management |
+| `fs:allow-read-file` | Read image files and spreadsheets from directories |
+| `fs:allow-read-dir` | List directory contents for scanning |
+| `fs:allow-write-file` | Write application data (logs, config, database) |
+| `dialog:allow-open` | Show native folder picker dialogs |
+| `notification:default` | Desktop notifications |
+| `shell:allow-open` | Open URLs in the default browser |
+| `http:default` | Make HTTPS requests to the finwave API |
+| `os:default` | Read basic OS information for diagnostics |
+| `autostart:default` | Register/unregister the client for system login startup |
 
-## What the client cannot do
+Capabilities intentionally excluded:
 
-The following capabilities are intentionally excluded:
+- **`clipboard`** -- The client cannot read or write the system clipboard.
+- **`shell:execute`** -- The client cannot launch programs, scripts, or shell commands.
+- **`global-shortcut`** -- No system-wide keyboard shortcuts are registered.
 
-- **`fs:write-files` for user directories** -- The client cannot modify, rename, or delete your images, spreadsheets, or any other files outside `~/.finwave/`.
-- **Clipboard access** -- The client cannot read from or write to your system clipboard.
-- **`shell:execute`** -- The client cannot launch other programs, scripts, or shell commands on your system.
+## Filesystem access
+
+The client reads files from directories you select through the folder picker or configure as watched directories. It writes application data (the encrypted database, audit logs, and configuration) to its application data directory.
 
 :::note
-These restrictions are enforced at the framework level by Tauri's capability system, not by application-level code. Even if a bug existed in the client logic, the framework would block any unauthorized operation.
+The client reads your image files and spreadsheets to extract metadata during discovery. It does not modify, rename, or delete any files in your data directories.
 :::
 
-## Filesystem scope
+## Local database encryption
 
-Beyond the capability permissions, the client applies an additional filesystem scope restriction. The directories the client can access are limited to:
+The client stores scan results, manifests, and configuration in a local SQLite database encrypted with SQLCipher:
 
-- **User-selected directories** -- Any directory you have explicitly chosen through the file dialog or configured as a watched directory.
-- **`~/.finwave/`** -- The application's own data directory.
+- A 256-bit random encryption key is generated when the database is first created
+- The key is stored in a file with restricted permissions (`0600` on Unix) in the application data directory
+- The database is unlocked when you sign in and select your organization, and locked (connection closed, key dropped from memory) when you sign out
+- If the client detects an older unencrypted database from a previous version, it automatically migrates the data to the encrypted format and removes the plaintext copy
 
-The client cannot enumerate or access directories you have not selected, even if the `fs:read-dirs` permission would technically allow it. The scope acts as a second layer of access control.
+## Authentication
 
-:::tip
-You can review exactly which directories the client has access to at any time under **Settings > Permissions**. Removing a directory from your watched list also revokes read access to it.
-:::
+The client uses JWT-based authentication:
 
-## For IT administrators
+1. You sign in with your finwave credentials on the login screen
+2. The JWT token is stored in the browser's local storage within the Tauri webview
+3. The token is attached to API requests automatically and refreshed when it expires
+4. On sign-out, the database connection is closed and the token is cleared
 
-If you are evaluating the desktop client for deployment in your organization, the key points are:
+After signing in, you must bind the client to an organization and one or more populations before the workspace becomes available.
 
-- The client never writes outside `~/.finwave/`. Your users' data directories are read-only.
-- No shell execution means the client cannot be used as a vector to run arbitrary commands.
-- No clipboard access means sensitive data cannot be exfiltrated through copy/paste interception.
-- All network traffic goes to a single configurable API domain. There is no telemetry or third-party communication.
-- The full list of permissions is auditable in the Tauri capability manifest shipped with the application binary.
+## What the client does not do
 
-For deployment options including silent install, group policy, and lockable settings, see [Deployment](/desktop/it-security/deployment/).
+- **No telemetry** -- The client sends no analytics, usage metrics, or crash reports to any service
+- **No third-party connections** -- All network traffic goes to your configured finwave API domain
+- **No background uploads** -- Upload functionality is not yet available (see [Onboarding](/desktop/onboarding/overview/))
+- **No arbitrary code execution** -- The Tauri framework prevents the webview from launching processes
 
 ## Related
 
-- [Audit Log](/desktop/it-security/audit-log/) -- What the client logs and how to review activity
-- [Network Requirements](/desktop/it-security/network/) -- Allowed domains, certificate pinning, and request logging
-- [Deployment](/desktop/it-security/deployment/) -- Silent install, MDM, and managed settings
-- [For IT Teams](/desktop/getting-started/for-it-teams/) -- Quick-start guide for IT administrators
+- [Audit Log](/desktop/it-security/audit-log/) -- What the client logs and how to export activity
+- [Network Requirements](/desktop/it-security/network/) -- Allowed domains and firewall rules
+- [Deployment](/desktop/it-security/deployment/) -- Installing and configuring the client

@@ -56,7 +56,7 @@ Click **Confirm** to bind the client. Click **Back** to return to organization s
 
 After binding, you choose which of your organization's populations this installation will manage. You can select one or more populations.
 
-The populations you select determine which data the client discovers, manifests, onboards, and synchronizes. You can add or remove populations later from Settings.
+The populations you select determine which data the client discovers and manifests. You can add or remove populations later from Settings.
 
 <!-- screenshot: Population selection screen with checkboxes -->
 
@@ -91,7 +91,6 @@ After setup, two categories of settings exist:
 **Organization-level** (persist across users, set by org admins):
 - Organization binding and population selection
 - Watched directories and manifests
-- Sync configuration (quiet hours, bandwidth limits, auto-confirm)
 - API endpoint and data directory location
 
 **User-level** (per-user, set by each individual):
@@ -106,8 +105,8 @@ When a new user logs in for the first time, they inherit the organization-level 
 If the client needs to be re-bound to a different organization (for example, when a machine is reassigned):
 
 1. A user with organization admin permissions opens **Settings** and initiates a reset.
-2. A confirmation dialog warns that all organization data, manifests, sync history, and training data will be removed from this installation. Source files are not affected.
-3. On confirmation, the client wipes `~/.finwave/` and returns to the first-launch flow.
+2. A confirmation dialog warns that all organization data, manifests, and scan history will be removed from this installation. Source files are not affected.
+3. On confirmation, the client wipes its local database and returns to the first-launch flow.
 4. The reset is logged as the final entry in the audit log before the data is cleared.
 
 ## Related
