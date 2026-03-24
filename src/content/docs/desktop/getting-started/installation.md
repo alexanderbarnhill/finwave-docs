@@ -14,13 +14,13 @@ In this guide you will learn:
 
 ## Download
 
-Download the finwave Desktop installer from your organization's finwave admin panel, or from the downloads page at [finwave.io/download](https://finwave.io/download). Choose the installer for your operating system:
+Download the FinLaunch installer from your organization's finwave admin panel, or from the downloads page at [finwave.io/download](https://finwave.io/download). Choose the installer for your operating system:
 
 | Platform | Installer | Format |
 |----------|-----------|--------|
-| Windows | `finwave-Desktop-x.x.x-setup.exe` | EXE installer |
-| macOS | `finwave-Desktop-x.x.x.dmg` | DMG disk image |
-| Linux | `finwave-desktop_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | Package or portable image |
+| Windows | `finlaunch-x.x.x-setup.exe` | EXE installer |
+| macOS | `finlaunch-x.x.x.dmg` | DMG disk image |
+| Linux | `finlaunch_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | Package or portable image |
 
 :::tip
 If your operating system warns you about an unverified application during installation, consult your IT team or finwave support for guidance.
@@ -53,7 +53,7 @@ Discovery and manifesting work entirely offline after you sign in. You only need
 ## Install on macOS
 
 1. Open the downloaded `.dmg` file.
-2. Drag **finwave Desktop** into your **Applications** folder.
+2. Drag **FinLaunch** into your **Applications** folder.
 3. On first launch, macOS may ask you to confirm that you want to open an application downloaded from the internet. Click **Open**. The app is notarized with Apple, so this prompt appears only once.
 
 <!-- screenshot: macOS drag-to-install DMG window -->
@@ -64,17 +64,17 @@ Install using your distribution's package manager:
 
 ```bash
 # Debian / Ubuntu
-sudo dpkg -i finwave-desktop_x.x.x_amd64.deb
+sudo dpkg -i finlaunch_x.x.x_amd64.deb
 
 # Fedora / RHEL
-sudo rpm -i finwave-desktop-x.x.x.x86_64.rpm
+sudo rpm -i finlaunch-x.x.x.x86_64.rpm
 ```
 
 Alternatively, use the `.AppImage` for a portable installation that does not require root access. Make it executable and run it directly:
 
 ```bash
-chmod +x finwave-Desktop-x.x.x.AppImage
-./finwave-Desktop-x.x.x.AppImage
+chmod +x finlaunch-x.x.x.AppImage
+./finlaunch-x.x.x.AppImage
 ```
 
 ## First launch

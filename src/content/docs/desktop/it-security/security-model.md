@@ -14,7 +14,7 @@ In this guide you will learn:
 
 ## Overview
 
-The finwave desktop client is built on Tauri v2, which uses a capability-based permission model. Permissions are declared in the application's capability manifests and enforced by the Tauri framework at the webview boundary.
+The FinLaunch client is built on Tauri v2, which uses a capability-based permission model. Permissions are declared in the application's capability manifests and enforced by the Tauri framework at the webview boundary.
 
 ## Declared capabilities
 

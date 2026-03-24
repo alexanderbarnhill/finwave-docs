@@ -1,23 +1,55 @@
 ---
-title: "Pre-Training"
-description: "Optional ID model pre-training and training data extraction"
+title: "Ensure Individuals"
+description: "Creating individual records on the server before syncing encounters"
 sidebar:
-  order: 2
+  order: 4
 ---
 
-:::note
-Pre-training is under active development and not yet available in the desktop client. This page describes the planned functionality.
+In this guide you will learn:
+
+- What "Ensure Individuals" does and why it matters
+- When to run it in the onboarding workflow
+- How to interpret the results
+
+## What it does
+
+Ensure Individuals is a pre-sync step that creates individual records on the finwave server for every individual ID found in your manifest. This ensures that when encounters are uploaded, the server already knows about each individual and can link images correctly for downstream identification matching.
+
+Without this step, encounters referencing unknown individuals would still upload successfully, but the individual associations might be delayed until the server creates them on the fly during ingestion.
+
+<!-- screenshot: Ensure Individuals button on a manifest row in the sync page -->
+
+## When to run it
+
+Run Ensure Individuals **once before your first sync** for a manifest. You do not need to run it again unless you add new individual IDs to your manifest (for example, by re-materializing with updated data).
+
+The button appears on each manifest row in the sync page. Click it to start the process.
+
+## How it works
+
+1. The desktop app scans all approved encounters in the manifest and collects unique individual IDs.
+2. For each individual, it sends a request to the finwave server to create or confirm the record.
+3. Progress is shown inline: `12 / 45 -- Nebula` (current count, total, and the individual being processed).
+
+## Interpreting results
+
+When the process finishes, you see a summary:
+
+- **X individuals found** -- Total unique IDs in your manifest.
+- **Y already existed** -- These were already on the server (no action needed).
+- **Z created** -- New individual records created on the server.
+- **W failed** -- Could not be created (check the error details below the summary).
+
+:::tip
+If all individuals already exist, you will see "All individuals already exist on the server." This is normal for subsequent syncs or when another user has already uploaded data for the same population.
 :::
 
-## What pre-training will do
-
-Pre-training is a planned optional step before onboarding that will extract training data from your manifest's individual ID assignments and use it to bootstrap an identification model for your population. This means the ML pipeline will already have a head start on recognizing your individuals when the images are uploaded.
-
-## What you can do now
-
-Your approved manifest already captures individual ID assignments. Once pre-training ships, it will be able to use this data directly -- no additional preparation is needed on your part.
+:::caution
+If the Ensure button is disabled, check that your API key is provisioned (shown in the global status bar at the top of the sync page). If the API key shows "access denied," ask your population admin to enable Desktop Sync in population settings.
+:::
 
 ## Related
 
-- [Onboarding Overview](/desktop/onboarding/overview/) -- The planned upload pipeline
-- [Manifesting](/desktop/discovery/manifesting/) -- How individual IDs are captured in manifests
+- [How Sync Works](/desktop/sync/how-sync-works/) -- The full sync pipeline
+- [Pre-Sync Review](/desktop/onboarding/pre-sync-review/) -- Reviewing encounters before upload
+- [Sync Configuration](/desktop/sync/configuration/) -- API key and concurrency settings

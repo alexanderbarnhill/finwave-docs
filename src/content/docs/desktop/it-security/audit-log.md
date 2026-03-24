@@ -13,7 +13,7 @@ In this guide you will learn:
 
 ## What gets logged
 
-The finwave desktop client maintains a local activity log that records significant actions. Every log entry includes a timestamp, category, action description, and optional detail fields. Log entries are written as JSON lines to daily log files in the application data directory.
+The FinLaunch client maintains a local activity log that records significant actions. Every log entry includes a timestamp, category, action description, and optional detail fields. Log entries are written as JSON lines to daily log files in the application data directory.
 
 Logged events include:
 

@@ -16,7 +16,7 @@ In this guide you will learn:
 
 The finwave web app is user-first. You log in, see your encounters, your submissions, your populations. The desktop client inverts this model entirely. It is **organization-first** -- bound to a single research organization at setup and scoped to that organization's data, populations, and workflows.
 
-Think of it as "the Center for Whale Research's data tool" rather than "Jane's finwave app." The title bar reads **Org Name -- finwave Desktop**, the navigation shows your organization's logo, and every screen is filtered to your organization's context. Individual users authenticate to use it, but the client's identity belongs to the organization.
+Think of it as "the Center for Whale Research's data tool" rather than "Jane's finwave app." The title bar reads **Org Name -- FinLaunch**, the navigation shows your organization's logo, and every screen is filtered to your organization's context. Individual users authenticate to use it, but the client's identity belongs to the organization.
 
 ## What it solves
 

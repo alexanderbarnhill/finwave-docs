@@ -13,7 +13,7 @@ In this guide you will learn:
 
 ## Single API domain
 
-The finwave desktop client communicates with exactly one network endpoint: your configured finwave API server. There are no other outbound connections. The client does not contact:
+The FinLaunch client communicates with exactly one network endpoint: your configured finwave API server. There are no other outbound connections. The client does not contact:
 
 - Telemetry or analytics services
 - Third-party APIs or CDNs

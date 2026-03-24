@@ -14,7 +14,7 @@ In this guide you will learn:
 
 ## Security posture at a glance
 
-The finwave Desktop client scans local directories, extracts image metadata, and builds manifests that map your data to finwave's encounter format. All scanning and manifesting runs locally -- no data leaves your machine during these operations.
+The FinLaunch client scans local directories, extracts image metadata, and builds manifests that map your data to finwave's encounter format. All scanning and manifesting runs locally -- no data leaves your machine during these operations.
 
 | Capability | Status |
 |-----------|--------|

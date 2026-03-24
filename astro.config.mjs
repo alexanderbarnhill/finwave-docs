@@ -39,6 +39,7 @@ export default defineConfig({
                 },
                 { label: 'Submissions', slug: 'web/features/submissions' },
                 { label: 'Comments', slug: 'web/features/comments' },
+                { label: 'Confirmation Queue', slug: 'web/features/confirmation-queue' },
               ],
             },
             {

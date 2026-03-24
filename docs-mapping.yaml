@@ -91,6 +91,16 @@ pages:
     audience: "all users"
     order: 6
 
+  - output: web/core-concepts/evidence-tiers.md
+    title: "Evidence Tiers"
+    description: "How finwave tracks the strength of evidence behind each identification"
+    type: concept
+    model: null
+    spec: evidence-tier-onboarding-spec.md
+    section: "3. Evidence Tiers"
+    audience: "all users"
+    order: 7
+
   # ── Web Application — Features — Encounters ──
   - output: web/features/encounters/browsing.md
     title: "Browsing Encounters"
@@ -121,6 +131,16 @@ pages:
     section: null
     audience: "all users"
     order: 3
+
+  - output: web/features/encounters/gallery-management.md
+    title: "Gallery Management"
+    description: "Select, delete, find duplicates, and set sides for images in bulk"
+    type: feature
+    model: sonnet
+    spec: gallery-edit-toolbar-spec.md
+    section: "1. Purpose"
+    audience: "all users"
+    order: 4
 
   # ── Web Application — Features — Individuals ──
   - output: web/features/individuals/browsing.md
@@ -214,6 +234,16 @@ pages:
     section: null
     audience: "all users"
     order: 6
+
+  - output: web/features/confirmation-queue.md
+    title: "Confirmation Queue"
+    description: "Reviewing and confirming identifications that need human review"
+    type: feature
+    model: null
+    spec: evidence-tier-onboarding-spec.md
+    section: "7. Confirmation Queue"
+    audience: "researchers and administrators"
+    order: 7
 
   # ── Web Application — Workbench ──
   - output: web/workbench/overview.md
@@ -378,6 +408,36 @@ pages:
     section: "1. Purpose"
     audience: "population administrators"
     order: 5
+
+  - output: web/administration/esi-center.md
+    title: "External Sighting Intelligence"
+    description: "Import and manage external sighting data from public databases like OBIS-SEAMAP and GBIF"
+    type: feature
+    model: sonnet
+    spec: esi-layer-spec-v2.md
+    section: "1. Purpose"
+    audience: "population administrators"
+    order: 7
+
+  - output: web/administration/usage-metrics.md
+    title: "Usage Metrics"
+    description: "Platform-wide activity analytics and engagement tracking for administrators"
+    type: feature
+    model: sonnet
+    spec: usage-metrics-spec.md
+    section: "1. Purpose"
+    audience: "platform administrators"
+    order: 8
+
+  - output: web/administration/sync-settings.md
+    title: "Sync & Identification Settings"
+    description: "Configure desktop sync and constrained identification thresholds"
+    type: config
+    model: null
+    spec: evidence-tier-onboarding-spec.md
+    section: "6.4 Thresholds"
+    audience: "population administrators"
+    order: 6
 
   # ── Web Application — Troubleshooting ──
   - output: web/troubleshooting/common-issues.md

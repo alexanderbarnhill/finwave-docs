@@ -14,7 +14,7 @@ In this guide you will learn:
 
 ## Overview
 
-The first time you launch finwave Desktop, the client walks you through a five-step setup flow. This process binds the client to your organization and determines which populations it will work with. The entire flow takes about two minutes.
+The first time you launch FinLaunch, the client walks you through a five-step setup flow. This process binds the client to your organization and determines which populations it will work with. The entire flow takes about two minutes.
 
 <!-- screenshot: First launch setup window showing step indicators -->
 
@@ -40,7 +40,7 @@ If your account belongs to only one organization, it is selected automatically a
 
 A confirmation screen shows the organization you selected and explains what binding means:
 
-> This finwave Desktop installation will be configured for **Center for Whale Research**. All data, populations, and settings in this app will be scoped to this organization. Other users in your organization will use this same installation with their own credentials.
+> This FinLaunch installation will be configured for **Center for Whale Research**. All data, populations, and settings in this app will be scoped to this organization. Other users in your organization will use this same installation with their own credentials.
 
 Read the confirmation carefully before proceeding.
 
