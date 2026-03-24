@@ -1,43 +1,86 @@
 ---
 title: "How Sync Works"
-description: "File watching, encounter detection, and confirmation flow"
+description: "Upload approved encounters and images to the finwave server"
 sidebar:
   order: 1
 ---
 
-:::note
-Automatic synchronization is under active development and not yet available in the desktop client. This page describes the planned functionality. Directory management (adding, pausing, and rescanning directories) is available now.
+In this guide you will learn:
+
+- The sync page layout and what each element shows
+- How encounters are created and deduplicated on the server
+- How images are uploaded and committed
+- How progress tracking, errors, and retries work
+
+## The sync page
+
+The sync page shows a **card grid** with one card per population. Each card displays:
+
+- **Population name** and a syncing indicator if a sync is in progress
+- **Status counts** -- pending and synced encounters and images
+- **Manifest list** -- each approved manifest with its version, scan job name, encounter count, and image count
+- **Action buttons** per manifest: Review, Ensure Individuals, Reset, and Sync
+
+<!-- screenshot: Sync page showing population cards with manifest rows -->
+
+A **global status bar** at the top shows server connection, API key status, and the concurrency selector (1-4 parallel uploads).
+
+## Sync flow
+
+When you click **Sync** on a manifest, the engine processes each approved encounter:
+
+1. **Create or find encounter** -- The engine checks if the encounter already exists on the server (matching by date, location, and photographer). If found, it reuses the existing encounter. If not, it creates a new one.
+2. **Upload images** -- Each image is uploaded via a SAS URI (for local files) or copied server-side (for Azure blob storage). Already-uploaded images are recognized by their idempotency key and skipped.
+3. **Commit** -- After images are uploaded, a commit request triggers server-side processing: blob verification, resize variant generation (thumbnails, previews), FileItem creation, and ML pipeline.
+4. **Mark synced** -- On success, the encounter and its scans are marked as synced locally.
+
+## Deduplication
+
+The sync engine prevents duplicate encounters and images:
+
+- **Encounter dedup** -- Before creating an encounter, the engine searches the server for an existing match. If found, it proceeds directly to image upload, filling in any missing images.
+- **Image idempotency** -- Each image has a unique idempotency key. The server tracks upload sessions by key, so re-syncing the same image returns "Complete" without re-uploading.
+
+:::tip
+If you deleted an encounter on the server and need to re-send it, use the **Reset** button on the manifest row to reset synced encounters back to pending. The next sync will recreate the encounter and upload all images.
 :::
 
-## What sync will do
+## Progress tracking
 
-Synchronization is the planned process for continuously monitoring your watched directories and automatically detecting new encounter data. When new image files appear in a watched directory, the sync pipeline will classify them, group them into candidate encounters using your approved manifest rules, and stage them for your review before uploading to finwave.
+During sync, the population card shows:
 
-## What is available now
+- A progress bar with encounter and image counts
+- The current encounter being processed (name, location, photographer)
+- Individual image upload statuses (expandable)
+- A link to view the encounter on the server once created
 
-The desktop client currently supports **directory management**:
+## Error handling
 
-- **Add directories** -- Select directories through a folder picker to register them with the client.
-- **Pause and resume** -- Temporarily stop watching a directory without removing it.
-- **Rescan** -- Manually trigger a rescan of a directory to pick up new files since the last scan.
-- **Link to scan jobs** -- Associate directories with scan jobs and manifests for your populations.
+Errors are grouped by encounter and shown in an expandable section:
 
-You can manage your directories from the **Directories** section in the sidebar. Each directory shows its file count, image count, and last scan date.
+- **Actionable errors** -- Upload failures, server errors, authentication issues. Click **Retry** to re-upload only the failed images.
+- **Skipped errors** -- Informational (e.g., duplicate encounters that were expected). No action needed.
 
-## Planned sync pipeline
+The retry button uploads only images that failed. Already-uploaded images are not duplicated.
 
-When automatic sync is available, new files detected in watched directories will pass through these steps:
+## Transient error recovery
 
-1. **Detect** -- The file watcher registers new files using OS-native APIs (inotify on Linux, FSEvents on macOS, ReadDirectoryChangesW on Windows).
-2. **Debounce** -- The client waits for a configurable quiet period to allow batch file copies to finish.
-3. **Classify** -- Files are categorized by type and grouped by directory structure.
-4. **Group** -- Files are organized into candidate encounters based on your manifest rules.
-5. **Stage** -- Candidate encounters are placed in a staging area for review.
-6. **Confirm** -- You review staged encounters and decide what to upload.
-7. **Upload** -- Confirmed encounters are sent to finwave.
+The sync engine automatically retries on transient server errors (502, 503, 5xx):
+
+- **Upload sessions** -- 1 retry on 5xx
+- **Commits** -- 3 retries with exponential backoff (2s, 4s)
+- **Blob copies** -- 3 retries with exponential backoff (2s, 4s)
+- **Blob uploads** -- 3 retries with jittered exponential backoff (5s, 10s)
+
+If all retries fail, the encounter is marked as failed and you can retry manually.
+
+## Partial sync
+
+If some images in an encounter fail but others succeed, the encounter is marked **partial**. The successfully uploaded images are not lost. Click Retry to re-upload only the failures.
 
 ## Related
 
-- [Directory Management](/desktop/discovery/directory-management/) -- Adding and managing watched directories
-- [Discovery](/desktop/discovery/discovery/) -- How directory scanning works
-- [Manifesting](/desktop/discovery/manifesting/) -- How manifest rules define encounter grouping
+- [Sync Configuration](/desktop/sync/configuration/) -- API key, concurrency, and settings
+- [Upload Process](/desktop/onboarding/upload-process/) -- Technical details of SAS upload and blob copy
+- [Sync Troubleshooting](/desktop/sync/troubleshooting/) -- Fixing common sync errors
+- [Pre-Sync Review](/desktop/onboarding/pre-sync-review/) -- Reviewing encounters before sync
