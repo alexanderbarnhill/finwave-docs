@@ -35,15 +35,12 @@ sidebar:
 
   var PLATFORMS = [
     ['windows-x64', 'Windows (x64)',         '.exe,.msi'],
-    ['linux-x64',   'Linux (x64)',           '.AppImage,.deb,.rpm'],
-    ['macos-arm64', 'macOS (Apple Silicon)', '.dmg'],
-    ['macos-x64',   'macOS (Intel)',         '.dmg']
+    ['linux-x64',   'Linux (x64)',           '.AppImage,.deb,.rpm']
   ];
 
   function detectPlatform() {
     var ua = navigator.userAgent.toLowerCase();
     if (ua.indexOf('win') !== -1) return 'windows-x64';
-    if (ua.indexOf('mac') !== -1) return 'macos-arm64';
     if (ua.indexOf('linux') !== -1) return 'linux-x64';
     return null;
   }
@@ -51,7 +48,6 @@ sidebar:
   function makeFilename(version, key, ext) {
     if (ext === '.exe') return 'finlaunch_' + version + '_x64-setup.exe';
     if (ext === '.msi') return 'finlaunch_' + version + '_x64_en-US.msi';
-    if (ext === '.dmg') return 'finlaunch_' + version + '_' + (key.indexOf('arm64') !== -1 ? 'aarch64' : 'x64') + '.dmg';
     if (ext === '.deb') return 'finlaunch_' + version + '_amd64.deb';
     if (ext === '.rpm') return 'finlaunch-' + version + '-1.x86_64.rpm';
     if (ext === '.AppImage') return 'finlaunch_' + version + '_amd64.AppImage';
@@ -138,7 +134,7 @@ sidebar:
 
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
-| OS | Windows 10+, macOS 12+, Ubuntu 20.04+ | Latest stable release |
+| OS | Windows 10+, Ubuntu 20.04+ | Latest stable release |
 | RAM | 4 GB | 8 GB+ |
 | Disk space | 200 MB | Additional space for local data |
 | Network | Required for login | Broadband for sync |

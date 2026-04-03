@@ -20,13 +20,9 @@ The first time you launch FinLaunch, the client walks you through a five-step se
 
 ## Step 1: Authenticate
 
-You are prompted to log in with your finwave credentials using the same OAuth flow as the web application. Sign in with the account you normally use to access finwave.
+You are prompted to log in with your finwave email and password. Sign in with the account you normally use to access finwave.
 
-<!-- screenshot: Login screen with OAuth prompt -->
-
-:::tip
-If your organization uses single sign-on (SSO), you will be redirected to your identity provider as usual. The desktop client supports the same authentication methods as the web app.
-:::
+<!-- screenshot: Login screen -->
 
 ## Step 2: Select your organization
 

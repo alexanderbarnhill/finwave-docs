@@ -14,12 +14,12 @@ In this guide you will learn:
 
 ## Download
 
-Download the FinLaunch installer from your organization's finwave admin panel, or from the downloads page at [finwave.io/download](https://finwave.io/download). Choose the installer for your operating system:
+Download the FinLaunch installer from the [downloads page](/desktop/download/). Choose the installer for your operating system:
 
 | Platform | Installer | Format |
 |----------|-----------|--------|
-| Windows | `finlaunch-x.x.x-setup.exe` | EXE installer |
-| macOS | `finlaunch-x.x.x.dmg` | DMG disk image |
+| Windows | `finlaunch_x.x.x_x64-setup.exe` | EXE installer |
+| Windows | `finlaunch_x.x.x_x64_en-US.msi` | MSI installer |
 | Linux | `finlaunch_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | Package or portable image |
 
 :::tip
@@ -30,7 +30,7 @@ If your operating system warns you about an unverified application during instal
 
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
-| OS | Windows 10+, macOS 12+, Ubuntu 20.04+ (or equivalent) | Latest stable release |
+| OS | Windows 10+, Ubuntu 20.04+ (or equivalent) | Latest stable release |
 | RAM | 4 GB | 8 GB+ (for large scans with 100K+ images) |
 | Disk space | 200 MB for the application | Additional space for local scan data and training crops in `~/.finwave/` |
 | Display | 1280 x 720 | 1920 x 1080+ |
@@ -50,14 +50,6 @@ Discovery and manifesting work entirely offline after you sign in. You only need
 
 <!-- screenshot: Windows installer setup wizard -->
 
-## Install on macOS
-
-1. Open the downloaded `.dmg` file.
-2. Drag **FinLaunch** into your **Applications** folder.
-3. On first launch, macOS may ask you to confirm that you want to open an application downloaded from the internet. Click **Open**. The app is notarized with Apple, so this prompt appears only once.
-
-<!-- screenshot: macOS drag-to-install DMG window -->
-
 ## Install on Linux
 
 Install using your distribution's package manager:
@@ -73,8 +65,8 @@ sudo rpm -i finlaunch-x.x.x.x86_64.rpm
 Alternatively, use the `.AppImage` for a portable installation that does not require root access. Make it executable and run it directly:
 
 ```bash
-chmod +x finlaunch-x.x.x.AppImage
-./finlaunch-x.x.x.AppImage
+chmod +x finlaunch_x.x.x_amd64.AppImage
+./finlaunch_x.x.x_amd64.AppImage
 ```
 
 ## First launch
