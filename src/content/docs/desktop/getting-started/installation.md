@@ -20,6 +20,8 @@ Download the FinLaunch installer from the [downloads page](/desktop/download/). 
 |----------|-----------|--------|
 | Windows | `finlaunch_x.x.x_x64-setup.exe` | EXE installer |
 | Windows | `finlaunch_x.x.x_x64_en-US.msi` | MSI installer |
+| macOS (Apple Silicon) | `finlaunch_x.x.x_aarch64.dmg` | DMG disk image |
+| macOS (Intel) | `finlaunch_x.x.x_x64.dmg` | DMG disk image |
 | Linux | `finlaunch_x.x.x_amd64.deb` / `.rpm` / `.AppImage` | Package or portable image |
 
 :::tip
@@ -30,7 +32,7 @@ If your operating system warns you about an unverified application during instal
 
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
-| OS | Windows 10+, Ubuntu 20.04+ (or equivalent) | Latest stable release |
+| OS | Windows 10+, macOS 11+, Ubuntu 20.04+ (or equivalent) | Latest stable release |
 | RAM | 4 GB | 8 GB+ (for large scans with 100K+ images) |
 | Disk space | 200 MB for the application | Additional space for local scan data and training crops in `~/.finwave/` |
 | Display | 1280 x 720 | 1920 x 1080+ |
@@ -50,9 +52,34 @@ Discovery and manifesting work entirely offline after you sign in. You only need
 
 <!-- screenshot: Windows installer setup wizard -->
 
+## Install on macOS
+
+1. Open the downloaded `.dmg` file.
+2. Drag **FinLaunch** into the **Applications** folder.
+3. On first launch, macOS may show a Gatekeeper warning. Right-click the app and select **Open**, then confirm in the dialog.
+
+:::note
+Apple Silicon Macs (M1/M2/M3/M4) should use the `aarch64.dmg` build. Intel Macs should use the `x64.dmg` build. The downloads page auto-detects your architecture.
+:::
+
 ## Install on Linux
 
-Install using your distribution's package manager:
+### Recommended: Package repository (auto-updates)
+
+The easiest way to install and keep FinLaunch up to date on Linux is through the official package repository. See the [Linux Package Repository](/desktop/getting-started/linux-repo/) guide for full setup instructions.
+
+```bash
+# Quick start — Debian/Ubuntu
+curl -fsSL https://finwavepublic.blob.core.windows.net/apt/finwave-repo.gpg.key \
+  | sudo gpg --dearmor -o /usr/share/keyrings/finwave-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/finwave-archive-keyring.gpg] https://finwavepublic.blob.core.windows.net/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/finwave.list
+sudo apt update && sudo apt install finlaunch
+```
+
+### Manual install
+
+If you prefer to install from a downloaded file:
 
 ```bash
 # Debian / Ubuntu
@@ -68,6 +95,10 @@ Alternatively, use the `.AppImage` for a portable installation that does not req
 chmod +x finlaunch_x.x.x_amd64.AppImage
 ./finlaunch_x.x.x_amd64.AppImage
 ```
+
+:::tip
+The AppImage format supports Tauri's built-in auto-updater. The `.deb` and `.rpm` manual installs do not — use the [package repository](/desktop/getting-started/linux-repo/) for automatic updates with those formats.
+:::
 
 ## First launch
 
