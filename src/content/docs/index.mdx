@@ -5,30 +5,42 @@ template: splash
 hero:
   tagline: Comprehensive guides for the finwave wildlife photo-identification platform.
   actions:
-    - text: Web Application
+    - text: Get started
       link: /web/getting-started/welcome/
       icon: right-arrow
       variant: primary
-    - text: Desktop Client
-      link: /desktop/getting-started/what-is-it/
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Explore
+## Web app or desktop client?
+
+finwave is primarily a **web application** — that's where you submit encounters, review identifications, browse individuals, and run analyses. **Most users only ever need the web app.**
+
+The **desktop client** is an optional companion for one specific workflow: bulk-importing photos directly from a local archive or cloud storage container that is too large to upload through the browser. If you don't have a backlog of thousands of historical photos to onboard, you can ignore the desktop client entirely.
+
+<CardGrid>
+  <Card title="Web Application" icon="laptop">
+    Submit encounters, review identifications, manage your population, and run analyses. Start here. → [Open the web docs](/web/getting-started/welcome/)
+  </Card>
+  <Card title="Desktop Client" icon="seti:default">
+    Optional. Used for bulk onboarding of large archives from disk or cloud storage. → [Open the desktop docs](/desktop/getting-started/what-is-it/)
+  </Card>
+</CardGrid>
+
+## Explore the web app
 
 <CardGrid>
   <Card title="Getting Started" icon="rocket">
     New to finwave? Start here to create your account, join a population, and log your first encounter.
   </Card>
   <Card title="Core Concepts" icon="open-book">
-    Understand encounters, individuals, populations, and how they connect.
+    Understand encounters, individuals, populations, evidence tiers, and how they connect.
   </Card>
   <Card title="Workbench" icon="setting">
     Advanced tools for catalog building, review queues, and population analysis.
   </Card>
-  <Card title="Desktop Client" icon="laptop">
-    Bulk-upload photos from your organization's archives with the finwave desktop app.
+  <Card title="Administration" icon="setting">
+    Population settings, member management, organization verification, and ML configuration.
   </Card>
 </CardGrid>

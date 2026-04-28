@@ -46,7 +46,11 @@ export default defineConfig({
               label: 'Workbench',
               items: [
                 { label: 'Overview', slug: 'web/workbench/overview' },
-                { label: 'Catalog Builder', slug: 'web/workbench/catalog-builder' },
+                {
+                  label: 'Catalog Builder',
+                  autogenerate: { directory: 'web/workbench/catalog-builder' },
+                  collapsed: true,
+                },
                 { label: 'Review Queue', slug: 'web/workbench/review-queue' },
                 {
                   label: 'Analyses',

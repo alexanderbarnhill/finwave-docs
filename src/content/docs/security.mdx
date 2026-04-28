@@ -1,0 +1,59 @@
+---
+title: Security
+description: How to report security issues with finwave, our response commitments, and what's in scope.
+---
+
+finwave users entrust us with research data — encounter metadata, photographs, identifications, contributor attributions. We treat security reports with the seriousness that trust deserves.
+
+## Reporting a vulnerability
+
+Please **don't** open a public issue or post on social media — that gives attackers a head start while we patch.
+
+**Email:** [info@finwave.io](mailto:info@finwave.io). PGP key available on request.
+
+If your report concerns active exploitation, exfiltrated data, or anything you need a same-day response to, mark the email subject `[URGENT]` and we'll prioritize accordingly.
+
+### What to include
+
+- A description of the issue and why it's a security problem.
+- A proof-of-concept: the exact request, payload, or steps that demonstrate the issue. Working exploits are far more actionable than theoretical writeups.
+- Any URLs, user roles, or data you were able to access.
+- Your assessment of severity (see rubric below).
+
+You won't be penalized for good-faith testing against your own account or non-production data. If you're unsure whether something crosses a line — volume, data scope, social engineering — ask first.
+
+## Our response
+
+| Severity | What it means | We'll commit to |
+|----------|---------------|-----------------|
+| **Critical** | Unauthenticated remote access to data, credentials, or code execution. Trivial cross-tenant privilege escalation. | Acknowledge within 24h · fix within 24h · rotate affected secrets · notify any affected customers |
+| **High** | Authenticated cross-tenant data access, missing authorization on bulk reads, broad blast radius from a single compromise | Acknowledge within 48h · fix within 7 days |
+| **Medium** | Information disclosure, weak defaults, partially-mitigated vulnerabilities | Acknowledge within 1 week · fix within 30 days |
+| **Low** | Best-practice gaps, defense-in-depth, hardening opportunities | Acknowledge within 2 weeks · fix within 90 days |
+
+A finding may move up a tier if it touches more than one customer's data, if active exploitation is observed, or if public attention is plausible.
+
+If a vulnerability has been used to access customer data, we will notify the affected customers directly. We do not wait for a public disclosure window before notifying — your data is your own.
+
+## Scope
+
+**In scope:**
+- The web application at `app.finwave.io`
+- The public API at `api.finwave.io` (including the frozen `/api/v1/...` surface)
+- The Azure-hosted workers that process background jobs
+- The desktop client — sync and authentication paths
+
+**Out of scope:**
+- Denial-of-service testing on production. Test against staging only, and coordinate first.
+- Social engineering of finwave staff or other users.
+- Physical attacks on our infrastructure.
+- Third-party services we depend on (Azure, PostgreSQL, the browser) — those go to the respective vendors.
+- Findings that require an already-compromised admin account.
+
+## Acknowledgement
+
+If you'd like public credit for a finding, let us know in your report and we'll add you to the acknowledgements list once a fix has shipped. We'll honour requests for anonymity.
+
+---
+
+*Security contact metadata is also published in machine-readable form at [`/.well-known/security.txt`](/.well-known/security.txt) per [RFC 9116](https://datatracker.ietf.org/doc/html/rfc9116).*

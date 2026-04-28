@@ -1,0 +1,9 @@
+# finwave security.txt — RFC 9116
+# Found a security issue? Please report it via the channels below.
+# Replace placeholder values with real ones before publishing.
+
+Contact: mailto:info@finwave.io
+Expires: 2027-04-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://docs.finwave.io/.well-known/security.txt
+Policy: https://docs.finwave.io/security/

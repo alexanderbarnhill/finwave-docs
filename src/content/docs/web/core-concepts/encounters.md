@@ -48,6 +48,12 @@ Encounters display status indicators that provide a quick visual summary.
 
 This distinction matters for population analysis. Complete encounters are more valuable for mark-recapture models because absence from a complete encounter is informative (the individual was genuinely not present), while absence from an incomplete encounter is ambiguous.
 
+:::note[Experts may revise completeness after the fact]
+The submitting photographer makes the initial call, but completeness is not necessarily fixed at submission. An **expert** or **administrator** with knowledge of the population can update the completeness flag later — for example, after recognising regular associates of the individuals already identified in the encounter and concluding the rest of the social group must have been present (or absent). The completeness flag should reflect the best current understanding, not just the photographer's first impression in the field.
+
+If you change a completeness value after submission, prefer adding a comment on the encounter explaining the reasoning, so downstream analysts can see why the flag was revised.
+:::
+
 ### Predation events
 
 An encounter can be flagged as a predation event, which adds a predation icon to the encounter card. This is used to track predation observations as part of behavioral and ecological monitoring.

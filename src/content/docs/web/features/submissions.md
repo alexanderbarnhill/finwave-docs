@@ -25,6 +25,10 @@ After submission, each encounter passes through several stages. The status icons
 
 All images have been received by the server. If some images failed to upload during submission, the encounter still exists but with fewer images than intended. You can add missing images later from the [encounter edit page](/web/features/encounters/editing/).
 
+:::tip[Photos may take a moment to appear]
+"Upload complete" means finwave has received the files, but it can take a short while longer for the photos to actually populate in the encounter view — thumbnails are generated, the gallery is built, and the ML pipeline begins streaming results in. For larger encounters this can be a minute or two. **An empty or partially-loaded gallery immediately after upload is normal**, not a failed upload. Refresh the encounter page after a minute if you want to confirm progress; if photos still haven't appeared after several minutes, see [Upload Errors](/web/troubleshooting/upload-errors/).
+:::
+
 ### Analysis in progress
 
 The ML pipeline is actively processing your images. This typically involves three phases running sequentially:

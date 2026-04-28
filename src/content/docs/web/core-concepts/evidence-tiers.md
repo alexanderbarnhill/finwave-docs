@@ -36,9 +36,23 @@ These are all valid forms of evidence, but they have very different confidence l
 
 ### Attested (Tier 0)
 
-An attested identification is a claim that "this animal was at this encounter," backed by the contributor's authority. It comes from the contributor's existing records -- catalog entries, field notes, spreadsheets -- imported during onboarding.
+An attested identification is a claim that "this animal was at this encounter," backed by the contributor's authority. It is an *unannotated* identification — the photos from the encounter are available for inspection, but no specific region of any photo has been identified as showing the animal. Despite that, attested records appear in the animal's sighting history immediately, so contributors see their knowledge reflected in finwave from day one.
 
-Attested records have no bounding box and no image crop. The photos from the encounter are available for inspection, but no specific region of any photo has been identified as showing the animal. Despite this, attested records appear in the animal's sighting history immediately, so contributors see their knowledge reflected in finwave from day one.
+#### How attested records get created
+
+Attested is **not** a historical-only tier. It is the standard way of recording "I saw individual X at this encounter" any time you don't yet have a confirmed bounding box for it. Attested records are created in several ways, which apply equally to brand-new uploads and to historical archive imports:
+
+- **Desktop client import metadata** — when bulk-onboarding an archive through the [desktop client](/desktop/getting-started/what-is-it/), each encounter folder can declare a list of individuals known to be present. Those individuals become attested records on the encounter when the manifest is synced.
+- **IPTC caption tags** — when uploading photos through the web app, finwave reads identifier tokens from each photo's IPTC caption metadata. If the population has auto-tagging enabled and the tokens match known individuals, attested records are created automatically. This is the bridge for photographers who already write IDs into their photo metadata as part of their normal workflow.
+- **Contributor "known individuals" lists** — population-level lists of "individuals routinely seen in this area" maintained by the contributor. When new encounters land, finwave can seed attested records from this list as a starting point for review.
+
+#### Adding visual IDs to encounters today
+
+> **A note on what's currently in the UI.** finwave's data model fully supports attested-tier records, and the backend has an endpoint that accepts "I saw individual X at this encounter" without a bounding box. At present, the **web app's submission form does not yet expose a 'list individuals you saw' field** — attested records on web-uploaded encounters come from IPTC tags or known-individual lists, not from a free-form picker on the form. A direct in-app picker for adding visual IDs to an encounter (after the fact, or at submission time) is on the roadmap.
+>
+> If you want every individual you saw to appear immediately as an attested record on a freshly uploaded encounter today, the two reliable paths are: (1) **embed the IDs in the photo's IPTC caption** before uploading, or (2) **submit through the desktop client**, which has an explicit "individuals present in this encounter" list.
+
+Attested records have no bounding box and no image crop. They will only contribute photos to an individual's image collection once a human promotes them to **Confirmed** by drawing and verifying a bounding box.
 
 ### ModelSuggested (Tier 1)
 
