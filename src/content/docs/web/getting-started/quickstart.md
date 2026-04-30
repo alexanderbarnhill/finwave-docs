@@ -16,7 +16,7 @@ This page walks you from "I have nothing" to "I have a submitted encounter that 
 
 ## 1. Create an account
 
-Go to [app.finwave.io](https://app.finwave.io/) and sign up with your email address. You'll receive a verification email — click the link to activate the account, then sign in.
+Go to [app.finwave.io](https://finwave.io/) and sign up with your email address. You'll receive a verification email — click the link to activate the account, then sign in.
 
 Your account is independent of any population. Once it exists, you can be invited into one or more populations and one or more organisations.
 

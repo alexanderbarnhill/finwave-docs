@@ -26,9 +26,9 @@ Each individual can have the following attributes:
 - **Alternative IDs** -- additional identifiers used by other organizations or studies, displayed as "Main ID / Alt ID 1 / Alt ID 2"
 - **Nickname** -- an optional friendly name
 - **Sex** -- male, female, or unknown
-- **Age class** -- the current life stage (e.g., calf, juvenile, sub-adult, adult), based on the population's cohort definitions
-- **Date of birth** -- if known
-- **Date of death** -- if known
+- **Age** -- derived, based on known year of birth
+- **Birth year** -- if known
+- **Estimated year of death** -- if known
 - **Notes** -- free-text notes
 - **Profile image** -- a representative photograph (set by Professionals or Administrators)
 

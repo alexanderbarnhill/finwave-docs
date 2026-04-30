@@ -24,7 +24,7 @@ Every encounter requires exactly three things. The submit button remains disable
 
 Select the date the encounter occurred using the date picker. Future dates are not allowed.
 
-The date becomes part of the encounter's identity. It is used throughout finwave for chronological ordering, seasonal filtering, and time-series analyses such as discovery curves and capture history exports. If your encounter spans multiple days, use the date of the primary observation.
+The date becomes part of the encounter's identity. It is used throughout finwave for chronological ordering, seasonal filtering, and time-series analyses such as discovery curves and capture history exports. An encounter is confined to a single day -- observations of the same group on a later date are recorded as a separate encounter.
 
 <!-- screenshot: Date picker showing a calendar for selecting the encounter date -->
 

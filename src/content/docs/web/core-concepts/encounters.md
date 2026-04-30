@@ -14,9 +14,13 @@ sidebar:
 
 ## What is an encounter?
 
-An encounter is a collection of photographs from a single observation event at a specific time and location. It is the fundamental unit of data in finwave -- everything else (annotations, identifications, individual sighting histories) flows from encounters.
+An encounter is a collection of photographs from a single observation event at a specific time and location. It may be defined as the period starting and ending when a group of individuals were first and last photographed by an individual photographer on a given day. It is the fundamental unit of data in finwave -- everything else (annotations, identifications, individual sighting histories) flows from encounters.
 
-Each encounter represents one field observation. A whale-watching trip that produces 200 photos at one location on one date is one encounter. If the same trip stops at two locations, those become two encounters.
+Each encounter represents a single bout of field observations. A whale-watching trip or research expedition that produces 200 photos of the same group of whales on one date is one encounter. If the same excursion photographs another non-interacting group of whales at a different location on the same day, that is a different encounter. Likewise, if the same group is photographed again later in the day after individuals have joined or left, that later observation is a separate encounter.
+
+:::note
+Encounters from different photographers that include the same group of whales on the same day may be merged outside of finwave prior to some formal analyses.
+:::
 
 ## Encounter metadata
 
@@ -36,7 +40,9 @@ Encounters display status indicators that provide a quick visual summary.
 
 ### Analysis status
 
-- **Complete (green)** -- ML analysis has finished and results are available
+The analysis of the encounter is performed by human experts and supported by machine learning tools. The various phases of the analysis process are as follows:
+
+- **Complete (green)** -- analysis has finished and results are available
 - **In progress (yellow)** -- analysis is currently running
 - **New (red)** -- the encounter has been uploaded but analysis has not started
 

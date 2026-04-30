@@ -26,7 +26,6 @@ Each encounter card shows:
 - **Location** -- where the encounter took place
 - **Photographer** -- who captured the images
 - **Image count** -- the total number of images in the encounter
-- **Detected fins** -- the number of fins detected by finwave's ML models
 - **Confirmed identities** -- the identities that have been confirmed by annotators
 
 Clicking a card opens the full encounter detail page with all images, metadata, annotations, and identification results.
@@ -43,9 +42,9 @@ Each encounter card displays status icons on the right side of the overlay.
 **Completeness** indicates whether all individuals present were photographed:
 - Filled circle -- complete encounter (all individuals photographed)
 - Partial circle -- incomplete encounter (not all individuals photographed)
-- Open circle -- unknown completeness
+- Filled circle with a question mark -- unknown completeness
 
-**Predation** indicates whether the encounter involves a predation event.
+**Predation** -- a knife-and-fork icon indicates that the encounter involved a predation event.
 
 **License** indicates the encounter's sharing terms:
 - CC icon -- public domain or Creative Commons
