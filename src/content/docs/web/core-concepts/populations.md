@@ -3,6 +3,15 @@ title: "Populations"
 description: "What a population is, including species and regions"
 sidebar:
   order: 3
+quickRef:
+  - "What it is: the primary scoping unit. Encounters, individuals, annotations, and analyses all belong to one population"
+  - "Maps to a real-world study population: species + region + identified animals"
+  - "Anyone can request to create one. System admin approval required. Requester becomes first population admin"
+  - "Join policies: Open (anyone joins), Request-based (admin approves), or invitation-only via admin"
+  - "Four population roles: Viewer, Expert, Professional, Administrator. Each inherits everything below"
+  - "Independent from organizations — orgs contribute data but population membership is its own thing"
+  - "Users can be in multiple populations with different roles in each — no cross-pollination"
+  - "ML models are trained and evaluated per-population — moving an encounter cross-population doesn't carry annotations the same way"
 ---
 
 ## What you'll learn

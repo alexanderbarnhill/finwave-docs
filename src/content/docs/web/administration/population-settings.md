@@ -3,6 +3,13 @@ title: "Population Settings"
 description: "Configuring a population"
 sidebar:
   order: 1
+quickRef:
+  - "Found at Administration → Populations → [your population]. Sidebar lists all configuration modules"
+  - "Configuration: Settings (name/species/banner), Relationships (steward/beneficiary links to other populations)"
+  - "Data: Individuals, Review Animals (provisional approval queue), Catalog (Pro), Analysis (Pro), ML Center, Review Tasks (Pro), Data Access"
+  - "Public Page: enable subdomain landing page + manage Highlights (stories, papers, announcements, milestones)"
+  - "Community: Members, Supporters, Requests (join requests), News (Pro)"
+  - "Pro-only modules: Catalog, Analysis, Review Tasks, News. Free tier shows upgrade prompts"
 ---
 
 ## What you'll learn

@@ -3,6 +3,14 @@ title: "Submissions"
 description: "Track your submissions and understand their processing status"
 sidebar:
   order: 5
+quickRef:
+  - "My Submissions view tracks every encounter you've submitted to the current population, sorted recent-first"
+  - "Stages: Upload complete → Analysis in progress (Detection → Classification → Identification) → Analysis complete"
+  - "'Upload complete' just means files received — thumbnails + ML can take another 1-2 minutes to populate"
+  - "Empty/partial gallery immediately after upload is normal, not a failure — wait a minute before troubleshooting"
+  - "Image upload failure: Retry Failed (re-attempt) or Skip & Continue (proceed without)"
+  - "Encounter save failure leaves the form intact with your data — common cause is hitting the plan's encounter limit"
+  - "Click any submission to open full encounter detail: review ML in annotator, edit metadata, manage gallery, comment"
 ---
 
 ## What you'll learn

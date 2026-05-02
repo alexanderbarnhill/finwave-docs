@@ -3,6 +3,15 @@ title: "Organization Verification"
 description: "What a verified badge means on finwave, and how the verification workflow works"
 sidebar:
   order: 5
+quickRef:
+  - "What it confirms: identity and registration of a real entity. Not an endorsement of research quality"
+  - "Three stages: Acknowledgement → Decision (verified/rejected) → Ongoing status"
+  - "Acknowledgement can be re-sent if email didn't land or contact info changed; each send is logged"
+  - "Decisions email org admins with the outcome and an optional shareable note"
+  - "Verified can be Revoked (e.g. org no longer exists) — revoke is blocked while the org is an active population steward"
+  - "Internal verification notes are admin-only; only the shareable note is sent in emails"
+  - "Verified Research Organization is a separate stricter status that also requires an active research permit"
+  - "All emails respect Organizations notification preferences and route through the email link tracker"
 ---
 
 ## What you'll learn

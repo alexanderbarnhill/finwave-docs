@@ -3,6 +3,13 @@ title: "Annotations"
 description: "What annotations are, ML vs human annotations, and the annotator"
 sidebar:
   order: 5
+quickRef:
+  - "What it is: a labeled bounding box on an encounter image — links a feature (usually a dorsal fin) to an individual"
+  - "Records location (box), category (e.g. dorsal fin), side (L/R/F/B), individual if identified, confidence"
+  - "Two sources: machine (ML pipeline, has confidence score) or human (created or confirmed in the annotator)"
+  - "Only confirmed annotations contribute to discovery curves, composition, capture history, etc."
+  - "Same encounter can hold annotations of multiple individuals; same individual appears across many encounters — many-to-many"
+  - "Workflow: encounter submitted → ML creates machine annotations → expert reviews/corrects/adds in annotator → confirmed records flow into population analyses"
 ---
 
 ## What you'll learn

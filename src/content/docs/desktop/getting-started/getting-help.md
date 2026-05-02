@@ -3,6 +3,14 @@ title: "Getting Help"
 description: "Where to find support, report issues, and diagnose problems"
 sidebar:
   order: 5
+quickRef:
+  - "Activity Log is the first place to look — every scan/manifest/sync/error/config event is recorded with timestamps"
+  - "When reporting issues: copy the relevant Activity Log entries (timestamps, error details, operation IDs)"
+  - "Bugs and features: GitHub repo. Email support also available — your org admin has the contact"
+  - "Stuck sync: check the Sync page first (errors grouped per encounter), then Activity Log"
+  - "Partial sync: hit Retry on the row to re-upload only failed images"
+  - "Cloud discovery is async — large datasets (100K+ images) can take hours; the desktop may show 'failed' on timeout while the worker keeps running"
+  - "Common quick fixes: API key denied = ask admin to enable Desktop Sync; sync disabled = check API key in status bar; encounter incomplete = open pre-sync review"
 ---
 
 In this guide you will learn:

@@ -3,6 +3,15 @@ title: "Azure Blob Storage"
 description: "Connect Azure storage accounts for cloud discovery and blob-to-blob sync"
 sidebar:
   order: 2
+quickRef:
+  - "Two uses: cloud discovery (worker-side scanning) + blob-to-blob sync (server-side copy, no desktop bandwidth)"
+  - "Two auth types: SAS token (scoped, time-limited) or Connection string (full account key, generates short-lived SAS on the fly)"
+  - "SAS token requirements: Read+List permissions, srt=sco resource types, NO IP restrictions (server reads from a different IP)"
+  - "IP-restricted SAS = 403 on blob-to-blob sync. Either remove restrictions or use Connection string"
+  - "Cloud discovery downloads only 128KB headers per image for EXIF — never the full image"
+  - "Worker processes in 10K-file chunks. 100K+ image scans can take hours; track via worker logs"
+  - "Blob-to-blob sync moves images between Azure data centers using SyncCopyFromUri — much faster than re-upload"
+  - "Common errors: 403 CannotVerifyCopySource = expired/wrong-perms SAS, 403 AuthenticationFailed = IP-restricted token"
 ---
 
 In this guide you will learn:

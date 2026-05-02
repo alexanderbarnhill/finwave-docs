@@ -3,6 +3,16 @@ title: "Roles & Permissions"
 description: "Role hierarchy and what each role can do"
 sidebar:
   order: 6
+quickRef:
+  - "Three role scopes that don't cross over: System (platform-wide), Organization (per org), Population (per population)"
+  - "Population roles (low → high): Viewer, Expert, Professional, Administrator. Each inherits the lower"
+  - "Viewer: browse + search + submit + edit own encounters. No annotation, no analytics"
+  - "Expert: + annotate images (draw boxes, assign IDs, confirm/reject ML predictions)"
+  - "Professional: + edit any encounter's metadata, see ML predictions, set individual profile images"
+  - "Administrator: full control — see private encounters, manage individuals/members/settings, run exports"
+  - "Workbench access is a separate per-tool permission layer admins configure on top of the role"
+  - "Only Population Administrators see private encounters — visibility settings don't override that"
+  - "A user can hold different roles in different populations or organizations — no spillover"
 ---
 
 ## What you'll learn

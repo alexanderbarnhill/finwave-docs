@@ -3,6 +3,15 @@ title: "Usage Metrics"
 description: "Platform-wide activity analytics and engagement tracking for administrators"
 sidebar:
   order: 8
+quickRef:
+  - "Platform-admin only — population admins don't see this. Found at Platform Administration → Usage Metrics"
+  - "Activity cards: 24h / 7d / 30d totals with period-over-period delta"
+  - "DAU + new-user trends in separate charts so you can tell growth from engagement"
+  - "Workflow funnel tracks Encounters → Images → Annotations → Reviews → Matches with stage conversion rates"
+  - "Engagement buckets: Casual / Light / Active / Heavy / Power — surface whether usage is broad or concentrated"
+  - "Hourly heatmap (weekday × hour) reveals when work actually happens — useful for maintenance windows"
+  - "Filterable by population or role; map view plots geo-tagged events as points/clusters"
+  - "Designed for platform health, not individual performance evaluation — use accordingly"
 ---
 
 ## What you'll learn

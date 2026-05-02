@@ -1,0 +1,13 @@
+---
+// Override of Starlight's default PageTitle. Renders the heading and then,
+// when present, the `quickRef` callout — keeping the in-app help drawer's
+// summary visible at the top of the docs page itself.
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import QuickRef from './QuickRef.astro';
+
+const data = Astro.locals.starlightRoute.entry.data as { quickRef?: string[] };
+---
+
+<Default><slot /></Default>
+
+<QuickRef bullets={data.quickRef} />

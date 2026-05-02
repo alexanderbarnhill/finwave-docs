@@ -3,6 +3,15 @@ title: "Discovery Curves"
 description: "Visualize new individual discovery rates and assess population saturation"
 sidebar:
   order: 2
+quickRef:
+  - "What it plots: cumulative count of unique individuals discovered (y) vs. time (x)"
+  - "Each individual contributes one point at the date of their earliest encounter"
+  - "Steep curve = still finding new individuals; flattening = approaching saturation; flat = catalog likely complete"
+  - "Stepped pattern usually reflects seasonal or campaign-based survey effort, not population behaviour"
+  - "Asymptote gives a rough population-size ceiling — don't read it as a precise estimate"
+  - "Interpretation depends on reliable encounter dates; missing/approximate dates distort the early curve"
+  - "A never-flattening curve can mean a mobile or under-surveyed population, not necessarily a huge one"
+  - "Workbench tool — requires finwave Pro and per-role access in Workbench Access settings"
 ---
 
 ## What you'll learn

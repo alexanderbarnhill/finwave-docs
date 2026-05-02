@@ -3,6 +3,14 @@ title: "Identification Metrics"
 description: "ID accuracy metric for individual identification models"
 sidebar:
   order: 4
+quickRef:
+  - "ID accuracy = (Confirmed - AnimalIdChanged) / Confirmed × 100"
+  - "Only annotations where the model actually predicted an individual count — 'unknown' predictions are excluded"
+  - "Question it answers: 'when the model claims to recognize an individual, how often is it right?'"
+  - "Doesn't measure: how often the model misses individuals it should recognize"
+  - "Trend down over time often signals retraining is due — common triggers: new individuals, catalog growth, equipment changes"
+  - "Distinguish gradual decline (retrain) from a one-time dip (unusual batch of images)"
+  - "Researcher review thoroughness directly affects metric reliability — accepted-but-wrong IDs underreport error"
 ---
 
 ## What you'll learn

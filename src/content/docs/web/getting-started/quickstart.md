@@ -3,6 +3,15 @@ title: "Quick Start"
 description: "Create an account, join a population, and log your first encounter"
 sidebar:
   order: 2
+quickRef:
+  - "Time budget: ~10 minutes from zero to a submitted encounter processing in the ML pipeline"
+  - "Step 1: sign up at app.finwave.io, verify email, sign in. Account is independent of any population"
+  - "Step 2: join a population — by admin invitation, or self-join request for populations that allow it"
+  - "Step 3: Encounters → New Encounter. Three required: date, location (pin or coordinates), at least one image"
+  - "Step 4: ML pipeline runs automatically — Detection → Classification → Identification, typically minutes"
+  - "Photos may take a minute or two to populate after upload — gallery + ML stream in async, not instant"
+  - "Step 5: open the Annotator on the encounter to confirm/correct/add identifications"
+  - "Population switcher (top-left) is the most important control — almost every screen is scoped to it"
 ---
 
 This page walks you from "I have nothing" to "I have a submitted encounter that the ML pipeline is processing." It should take about 10 minutes.

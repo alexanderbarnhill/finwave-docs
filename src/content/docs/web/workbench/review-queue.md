@@ -3,6 +3,15 @@ title: "Review Queue"
 description: "Generate review tasks, assign them to team members, and track progress"
 sidebar:
   order: 3
+quickRef:
+  - "What it does: turns a search into assignable review tasks with progress tracking"
+  - "Common uses: labelling unannotated photos, QA on existing annotations, systematic batch review"
+  - "Workflow: define search → pick granularity (per encounter / per image / per criterion) → assign → track"
+  - "Granularity sets task size — narrow scope first to gauge per-task effort before scaling"
+  - "Only users with Review Queue access can be assigned tasks"
+  - "Dashboard shows complete / in-progress / not-started counts per batch and per reviewer"
+  - "Today everyone with access has full create+assign+work powers; split is on the roadmap"
+  - "Workbench tool — requires finwave Pro and per-role access in Workbench Access settings"
 ---
 
 ## What you'll learn

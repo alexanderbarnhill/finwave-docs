@@ -3,6 +3,14 @@ title: "Directory Management"
 description: "Adding and removing directories, pausing, and rescanning"
 sidebar:
   order: 4
+quickRef:
+  - "Directories view: every registered directory with path, status, file count, image count, last scan date"
+  - "Three states: Watching (active), Paused (silenced, useful when drives are disconnected), Removed"
+  - "Removing only deletes the directory from the client — source files on disk are untouched"
+  - "Add Directory uses native folder picker; immediately registered and shown in sidebar under its population"
+  - "Pause/Resume = temporary exclusion. Rescan re-indexes after files were added or restructured"
+  - "Directories feed scan jobs — one directory can link to multiple scans over time"
+  - "Sidebar shows linked scan jobs and manifests per directory"
 ---
 
 In this guide you will learn:

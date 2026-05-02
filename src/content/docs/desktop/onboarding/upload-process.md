@@ -3,6 +3,16 @@ title: "Upload Process"
 description: "How images are uploaded, committed, and processed during sync"
 sidebar:
   order: 5
+quickRef:
+  - "Two upload paths: SAS URI direct upload (local files) vs blob-to-blob server-side copy (Azure files)"
+  - "Local flow: create upload session → upload image to Azure via SAS → commit → server resizes + triggers ML"
+  - "Azure flow: generate read SAS for source → server uses SyncCopyFromUri → commit + ingest. Image bytes never touch the desktop"
+  - "Idempotency keys (encounter id + scan id) make re-syncs safe — already-uploaded images return 'Complete' instantly"
+  - "Concurrency configurable 1-4 parallel uploads per encounter (default 2)"
+  - "Image upload retry: 3 attempts with jittered backoff (5s, 10s)"
+  - "Status lifecycle per image: Pending → Uploading → Committed → Complete (or Error)"
+  - "Partial encounters happen when some images fail; Retry uploads only the failed ones, no duplicates"
+  - "Expired SAS during upload auto-refreshes — no manual recovery needed"
 ---
 
 In this guide you will learn:

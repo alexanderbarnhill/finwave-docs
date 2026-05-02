@@ -3,6 +3,12 @@ title: "Deployment"
 description: "Installing the desktop client in your organization"
 sidebar:
   order: 3
+quickRef:
+  - "Current install: standard per-platform installer (Windows .exe, macOS .dmg, Linux .deb/.rpm/.AppImage)"
+  - "Each user signs in with their own finwave creds and runs initial setup (org binding + populations)"
+  - "App data lives in the user's app data directory: encrypted database, daily audit logs in logs/, encryption keys in .db_keys/ (0600 perms)"
+  - "Client never writes to user data directories — only its own application data area"
+  - "Planned (not yet shipped): silent install with pre-configured API URL, MDM/group-policy support, lockable settings, signed auto-update"
 ---
 
 :::note

@@ -3,6 +3,17 @@ title: "Creating Encounters"
 description: "Upload images, enter metadata, and submit encounters"
 sidebar:
   order: 2
+quickRef:
+  - "Required fields: date (single day, no future dates), location (name + GPS), and at least one image"
+  - "Supported image formats: JPEG, PNG, GIF, TIFF, WebP. Duplicates auto-rejected by name + size"
+  - "Locations are deduplicated by name + coordinates within ~11m — agree on naming conventions with your team"
+  - "Org association is optional and independent of license. 'Organization only' license requires at least one org selected"
+  - "License levels: Public (CC-NC), Public + Attribution (contact required), or Organization-only"
+  - "Predation events: Yes/No flag plus optional prey targets (species, count, location, time)"
+  - "Mark encounter completeness honestly — overstating it biases mark-recapture abundance estimates downward"
+  - "Admins/professionals can submit on behalf of another user (existing or new contributor)"
+  - "After submit: ML runs detection → classification → identification automatically; you can view the encounter while it processes"
+  - "IPTC caption tags can auto-create attested IDs if the population has auto-tagging enabled"
 ---
 
 ## What you'll learn

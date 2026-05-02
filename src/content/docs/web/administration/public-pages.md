@@ -3,6 +3,15 @@ title: "Public Pages"
 description: "Configuring public population landing pages"
 sidebar:
   order: 5
+quickRef:
+  - "What it is: a search-indexed, shareable population landing page at {slug}.finwave.io"
+  - "Visitors see curated content + aggregate stats only — no search, filter, or export"
+  - "Slug rules: 3–24 chars, lowercase letters/numbers/hyphens, unique. Approved once and not changeable"
+  - "Sections: hero (your image), stats bar (auto), about, featured individuals, highlights feed, CTA, footer"
+  - "Featured individuals: pick 4–8 manually, or skip and the top-4-most-encountered are auto-selected"
+  - "Highlights are typed: Story / Paper / Announcement / Milestone. Pinned ones always show first"
+  - "Hidden from public by design: GPS coordinates, contributor names, full image library, encounter records, data export"
+  - "Locations are shown by general name only (e.g. 'Salish Sea') — never raw lat/long"
 ---
 
 ## What you'll learn

@@ -3,6 +3,16 @@ title: "For IT Teams"
 description: "Security overview, audit log, and network requirements"
 sidebar:
   order: 4
+quickRef:
+  - "Discovery + manifesting are 100% local — no data leaves the machine until upload is approved"
+  - "Network: HTTPS-only, single configurable API domain. Allow outbound 443 to that domain. No inbound rules"
+  - "Zero telemetry, zero analytics, zero crash reporting to third parties"
+  - "Tauri capability list: filesystem read/write (user-selected dirs only), folder picker, notifications, HTTPS, OS info, autostart"
+  - "Excluded capabilities: clipboard, shell:execute, global shortcuts, screen capture"
+  - "Local SQLite is encrypted with SQLCipher (256-bit per-org random key, 0600 perms, unlocked at sign-in)"
+  - "Activity log is append-only, always on, JSON-line files. Exports to JSON or CSV. Never includes file contents, tokens, or spreadsheet values"
+  - "JWT auth against finwave API. Org binding is part of setup, not a system policy"
+  - "Enterprise deployment (silent install, MDM, group policy, managed settings): planned, not yet available"
 ---
 
 In this guide you will learn:

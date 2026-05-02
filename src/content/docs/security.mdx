@@ -1,6 +1,15 @@
 ---
 title: Security
 description: How to report security issues with finwave, our response commitments, and what's in scope.
+quickRef:
+  - "Report to info@finwave.io — DO NOT open public issues or post on social media. Mark [URGENT] in subject for active exploitation"
+  - "Include: description, exact reproduction steps / proof-of-concept, URLs/roles/data accessed, your severity assessment"
+  - "Severity SLAs: Critical 24h ack + 24h fix, High 48h + 7d, Medium 1w + 30d, Low 2w + 90d"
+  - "In scope: app.finwave.io, api.finwave.io (incl. /api/v1/), Azure-hosted workers, desktop client sync + auth"
+  - "Out of scope: production DoS testing, social engineering of staff/users, third-party services (Azure, Postgres), already-compromised admin accounts"
+  - "Customer notification: if a vuln has been used to access data, we notify affected customers directly without waiting for public disclosure"
+  - "Public credit on the acknowledgements list is opt-in once a fix has shipped — anonymity also honored"
+  - "Contact metadata also published per RFC 9116 at /.well-known/security.txt"
 ---
 
 finwave users entrust us with research data — encounter metadata, photographs, identifications, contributor attributions. We treat security reports with the seriousness that trust deserves.

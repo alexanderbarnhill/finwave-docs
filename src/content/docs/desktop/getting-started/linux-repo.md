@@ -3,6 +3,13 @@ title: "Linux Package Repository"
 description: "Set up the finwave APT or RPM repository for automatic updates"
 sidebar:
   order: 3
+quickRef:
+  - "Recommended path on Linux for auto-updates via system package manager"
+  - "APT (Debian/Ubuntu/Pop!_OS/Mint): import GPG key, add repo, apt update + install finlaunch"
+  - "RPM (Fedora/RHEL/CentOS Stream/openSUSE): import key, drop /etc/yum.repos.d/finwave.repo, dnf install finlaunch"
+  - "Updates ride along with normal apt upgrade / dnf upgrade"
+  - "Verify install: finlaunch --version"
+  - "Switching from manual .deb/.rpm install: adding the repo takes over future updates; existing data in ~/.finwave/ is preserved"
 ---
 
 FinLaunch publishes official APT (Debian/Ubuntu) and RPM (Fedora/RHEL) repositories so you can install and update the desktop client through your system package manager.

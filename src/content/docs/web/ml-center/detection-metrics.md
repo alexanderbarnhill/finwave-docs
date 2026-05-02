@@ -3,6 +3,14 @@ title: "Detection Metrics"
 description: "Precision, recall, F1, average IoU, and box correction rate for object detection models"
 sidebar:
   order: 2
+quickRef:
+  - "Precision = Confirmed / (Confirmed + Deleted) × 100. High = few false positives"
+  - "Recall = Confirmed / (Confirmed + HumanAdded) × 100. Depends on humans actually adding missed features"
+  - "F1 balances both into one number — drops if either does. >90 is good, <80 needs work"
+  - "Average IoU only counts boxes that were resized — measures how off the wrong ones were, not overall box quality"
+  - "Box correction rate = BoxResized / Confirmed × 100. Pair with AvgIoU for the full localization picture"
+  - "Null shown as '---' when there's no data. Preliminary badge below ~100 reviewed"
+  - "All metrics derived from human review actions in the annotator — quality depends on review thoroughness"
 ---
 
 ## What you'll learn

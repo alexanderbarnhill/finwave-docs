@@ -3,6 +3,13 @@ title: "Download"
 description: "Download FinLaunch for Windows, macOS, or Linux"
 sidebar:
   order: 1
+quickRef:
+  - "Auto-detects your OS and architecture; downloads via /latest.json from the public release blob"
+  - "Windows: .exe (setup wizard) or .msi (group policy / MDM)"
+  - "macOS: aarch64.dmg for Apple Silicon (M1+), x64.dmg for Intel"
+  - "Linux: .deb / .rpm / .AppImage. Recommended path: APT or RPM repo (see Linux Package Repository)"
+  - "System minimums: Windows 10+/macOS 11+/Ubuntu 20.04+, 4 GB RAM, 200 MB disk, network for login"
+  - "Recommended: 8 GB+ RAM, latest OS, broadband (sync workflows benefit)"
 ---
 
 ## FinLaunch

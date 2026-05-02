@@ -1,7 +1,16 @@
 {
+  "routes": [
+    {
+      "route": "/help-manifest.json",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=300"
+      }
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/404.html",
-    "exclude": ["/_astro/*", "/pagefind/*", "*.css", "*.js", "*.svg", "*.png", "*.jpg", "*.ico"]
+    "exclude": ["/_astro/*", "/pagefind/*", "*.css", "*.js", "*.json", "*.svg", "*.png", "*.jpg", "*.ico"]
   },
   "responseOverrides": {
     "404": {

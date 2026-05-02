@@ -3,6 +3,14 @@ title: "Keyboard Shortcuts"
 description: "Every keyboard shortcut the Catalog Builder responds to"
 sidebar:
   order: 10
+quickRef:
+  - "Shortcuts only fire when no text input is focused — typing in inspector/find/chip-grid uses normal text editing"
+  - "Editing: Ctrl/Cmd+Z undo, Ctrl/Cmd+Shift+Z redo, Ctrl/Cmd+S save, Delete to remove selection"
+  - "Edges: E toggles edge-draw mode, Shift+E starts edge from selection, Esc cancels"
+  - "View: + zoom in, - zoom out, O fit all, L fit largest connected component, D focus deceased"
+  - "Navigation: Ctrl/Cmd+K opens graph quick-switcher, Ctrl/Cmd+F or / opens find-on-canvas"
+  - "Browser shortcuts (Ctrl+S, Ctrl+F) are intercepted only when canvas is focused — text inputs still get the browser default"
+  - "Ctrl and Cmd are interchangeable across platforms (Cmd on macOS)"
 ---
 
 Shortcuts only fire when no text input is focused. Typing in the inspector, the find overlay, the chip-grid alt-IDs editor, or any other text field uses normal text editing — your shortcut won't trigger.

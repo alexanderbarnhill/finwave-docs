@@ -3,6 +3,15 @@ title: "Browsing Encounters"
 description: "Search, filter, sort, and map view for encounters"
 sidebar:
   order: 1
+quickRef:
+  - "Cards show date, location, photographer, image count, confirmed identities, plus status icons on the right"
+  - "Analysis status icons: green (complete), yellow (in progress), red (new — not started)"
+  - "Completeness icons: filled circle (complete), partial (incomplete), filled+question (unknown)"
+  - "Predation icon: knife-and-fork — flags encounters with a predation event"
+  - "License icons indicate sharing terms: CC, non-commercial, attribution, private (org-only)"
+  - "Data source filter: All public, My organizations, or Both"
+  - "Filterable by completeness, behaviors, analysis status, individuals, photographers, locations, date range"
+  - "Combine 'individuals of interest' + date range to review specific animals' sighting history quickly"
 ---
 
 ## What you'll learn

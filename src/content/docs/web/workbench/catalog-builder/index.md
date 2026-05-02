@@ -4,6 +4,13 @@ description: "Model population relationships as interactive graphs with individu
 sidebar:
   order: 1
   label: "Overview"
+quickRef:
+  - "What it is: model your population as an interactive graph — individuals as nodes, relationships as typed edges"
+  - "Three panes: Toolbar (graph name, undo/redo, save, lock, menus), Canvas (cytoscape graph), Right panel (Inspector + Styles)"
+  - "Each population can have many graphs; one is marked 'active' and feeds individual profiles, SNA overlay, validation, and side-by-side compare"
+  - "Six relationship types: 4 fixed (mother-of, father-of, sibling-of, mate-of) + 2 soft (association, often-seen-with)"
+  - "Two people on the same graph: only one edits, the other is read-only — see Saving, Locks & Collaboration"
+  - "Workbench tool — requires finwave Pro and per-role access"
 ---
 
 ## What you'll learn
@@ -56,6 +63,19 @@ Every graph belongs to one population. A graph stores:
 - **Metadata** — name, optional description, optional category, optional tags, version (for optimistic concurrency on save), and an active-lock holder.
 
 A population can have any number of graphs. Exactly one of them can be marked the **active** graph for the population (see Working with Graphs in [Getting Around](/web/workbench/catalog-builder/getting-around/)).
+
+## How catalog data flows into other tools
+
+The active population graph isn't only a visual reference — its relationships feed several other surfaces in finwave:
+
+- **[Individual profiles](/web/features/individuals/profiles/#relationships-catalog-driven)** — the per-animal Relationships section is bucketed directly from the active graph's edges (mother, father, siblings, mate, offspring, associations, often-seen-with).
+- **[SNA kinship overlay](/web/workbench/analyses/sna-catalog-compare/#kinship-overlay)** — Social Network Analysis can render catalog kinship as a styled second edge layer on the SNA graph, so you can see at a glance which known relationships the data-driven analysis recovered.
+- **[SNA validation report](/web/workbench/analyses/sna-catalog-compare/#validation-report)** — quantifies how many catalog kinship pairs landed in the same SNA community, with mismatch lists for inspection.
+- **[Side-by-side compare](/web/workbench/analyses/sna-catalog-compare/#side-by-side-compare-view)** — two-pane view of catalog kinship vs SNA result with shared spatial layout and synced selection.
+- **[Kinship-weighted SNA](/web/workbench/analyses/sna-catalog-compare/#kinship-weighted-sna)** — optional bias on a new SNA submission that adds edge-weight bonuses on known kin pairs before community detection. Useful for sparse populations where Louvain alone fragments matrilines.
+- **[Comparison snapshots](/web/workbench/analyses/sna-catalog-compare/#comparison-snapshots)** — pin (catalog version, SNA result, age cohort version) tuples for reproducible comparison studies.
+
+Display labels for the six relationship types are population-customisable via [Relationship Labels](/web/administration/relationship-labels/). The internal type ids stay stable across populations so cross-population analyses keep working regardless of vocabulary choice.
 
 ## What you can do
 

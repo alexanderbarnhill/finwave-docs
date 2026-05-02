@@ -3,6 +3,15 @@ title: "Auto-Associate & Split"
 description: "Bulk-build matrilines from systematic identifier patterns"
 sidebar:
   order: 5
+quickRef:
+  - "What it does: parses identifiers like T049 → T049A → T049A2 to infer matrilines and group them visually"
+  - "Splitting is visual within the active graph (compound group nodes), not separate graph records — despite the name"
+  - "Identifier pattern: <root><segments> where root = letters + optional separator + digits, segments alternate letter/digit runs"
+  - "Sibling chaining links siblings A — B — C — D (chain), not as a fully-connected clique"
+  - "Deceased filter: kept only if at least one living descendant exists; filtered ones stay on the canvas but outside the group"
+  - "Mother/sibling edges drive the layout but are NOT added to the saved graph — draw them by hand if you want them persisted"
+  - "Action is non-destructive but stacks groups on repeated runs — undo or delete old groups before re-running"
+  - "Best fit: populations with prefixed identifiers encoding kinship. Useless on opaque/random tag IDs"
 ---
 
 ## What you'll learn

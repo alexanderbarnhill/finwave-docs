@@ -3,6 +3,16 @@ title: "Getting Around"
 description: "Tour the toolbar, the canvas, and the graph switcher"
 sidebar:
   order: 2
+quickRef:
+  - "Toolbar two rows: status (name, undo/redo, save, lock state) + menus (Build, Layout, Associations, Graph)"
+  - "Save state cloud icons: cloud_done = saved, cloud_queue = pending, cloud_off = error, sync_problem = version conflict"
+  - "Click graph name to rename (only after first save). 'unsaved' tag shows until then"
+  - "Canvas: click select, drag to move, scroll to zoom, right-click for context menus (separate menus for empty area vs node)"
+  - "Switch graphs with Ctrl/Cmd+K — searches by graph name OR by node identifier (find 'the graph that contains T049')"
+  - "Find nodes with Ctrl/Cmd+F or /. Searches identifier, label, AND alternate IDs"
+  - "Right panel = Inspector (edits selection — node or edge form) + Styles (per-graph appearance). Apply button required to commit"
+  - "Edge-draw mode shows a yellow sub-bar with Cancel + 'Esc to cancel' hint — distinct from regular canvas mode"
+  - "Styles tab has 'Apply to all graphs' (copy current style to every graph in the population) and Reset (back to defaults)"
 ---
 
 ## What you'll learn

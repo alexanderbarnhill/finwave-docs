@@ -3,6 +3,16 @@ title: "Evidence Tiers"
 description: "How finwave tracks the strength of evidence behind each identification"
 sidebar:
   order: 7
+quickRef:
+  - "Core principle: history can tolerate uncertainty, the image corpus cannot"
+  - "Four tiers: 0 Attested, 1 ModelSuggested, 2 ModelCorroborated, 3 Confirmed"
+  - "Attested = contributor claim, no bounding box, no image extracted, but appears in sighting history"
+  - "ModelSuggested = ML guess with no corroboration; lives in confirmation queue, NOT in sighting history"
+  - "ModelCorroborated = ML + Attested agree above threshold. In history but no image extraction"
+  - "Confirmed = human-verified bounding box + identity. Only tier that extracts crops into the image corpus"
+  - "Tiers only promote upward. To 'demote' you delete and recreate at the correct tier"
+  - "Same animal can have multiple tiers per encounter (e.g. Attested + Confirmed) — they merge on promotion"
+  - "UI icons: confirmed = pill, attested = person, corroborated = sparkle, suggested = question mark"
 ---
 
 ## What you'll learn

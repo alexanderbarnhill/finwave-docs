@@ -3,6 +3,16 @@ title: "Pre-Sync Review"
 description: "Review, approve, and configure encounters before uploading to finwave"
 sidebar:
   order: 3
+quickRef:
+  - "Shows materialized encounters from an approved manifest — concrete records ready to review"
+  - "Required fields: date, location name, GPS coords, resolved photographer, license"
+  - "Statuses: Pending (review-ready), Approved (will sync), Denied (excluded), Incomplete (missing data)"
+  - "Incomplete encounters show specific reason ('missing GPS', 'photographer not resolved') — fix in manifest editor or inline"
+  - "Three license options: Public, Public + Attribution, Private within Organization"
+  - "Approve All requires all pending encounters to have a license — assign in bulk first"
+  - "Inline editing for date/location/GPS/photographer/notes — fixing missing data auto-promotes Incomplete to Pending"
+  - "Photographer-to-org auto-apply: if a photographer is in an org, their encounters can auto-assign to it"
+  - "Filter by All / Pending / Approved / Denied; header shows status counts and approval %"
 ---
 
 In this guide you will learn:

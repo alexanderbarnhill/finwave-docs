@@ -3,6 +3,15 @@ title: "Sync & Identification Settings"
 description: "Configure desktop sync and constrained identification thresholds"
 sidebar:
   order: 6
+quickRef:
+  - "Sync Enabled toggle: turns FinLaunch desktop sync on/off for this population (use to pause incoming data)"
+  - "Auto-confirm threshold gates 'constrained matching' — auto-confirms ML predictions that agree with attested IDs above the score"
+  - "Threshold range: 50%–100%. Recommended starting point: 95%"
+  - "100% effectively disables auto-confirm; 50% is aggressive — only for mature populations with strong contributor data"
+  - "Auto-confirm promotes the record to Confirmed (Tier 3) and extracts the image crop into the individual's collection"
+  - "Auto-confirmed revisions are flagged so you can separate them from human confirmations in ML Center metrics"
+  - "Wrong auto-confirms put a bad image into the corpus — start conservative and lower as model accuracy proves out"
+  - "Found at Administration → Populations → [Your Population] → Sync → Settings"
 ---
 
 ## What you'll learn

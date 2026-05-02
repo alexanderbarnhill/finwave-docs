@@ -3,6 +3,14 @@ title: "Composition Analysis"
 description: "Analyze the age and sex breakdown of your population"
 sidebar:
   order: 3
+quickRef:
+  - "What it shows: proportional breakdown of the population by age class and sex"
+  - "Source data: age class + sex attributes assigned per individual when created or updated"
+  - "Unknowns are kept as their own bucket — high unknown count means low signal in the rest"
+  - "Healthy populations typically have representation across all age classes; juvenile-light = weak recruitment"
+  - "Skewed sex ratio can signal sampling bias, differential mortality, or natural variation — look at the unknown bucket first"
+  - "Most useful as a trend over repeated runs, not as a single snapshot"
+  - "Workbench tool — requires finwave Pro and per-role access in Workbench Access settings"
 ---
 
 ## What you'll learn

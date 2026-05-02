@@ -3,6 +3,17 @@ title: "Styling, Layout & Export"
 description: "Style controls for the canvas, layout commands, search, and PNG/SVG export"
 sidebar:
   order: 8
+quickRef:
+  - "Styles tab: per-graph canvas, node, deceased-variant, and edge controls. All changes save with the graph"
+  - "Edge curve: Straight / Bezier / Bundled Bezier (last bundles parallel edges between same pair)"
+  - "Edge colours by type: Mother (mother/father-of), Sibling (sibling/mate-of), Assoc (association/often-seen-with)"
+  - "Deceased nodes auto-render with a † dagger prefix and tunable fill/border/opacity"
+  - "Apply to all graphs button copies styles population-wide. Reset returns to finwave defaults"
+  - "Three layouts: Organise A–Z (grid), Organise circle, Auto-Associate matriline hierarchy. Locked nodes are skipped"
+  - "View actions don't move nodes: Fit all (O), Fit largest (L), Focus deceased (D)"
+  - "Find on canvas: Ctrl/Cmd+F or /. Searches identifier, label, AND alternate IDs"
+  - "Export: PNG or SVG, each with transparent-bg variant. PNG renders at 2× scale; full graph not just viewport"
+  - "Background colour from the Styles tab is what non-transparent exports use"
 ---
 
 ## What you'll learn

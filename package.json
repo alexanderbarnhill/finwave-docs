@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npm run build:manifest",
+    "build:manifest": "node scripts/build-help-manifest.mjs",
     "preview": "astro preview",
     "generate": "node scripts/generate.mjs --page",
     "generate:all": "node scripts/generate.mjs --all",

@@ -3,6 +3,16 @@ title: "Encounters"
 description: "What an encounter is and how images, metadata, and IDs relate"
 sidebar:
   order: 1
+quickRef:
+  - "What it is: photos from a single observation event by one photographer at one time and place"
+  - "Encounter is bounded by single photographer, single day, single contiguous group — different group later same day = new encounter"
+  - "Required metadata: date, location (name + GPS), photographer, images. Optional: org, behaviors, predation, prey, notes"
+  - "Status indicators: analysis (new/in-progress/complete) and completeness (complete/incomplete/unknown)"
+  - "Completeness is mutable — experts/admins can revise after submission as social context becomes clear. Add a comment when you do"
+  - "Mark complete only when every individual present was photographed — affects mark-recapture validity"
+  - "License levels: Public CC-NC, Public + Attribution, Organization-only"
+  - "Multiple individuals per encounter, many encounters per individual — this many-to-many is what enables population analyses"
+  - "Encounters are immutable observational records; annotations and IDs are the editable interpretive layer on top"
 ---
 
 ## What you'll learn

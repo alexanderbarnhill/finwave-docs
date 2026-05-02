@@ -1,0 +1,55 @@
+---
+// Renders the page's `quickRef` frontmatter as a callout above the main body.
+// Surfaces the same TL;DR bullets that the Hub help drawer uses, so writers
+// preview their summary in their own docs and can't accidentally diverge.
+//
+// Usage: rendered automatically via the PageTitle override; no manual import
+// in markdown files needed.
+interface Props {
+  bullets?: string[];
+}
+
+const { bullets } = Astro.props;
+const items = (bullets ?? []).filter((b) => typeof b === 'string' && b.trim().length > 0);
+---
+
+{
+  items.length > 0 && (
+    <aside class="quick-ref" aria-label="Quick reference">
+      <p class="quick-ref-label">Quick reference</p>
+      <ul>
+        {items.map((b) => (
+          <li>{b}</li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+<style>
+  .quick-ref {
+    margin: 1.25rem 0 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--sl-color-accent, #3b82f6);
+    background: var(--sl-color-accent-low, rgba(59, 130, 246, 0.08));
+  }
+
+  .quick-ref-label {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sl-color-accent-high, #1d4ed8);
+  }
+
+  .quick-ref ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .quick-ref li + li {
+    margin-top: 0.25rem;
+  }
+</style>

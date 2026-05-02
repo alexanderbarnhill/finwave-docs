@@ -3,6 +3,14 @@ title: "Sub-graphs & Graph Links"
 description: "Extract a selection into a separate graph and reference it from the parent"
 sidebar:
   order: 6
+quickRef:
+  - "Three similar concepts: Visual group (compound node, single graph), Sub-graph (separate graph record), Graph-link (cross-graph reference node)"
+  - "Layout → Group selection to new graph creates a sub-graph AND drops a graph-link node into the parent (one step)"
+  - "Build → Add graph link only adds a reference to an existing graph — doesn't create a new one"
+  - "Edges leaving the selection are dropped during extraction (only one endpoint left). Both-endpoint edges travel into the sub-graph"
+  - "Group-to-new-graph is destructive on the parent — Ctrl/Cmd+Z restores nodes but doesn't delete the new graph record. Delete the new graph too if you want a full reverse"
+  - "Graph-link nodes reference by id, not name — renames are tolerated, deletes leave a dead pointer until you remove it"
+  - "Right-click a graph-link → Open sub-graph to navigate. Standard load path: previous lock released, new lock acquired or read-only if held"
 ---
 
 ## What you'll learn

@@ -3,6 +3,15 @@ title: "Adding & Editing Individuals"
 description: "Add individuals to the canvas, edit their fields, mark deceased, and lock positions"
 sidebar:
   order: 3
+quickRef:
+  - "Three ways to add: Build menu, right-click empty canvas, or Add individual event — all open the picker dialog"
+  - "Picker shows ID, sex symbol, birth year, deceased badge, and disables 'on graph' rows to prevent duplicates"
+  - "Inspector form fields: Identifier (required), Sex, Birth year (1900–today), Alternate IDs (chip grid), Note. Press Apply to commit"
+  - "Edits Apply'd in the Inspector are pushed back to the canonical animal record in the population catalog (fire-and-forget)"
+  - "Mark deceased via right-click → Toggle deceased. Deceased styling lives in the Styles tab (Deceased fill/border/opacity)"
+  - "Lock position via right-click → Lock position. Layout commands skip locked nodes; you can still drag manually"
+  - "Press D to focus deceased; zooms to deceased nodes if any exist, otherwise fits all"
+  - "Delete a node with the Delete key. Multi-select via Shift-click or shift-drag"
 ---
 
 ## What you'll learn

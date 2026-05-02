@@ -3,6 +3,15 @@ title: "Gallery Management"
 description: "Select, delete, find duplicates, and set sides for images in bulk"
 sidebar:
   order: 4
+quickRef:
+  - "Enter via the encounter actions panel → Edit Gallery; Done exits"
+  - "In edit mode each thumbnail gets a checkbox; toolbar shows running selection count"
+  - "Bulk delete is permanent — confirmed annotations on those images are also lost"
+  - "Find Duplicates uses two passes: SHA-256 hash match (catches identical files) + filename/dimensions/date match (catches re-encoded copies)"
+  - "Duplicate review pre-selects one copy per group for removal; click to swap which copy stays"
+  - "Set Side applies left/right/unknown to all selected images at once — useful for batch-imported single-angle shoots"
+  - "Duplicate detection is encounter-scoped only; it doesn't compare across encounters"
+  - "Requires explicit encounter edit permission (admin, submitter, or appropriate role) — auth alone is not enough"
 ---
 
 ## What you'll learn

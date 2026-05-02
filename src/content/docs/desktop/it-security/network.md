@@ -3,6 +3,12 @@ title: "Network Requirements"
 description: "Allowed domains, firewall rules, and telemetry policy"
 sidebar:
   order: 4
+quickRef:
+  - "Single endpoint: your configured finwave API server. No telemetry, analytics, CDN, or crash-reporting calls"
+  - "Firewall: outbound HTTPS port 443 to your finwave API domain. No inbound rules required"
+  - "All transport HTTPS only — no fallback to HTTP, ever"
+  - "JWT auth, refreshed automatically. No telemetry opt-in/opt-out toggle because there's no telemetry system"
+  - "Discovery and manifest editing work fully offline; only sign-in (and future sync) need network"
 ---
 
 In this guide you will learn:

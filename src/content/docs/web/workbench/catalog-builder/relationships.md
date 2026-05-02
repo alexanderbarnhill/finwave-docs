@@ -3,6 +3,15 @@ title: "Relationships & Edges"
 description: "Three ways to draw edges, the relationship-type reference, and how to edit existing edges"
 sidebar:
   order: 4
+quickRef:
+  - "Three ways to draw: edge-draw mode (E), Start from selection (Shift+E), or bulk via Auto-Associate & Split"
+  - "Six relationship types: 4 fixed (mother-of, father-of, sibling-of, mate-of) + 2 soft (association, often-seen-with)"
+  - "Fixed types persist in an edge registry; soft types live as inline graph edges only"
+  - "mother-of and father-of are directed (parent → calf, with arrowhead). Others are undirected"
+  - "New edges default to 'association' — change the type from the Inspector dropdown"
+  - "Multiple edges between the same pair are allowed (e.g. sibling-of + often-seen-with)"
+  - "When in doubt: use 'association'. Unrecognised relationship strings on import normalise to it"
+  - "If you can only see Auto-Associate & Split: hand-drawing controls live in Build menu + canvas right-click, not in Associations"
 ---
 
 ## What you'll learn

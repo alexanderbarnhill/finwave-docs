@@ -3,6 +3,15 @@ title: "Initial Setup"
 description: "Organization binding, population selection, and first scan"
 sidebar:
   order: 3
+quickRef:
+  - "Five-step first-launch flow takes ~2 minutes total"
+  - "Steps: Authenticate → Select org → Confirm binding → Select populations → Done"
+  - "Single-org accounts skip the org-select step automatically"
+  - "Organization binding is permanent. Switching = full reset (org admin only) that wipes local data; source files untouched"
+  - "User sessions are independent. Logging out leaves org binding + watched dirs + manifests in place"
+  - "Org-level settings (binding, populations, dirs, manifests, API endpoint) are shared across all users on the install"
+  - "User-level settings (creds in OS keychain, notifications, theme) are per-user"
+  - "Can add or remove managed populations later from Settings"
 ---
 
 In this guide you will learn:

@@ -10,6 +10,12 @@ export default defineConfig({
       logo: { src: './src/assets/finwave-logo.svg' },
       customCss: ['./src/styles/custom.css'],
       editLink: { baseUrl: 'https://github.com/finwave/finwave-docs/edit/main/' },
+      // Override PageTitle so a quickRef callout renders below the page heading
+      // when the frontmatter defines one. Same bullets the Hub help drawer
+      // consumes from dist/help-manifest.json.
+      components: {
+        PageTitle: './src/components/PageTitle.astro',
+      },
       sidebar: [
         {
           label: 'Web Application',

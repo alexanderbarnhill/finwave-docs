@@ -3,6 +3,14 @@ title: "Ensure Individuals"
 description: "Creating individual records on the server before syncing encounters"
 sidebar:
   order: 4
+quickRef:
+  - "Pre-sync step that creates individual records on finwave for every ID found in the manifest"
+  - "Run once per manifest before first sync. Re-run only if you add new IDs by re-materializing"
+  - "Inline progress: count + total + current individual name (e.g. '12 / 45 — Nebula')"
+  - "Result summary: found / already existed / created / failed"
+  - "All-already-exist message is normal for repeat syncs or shared populations"
+  - "Disabled if API key isn't provisioned. 'access denied' = pop admin needs to enable Desktop Sync"
+  - "Without this step, encounters still upload but the individual links may take longer to appear"
 ---
 
 In this guide you will learn:

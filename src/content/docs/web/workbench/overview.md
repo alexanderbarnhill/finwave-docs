@@ -3,6 +3,13 @@ title: "Workbench Overview"
 description: "What the Workbench is, which tools it includes, and how access works"
 sidebar:
   order: 1
+quickRef:
+  - "What it is: population-scoped power tools beyond browse/submit/view — modeling, review, and analysis"
+  - "Three tool categories: Catalog (Catalog Builder), Review (Review Queue), Analysis (Social Network, Discovery Curve, Composition, Capture History)"
+  - "Requires finwave Pro. Free-tier admins see an upgrade prompt; non-admins on Free see nothing"
+  - "Access is per-role per-population. Admins always have full access; pros default to all tools; experts/novices start with none"
+  - "Sidebar entry only appears when you have access to ≥1 tool. Hidden entirely otherwise"
+  - "Fastest cross-population switching: user-menu Workbench area lists tools grouped by population"
 ---
 
 ## What you'll learn

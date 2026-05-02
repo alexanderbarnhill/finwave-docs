@@ -3,6 +3,15 @@ title: "Manifesting"
 description: "How manifests work and the iterative flow"
 sidebar:
   order: 2
+quickRef:
+  - "Manifest = versioned declarative mapping from your folder structure to finwave's encounter schema"
+  - "Each encounter field is sourced from one of: EXIF, IPTC, folder name, file name, spreadsheet column"
+  - "Default source priority — Date: EXIF DateTimeOriginal first; Location: EXIF GPS first; Photographer: IPTC Creator first; IDs: folder name first"
+  - "Iterative flow: Generate (draft) → Review → Refine → Preview (≤20 sample encounters + coverage stats) → Approve"
+  - "Each save bumps the manifest version. Old versions retained for revert"
+  - "Approval locks rules and records username + timestamp. Doesn't trigger any uploads"
+  - "ID parsing uses your population's identifier verifier — manifest editor compiles the regex and shows example IDs"
+  - "Detected spreadsheet formats can pre-configure column mappings on generate"
 ---
 
 In this guide you will learn:

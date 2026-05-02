@@ -3,6 +3,13 @@ title: "Classification Metrics"
 description: "Side accuracy metric for left/right classification models"
 sidebar:
   order: 3
+quickRef:
+  - "Side accuracy = (Confirmed - SideChanged) / Confirmed × 100"
+  - "Counts only IsMachine annotations on side-relevant categories (mostly dorsal fins)"
+  - "<85% accuracy = significant manual flipping; matters because side mismatches break individual matching"
+  - "Common error sources: top-down/rear-view shots, breaching/rolling poses, train-data imbalance"
+  - "Null displays as '---' when Confirmed=0; Preliminary badge below ~100 reviewed"
+  - "Side errors slipping past review corrupt downstream identification — verify carefully even on small datasets"
 ---
 
 ## What you'll learn

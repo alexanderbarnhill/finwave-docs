@@ -3,6 +3,15 @@ title: "Manifest Editing"
 description: "Adjusting rules, previewing, and approving manifests"
 sidebar:
   order: 3
+quickRef:
+  - "Editor has two panels: field configuration (left) + preview (right)"
+  - "Field sources: Date (EXIF/folder/file), Location (EXIF/folder/IPTC), GPS (EXIF/spreadsheet), Photographer (IPTC/EXIF/folder), Individuals (folder/file/IPTC)"
+  - "Date formats supported: YYYY-MM-DD, YYYYMMDD, DD-MM-YYYY, MM-DD-YYYY plus underscore/dot variants"
+  - "Path patterns use a segment syntax — editor shows sample paths from your scan to test the pattern"
+  - "ID verifier from your population auto-loads as compiled regex with example matches"
+  - "Preview generates ≤20 sample encounters with field coverage stats — run before approving"
+  - "Each save creates a new version. Approve locks rules + records user/timestamp. Revert to draft is allowed"
+  - "Approval doesn't upload anything — onboarding is a separate (forthcoming) step"
 ---
 
 In this guide you will learn:

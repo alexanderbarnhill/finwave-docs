@@ -3,6 +3,15 @@ title: "Capture History Export"
 description: "Generate capture history matrices for mark-recapture population analysis"
 sidebar:
   order: 4
+quickRef:
+  - "What it produces: a binary individuals × periods matrix where 1 = sighted in period, 0 = not"
+  - "Standard input for capture-mark-recapture (CMR) tools: Program MARK, R packages RMark and marked"
+  - "Only confirmed (human-verified) annotations count. Machine-only annotations and hidden encounters are excluded"
+  - "Period types: Monthly (default), Yearly, or Per-encounter (each unique date is its own occasion)"
+  - "Optional filters: sex, age class, side (Left/Right) for laterally-asymmetric species"
+  - "Four export formats: MARK .inp, CSV matrix, R-ready CSV (single ch column), JSON. Conversion is in-browser"
+  - "Summary stats include mean capture probability — low values + many periods = sparse data, less precise estimates"
+  - "Workbench tool — requires finwave Pro and per-role access in Workbench Access settings"
 ---
 
 ## What you'll learn

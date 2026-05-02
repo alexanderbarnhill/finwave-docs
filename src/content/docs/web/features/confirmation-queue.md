@@ -3,6 +3,16 @@ title: "Confirmation Queue"
 description: "Reviewing and confirming identifications that need human review"
 sidebar:
   order: 7
+quickRef:
+  - "What's in it: identifications at evidence tiers 0-2 that need human review before becoming Confirmed"
+  - "Items above the auto-confirm threshold skip the queue entirely"
+  - "Priority order: ModelCorroborated (highest, easy verify) > ModelSuggested > Attested (lowest, most work)"
+  - "Attested records have no bounding box — reviewer must draw one before confirming"
+  - "ModelSuggested/Corroborated come with a box; reviewer can confirm, adjust box, change identity, or reject"
+  - "Disputed = reviewer thinks record is wrong; removed from history but retained for audit"
+  - "Unverifiable = record may be right but animal can't be positively identified in the photos; stays in history with a flag"
+  - "Only Confirmed (Tier 3) extracts image crops — Disputed and Unverifiable never produce profile images"
+  - "Skipping deprioritizes an item but doesn't remove it from the queue"
 ---
 
 ## What you'll learn

@@ -3,6 +3,13 @@ title: "Organizations"
 description: "Organization membership, roles, and data ownership"
 sidebar:
   order: 4
+quickRef:
+  - "What it is: a real-world entity (research group, NGO, company) that owns submitted data"
+  - "Two roles: Member (log + view) and Administrator (everything Member can + manage people, edit profile, set licensing)"
+  - "Any registered user can create one. Others request to join, or admins invite directly"
+  - "Org membership is independent from population membership — one doesn't imply the other"
+  - "Encounters submitted under an org inherit its license + visibility; private = visible only to org members (and pop admins)"
+  - "Used for data-sharing workflows: keep encounters internal during review, then expand visibility later"
 ---
 
 ## What you'll learn

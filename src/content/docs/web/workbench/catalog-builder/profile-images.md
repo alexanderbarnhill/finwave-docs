@@ -3,6 +3,16 @@ title: "Profile Images"
 description: "Load and clear profile images on graph nodes; how side and category filters work"
 sidebar:
   order: 7
+quickRef:
+  - "Build → Load profile images opens a dialog with Side, Category, and 'fallback to any' filters"
+  - "Two-pass load: first pass uses your filter, fallback pass (optional) fills remaining nodes with any image"
+  - "Node → animal matching: explicit animalId from picker first, else identifier match (case-insensitive). Unmatched nodes are skipped"
+  - "Graph-link nodes are always skipped — they don't represent a single animal"
+  - "Image preference saves with the graph — re-opening auto-reloads with the same filter"
+  - "Each graph has its own preference, so different graphs in one population can use different filters"
+  - "Build → Clear images removes background images and clears the saved preference (current graph only)"
+  - "Images come from the same image search the rest of finwave uses — newly confirmed annotations become available automatically"
+  - "Cover-fit (cropped to fit, not letterboxed). If you change node geometry after loading, clear and reload to recompute crops"
 ---
 
 ## What you'll learn

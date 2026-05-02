@@ -3,6 +3,16 @@ title: "Discovery"
 description: "Scanning directories, what's detected, and supported file types"
 sidebar:
   order: 1
+quickRef:
+  - "Two phases: scan job (file inventory + classification) → discovery (deeper extraction)"
+  - "All local — no data leaves your machine during scan or discovery"
+  - "File classification: Image (jpg/png/tif), RAW Image (cr2/nef/arw/dng), Spreadsheet (xlsx/csv), Document (docx/pdf), Data (sqlite/mdb), Other"
+  - "RAW formats fully supported — same EXIF extraction as standard images"
+  - "Discovery extracts: image EXIF/IPTC, spreadsheet column headers + sample rows + candidate columns, folder pattern detection"
+  - "Pattern detection finds: dates (ISO/US/year-month), locations, individual IDs (matched against population's verifier), photographer names"
+  - "Each detected pattern carries a confidence score so you can judge reliability"
+  - "Format detection banner appears for known spreadsheet formats — accept to pre-configure manifest, dismiss if wrong"
+  - "Large collections (100K+ images) can take minutes-to-hours — progress bar shows current phase + file"
 ---
 
 In this guide you will learn:

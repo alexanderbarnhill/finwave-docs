@@ -3,6 +3,14 @@ title: "Individuals"
 description: "Individual profiles, ID codes, and life history"
 sidebar:
   order: 2
+quickRef:
+  - "What it is: a single identified animal in the population catalog — the unit photo-ID research builds toward"
+  - "Required: a primary identifier (e.g. HW-001). Everything else (sex, birth year, nickname, profile image) is optional"
+  - "Alternative IDs let you bridge naming conventions across research groups — displayed as 'Main / Alt1 / Alt2'"
+  - "Provisional animals: when a non-admin creates a new ID during annotation, it queues for admin approval before joining the catalog"
+  - "Sighting history accumulates from confirmed annotations on encounter images"
+  - "Only Professionals or Administrators can set profile images"
+  - "Sighting history is the foundation for analyses (discovery curves, capture history, composition, etc.)"
 ---
 
 ## What you'll learn

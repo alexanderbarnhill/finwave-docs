@@ -3,6 +3,14 @@ title: "Activity Log"
 description: "What the client logs and how to review and export activity"
 sidebar:
   order: 2
+quickRef:
+  - "Append-only local log of every meaningful action — never modified or deleted by the client"
+  - "Categories: config (startup), filesystem (scans, writes), database (open/close/migrate/reset), auth (keychain), error"
+  - "Daily rotation: one JSON-line file per calendar day, named audit.YYYY-MM-DD.log, in app data directory under logs/"
+  - "Settings → Activity Log: paged view (50 entries per page), filter by category and date range"
+  - "Export to JSON (programmatic) or CSV (spreadsheet) via native save dialog"
+  - "Never logged: file contents, pixel data, spreadsheet values, auth tokens, request/response bodies"
+  - "Each entry: timestamp, category, action, optional detail (paths, error messages)"
 ---
 
 In this guide you will learn:

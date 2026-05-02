@@ -3,6 +3,16 @@ title: "Saving, Locks & Collaboration"
 description: "Autosave timing, manual save, the lock model, version conflicts, and read-only mode"
 sidebar:
   order: 9
+quickRef:
+  - "Save state cloud icons: cloud_done (saved) / cloud_queue (pending) / cloud_off (error) / sync_problem (version conflict)"
+  - "Autosave fires after 30s of inactivity — debounces on every change. Skipped if read-only or never saved"
+  - "Manual save (Ctrl/Cmd+S) is required for: first save of a new graph, or to persist before navigating away"
+  - "One editor at a time per graph. Loading auto-acquires the lock; if denied you enter read-only mode"
+  - "Lock heartbeats every 2 minutes; failed heartbeat = lock lost = switch to read-only"
+  - "Force-acquire the lock by clicking the lock icon — confirmation prompt warns that the other user may lose unsaved work"
+  - "Version conflict (rare with locks) = reload graph and re-apply edits. No auto-merge"
+  - "Switching graphs while dirty triggers an autosave first, but check the indicator — switch may proceed if save fails"
+  - "Read-only mode: Save disabled, write actions blocked, but pan/zoom/search/export still work"
 ---
 
 ## What you'll learn

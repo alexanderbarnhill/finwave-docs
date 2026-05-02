@@ -3,6 +3,14 @@ title: "Welcome to finwave"
 description: "What finwave is, who it's for, and key concepts"
 sidebar:
   order: 1
+quickRef:
+  - "What it is: a wildlife photo-identification platform — recognising individuals from natural markings"
+  - "Built around three things: catalogues of individuals, encounters (raw observations), and identifications (linking the two)"
+  - "Every identification carries an evidence tier so you always know how strong the link is"
+  - "Audiences: researchers, conservation orgs, citizen-science contributors, field photographers"
+  - "Permission model adapts to your role inside each population — start anyway if you're not sure where you fit"
+  - "Population is the scoping unit — almost every page is scoped to one"
+  - "Bulk historical onboarding: use the desktop client. Day-to-day work: use the web app"
 ---
 
 ## What you'll learn

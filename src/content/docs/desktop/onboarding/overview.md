@@ -3,6 +3,13 @@ title: "Onboarding Overview"
 description: "The end-to-end pipeline for getting your image data into finwave"
 sidebar:
   order: 1
+quickRef:
+  - "Four stages: Discovery → Manifesting → Pre-Sync Review → Sync"
+  - "Two source paths: local directories (full EXIF/IPTC, fast) vs Azure blobs (cloud worker, header-only 128KB downloads)"
+  - "Cloud-stored data uses server-side blob-to-blob copy at sync time — no full-image data crosses your desktop"
+  - "Materialization (after manifest approval) creates concrete encounter records you can review one by one"
+  - "Each stage saves state and is fully resumable — closing the app mid-anything picks up where you left off"
+  - "Sync progress is per-image — interrupted syncs resume the unfinished images, not the full encounter"
 ---
 
 In this guide you will learn:

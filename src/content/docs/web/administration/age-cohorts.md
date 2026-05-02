@@ -3,6 +3,15 @@ title: "Age Cohorts"
 description: "Define population-specific age and sex bins to drive composition breakdowns and social network analyses"
 sidebar:
   order: 9
+quickRef:
+  - "Cohort = sex + age range bucket. Population-scoped — each population defines its own to match field convention"
+  - "Each cohort has: Key (stable id), Label (display), optional Sex, optional Min age (inclusive), optional Max age (exclusive), optional Description"
+  - "Order matters: first-match wins. Reorder rows to set precedence — overlapping ranges are how you express precedence"
+  - "Every version MUST include exactly one Unknown cohort (no bounds, no sex). Without it, missing-data animals silently drop out"
+  - "Saves are immutable versions — never edit in place. Old analyses keep referencing their version and stay reproducible"
+  - "Switch the active version with Activate. Active is locked from delete; activate something else first"
+  - "Used by Composition Breakdown, Social Network Analysis, individual filter, and reports/exports"
+  - "Validation: ≥1 cohort, exactly 1 Unknown, key + label required, keys unique per version, min < max"
 ---
 
 ## What you'll learn

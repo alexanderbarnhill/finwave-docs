@@ -3,6 +3,15 @@ title: "Workbench Access"
 description: "Configure which roles can access each Workbench tool"
 sidebar:
   order: 3
+quickRef:
+  - "Population-admin only setting at Administration → Workbench Access"
+  - "Matrix of tools (rows) × non-admin roles (columns: Professional, Expert, Novice)"
+  - "Administrators always have full access — they aren't shown in the matrix and can't be restricted"
+  - "Defaults on Pro upgrade: Professionals get every tool, Experts and Novices get nothing"
+  - "Changes take effect on next page load — users see the Workbench section appear/disappear"
+  - "Revoking access keeps in-progress work intact (e.g., assigned Review Queue tasks remain)"
+  - "Requires finwave Pro. Free tier hides the section for non-admins; admins see locked tools + upgrade prompt"
+  - "Permission grants survive plan downgrades — re-upgrading restores the same matrix"
 ---
 
 ## What you'll learn

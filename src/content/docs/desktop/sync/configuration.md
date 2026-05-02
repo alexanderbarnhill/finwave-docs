@@ -3,6 +3,15 @@ title: "Sync Configuration"
 description: "API key provisioning, concurrency, and sync settings"
 sidebar:
   order: 2
+quickRef:
+  - "API key auto-provisions when you first open the sync page"
+  - "Status bar messages: ready / not provisioned / provisioning / invalid / access denied"
+  - "'Access denied' = pop admin must enable Desktop Sync in Sync & Identification Settings (population-level, not user-level)"
+  - "Concurrency selector (1-4 parallel uploads per encounter). 1 = safest on slow links, 2 = default, 3-4 = high bandwidth"
+  - "Concurrency setting persists across sessions"
+  - "Ensure Individuals creates server records for every individual ID in the manifest — run once before first sync per manifest"
+  - "Reset button reverts synced encounters to pending. Use after server-side deletes or to re-attempt full upload"
+  - "Server URL is auto-detected from app config; visible in the global status bar"
 ---
 
 In this guide you will learn:

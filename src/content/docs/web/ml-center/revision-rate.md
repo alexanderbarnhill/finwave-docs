@@ -3,6 +3,14 @@ title: "Revision Rate"
 description: "What revision rate measures and how it differs from accuracy metrics"
 sidebar:
   order: 5
+quickRef:
+  - "Formula: RevisedAnnotations / TotalAnnotations × 100. Captures total human correction effort"
+  - "Key difference vs precision/accuracy: denominator includes ALL ML annotations, including unreviewed"
+  - "Multiple revisions on the same annotation count once — it's annotation-level, not revision-count"
+  - "Will rise as your team catches up on review backlog (more reviewed = more numerator opportunities)"
+  - "Low rate + low review coverage = not yet meaningful. Check review count alongside the rate"
+  - "Most useful for: workload estimation, retraining justification, comparing model performance over time"
+  - ">30% sustained typically indicates the model needs retraining for this population's data"
 ---
 
 ## What you'll learn

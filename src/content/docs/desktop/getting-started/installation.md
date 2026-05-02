@@ -3,6 +3,14 @@ title: "Installation"
 description: "Download, install, and system requirements"
 sidebar:
   order: 2
+quickRef:
+  - "Discovery + manifesting work offline after sign-in — only auth needs network"
+  - "Windows: .exe wizard or .msi for managed deploys. WebView2 may be installed by the wizard if missing"
+  - "macOS: drag .dmg to Applications. First launch may need right-click → Open to bypass Gatekeeper"
+  - "Apple Silicon = aarch64.dmg, Intel = x64.dmg. Downloads page auto-detects architecture"
+  - "Linux: APT/RPM repo recommended for auto-updates. .deb/.rpm/.AppImage manual installs work but only AppImage gets Tauri's auto-updater"
+  - "Local data lives in ~/.finwave/ (200 MB+ depending on scan size and crops)"
+  - "First launch opens in a full window for Initial Setup — don't close before completing org binding"
 ---
 
 In this guide you will learn:

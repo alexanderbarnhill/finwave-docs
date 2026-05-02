@@ -3,6 +3,15 @@ title: "How Sync Works"
 description: "Upload approved encounters and images to the finwave server"
 sidebar:
   order: 1
+quickRef:
+  - "Sync page = card grid (one per population) with manifest rows: Review / Ensure Individuals / Reset / Sync buttons"
+  - "Per-encounter flow: dedup match (by date+location+photographer) → upload images → commit → mark synced"
+  - "Encounter dedup means re-running sync after partial uploads doesn't create duplicates — it fills in missing images"
+  - "Image idempotency: server tracks per-key upload session; re-uploading the same image returns Complete instantly"
+  - "Reset button on a manifest row resets synced encounters to pending — useful when server-side data was deleted"
+  - "Errors group per encounter; Retry uploads only the failed images, not the whole encounter"
+  - "Auto-retry on transient errors: upload sessions 1×, commits 3×, blob copies 3×, blob uploads 3× (with backoff)"
+  - "Partial sync = some images succeeded, some failed. Successful images aren't lost; Retry only re-attempts failures"
 ---
 
 In this guide you will learn:

@@ -3,6 +3,16 @@ title: "External Sighting Intelligence"
 description: "Import and manage external sighting data from public databases like OBIS-SEAMAP and GBIF"
 sidebar:
   order: 7
+quickRef:
+  - "What it does: imports public sighting metadata as a contextual overlay — never as encounters"
+  - "External data is metadata only. No images. Photos stay on the source platform"
+  - "External records are excluded from your encounter list, stats, exports, and analyses by design"
+  - "Sources: OBIS-SEAMAP (CSV upload), GBIF (API), OBIS (API). Most marine-mammal data lives in OBIS-SEAMAP"
+  - "GBIF imports run async — large datasets can take minutes; finwave polls the bulk-download API"
+  - "Deduplication runs in 4 tiers (exact / probable / possible / new) by date + distance + group-size"
+  - "Individual mapping links external IDs (e.g. Happywhale HW-MN0001) to your finwave individuals; auto-applies to future imports"
+  - "Gap analysis surfaces spatial + temporal coverage holes between your encounters and the external layer"
+  - "Most external data is CC BY-NC — attribution is auto-tracked per-record and rendered on every view"
 ---
 
 ## What you'll learn

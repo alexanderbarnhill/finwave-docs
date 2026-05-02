@@ -3,6 +3,15 @@ title: "Sync Troubleshooting"
 description: "Fixing common sync errors, recovery from failures, and re-syncing"
 sidebar:
   order: 3
+quickRef:
+  - "502 / 503 / generic 5xx: transient. Retried 3× automatically; click Retry on the population card to resume"
+  - "403 CannotVerifyCopySource (blob-to-blob): check SAS in Settings — needs Read+List, srt=sco, no IP restrictions"
+  - "'Failed to save upload session': stale session in unexpected state. Click Retry — current server handles it"
+  - "Encounters marked 'Conflict' (legacy): just hit Sync again. Newer engine reuses existing encounter and fills missing images"
+  - "'Photographer not resolved': open manifest editor → Resolve Photographers → link/create/reject"
+  - "Incomplete reasons: missing date / missing location / missing GPS / photographer not resolved — fix in pre-sync review or manifest"
+  - "Missing images after sync: Reset → Sync. Already-uploaded come back as Complete instantly; missing get uploaded"
+  - "Cloud discovery 'failed' on big datasets often means polling timed out but worker is still chunking — check worker logs"
 ---
 
 In this guide you will learn:

@@ -3,6 +3,14 @@ title: "Photographer Resolution"
 description: "Map raw photographer names from image metadata to finwave user accounts"
 sidebar:
   order: 5
+quickRef:
+  - "Required step before manifest approval — every encounter must link to a known user"
+  - "Appears in manifest editor after a preview is generated. Lists ALL unique names in the manifest, not just preview sample"
+  - "Four statuses per name: Resolved (linked), Create on sync (new account at sync time), Rejected (excluded), Unresolved (untouched)"
+  - "Create on sync collects first/last/email — useful for bulk onboarding photographers without finwave accounts yet"
+  - "Default photographer fallback applies to encounters where no name was detected anywhere"
+  - "Aliases are population-scoped: 'BW' → 'Rebecca Wellard' in one population doesn't carry to another"
+  - "Resolving a name auto-promotes encounters that were incomplete only because of that name to pending review"
 ---
 
 In this guide you will learn:

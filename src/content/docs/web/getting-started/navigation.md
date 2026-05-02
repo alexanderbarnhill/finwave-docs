@@ -3,6 +3,15 @@ title: "Navigating the App"
 description: "App layout, sidebar, top navigation, and user menu"
 sidebar:
   order: 3
+quickRef:
+  - "Four regions: top bar (population switcher, search, notifications, account), sidebar, main content, contextual side panels"
+  - "Population switcher in top-left is the most important control — switching it changes everything"
+  - "If a screen looks empty or a feature is missing: check the population switcher first"
+  - "Standard sidebar sections: Encounters, Individuals, Confirmation Queue, Workbench (Pro), ML Center (admin), Administration (admin), Troubleshooting"
+  - "Sidebar contents adapt to your role + population's plan — sections you can't access are hidden"
+  - "Top-bar search is scoped to the active population: encounters, individuals, locations"
+  - "Account menu: profile, notification preferences, sign out"
+  - "Many screens use right-side panels (encounter detail, annotator, individual profile) instead of full-page navigation"
 ---
 
 ## What you'll learn

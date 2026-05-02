@@ -3,6 +3,14 @@ title: "What Is the Desktop Client?"
 description: "Purpose, organization-first design, and how it relates to the web app"
 sidebar:
   order: 1
+quickRef:
+  - "Organization-first model — bound to one org at setup, scoped to that org's data. Not 'finwave on the desktop'"
+  - "Solves bulk historical onboarding — staged workflow: Discovery → Manifesting → (Onboarding + Sync coming soon)"
+  - "Discovery and Manifesting run entirely locally. No data leaves your machine until you approve an upload"
+  - "Built on Tauri (Rust + system webview + Angular) — under 50 MB RAM idle, capability-locked permissions"
+  - "Multi-user: each person logs in with their own finwave creds; organization binding is shared"
+  - "Org binding is permanent — switching requires a full reset (admin only) that wipes local data but not source files"
+  - "Role gates capabilities: org admin (everything), pop admin (their pops), pro (read), expert/novice (view-only)"
 ---
 
 In this guide you will learn:

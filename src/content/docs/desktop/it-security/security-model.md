@@ -3,6 +3,15 @@ title: "Security Model"
 description: "Tauri permissions, filesystem access, and local data encryption"
 sidebar:
   order: 1
+quickRef:
+  - "Built on Tauri v2 — capability-based permission model enforced at the webview boundary"
+  - "Declared capabilities: filesystem (user-selected dirs only), folder picker, notifications, HTTPS, OS info, autostart"
+  - "Excluded: clipboard, shell:execute, global-shortcut — by design, not by oversight"
+  - "Files are read-only on your data dirs — client never modifies, renames, or deletes source files"
+  - "Local SQLite encrypted with SQLCipher: 256-bit per-org random key, file perms 0600, key stored separately, dropped from memory on sign-out"
+  - "Auto-migrates legacy unencrypted databases to encrypted format on first launch with this version"
+  - "JWT auth, token in webview local storage, attached to all API requests, refreshed automatically"
+  - "Zero telemetry, zero third-party connections, zero arbitrary code execution"
 ---
 
 In this guide you will learn:

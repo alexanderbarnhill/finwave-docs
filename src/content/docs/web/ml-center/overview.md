@@ -3,6 +3,15 @@ title: "ML Center Overview"
 description: "What the ML Center shows, how metrics are computed, and how to interpret model performance"
 sidebar:
   order: 1
+quickRef:
+  - "What it is: per-model performance dashboard fed by every human review action in the annotator"
+  - "Three pipeline phases tracked: Detection (where), Classification (left/right side), Identification (which animal)"
+  - "Metrics are materialized nightly — page loads instant, shows 'Last updated' timestamp"
+  - "Admin Refresh button queues an immediate recomputation when you need fresh numbers"
+  - "Baseline date marks where tracking started; pre-baseline annotations are excluded from metrics"
+  - "Preliminary badge shows on models with <100 reviewed annotations — numbers can shift a lot still"
+  - "Null metrics render as '---' rather than 0%/100% so you can tell empty from extreme"
+  - "Found at Administration → ML Center on any population with active models"
 ---
 
 ## What you'll learn
