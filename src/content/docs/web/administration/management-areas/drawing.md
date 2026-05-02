@@ -34,6 +34,8 @@ The toolbar at the top of the page has three relevant buttons (when no edit is i
 - **+ New area** — opens the Create dialog without drawing first; you'll paste GeoJSON for the geometry.
 - **Import GeoJSON** — bulk import from a file (see [Importing](../importing/)).
 
+![The per-layer canvas page: areas list on the left, an interactive map on the right with the layer's polygons rendered. The toolbar above hosts the draw, paste-geometry, and import buttons.](/screenshots/web/management-areas/02-canvas.png)
+
 ## Drawing a new polygon
 
 1. Click **Draw new area**. The toolbar swaps to a red **Cancel drawing** button.

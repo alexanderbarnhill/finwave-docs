@@ -66,3 +66,5 @@ Read on:
 ## Where to find it
 
 In the FinWave web app: open your population's administration page, then click **Management Areas** in the left sidebar. The page lists every layer in the population.
+
+![The Management Areas section on a population's administration page, listing two layers (DFO PFMAs and Internal Study Areas) with their area counts and per-layer toggles.](/screenshots/web/management-areas/01-layer-list.png)

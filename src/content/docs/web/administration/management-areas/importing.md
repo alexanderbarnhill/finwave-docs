@@ -33,6 +33,8 @@ The dialog has two tabs at the top:
 
 Either way, finwave parses the input as you type/select and shows a confirmation just below: *"Ready to import 581 feature(s)."* If parsing fails, you'll see exactly which JSON error and where.
 
+![The Import GeoJSON dialog with the Paste tab active, the property-mapping fields below, and the parse-status confirmation row.](/screenshots/web/management-areas/03-import-dialog.png)
+
 ## Property mappings
 
 Below the parser status are four optional override fields:
