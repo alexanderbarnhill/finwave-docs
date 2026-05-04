@@ -25,13 +25,13 @@ In this guide you will learn:
 
 The first time you launch FinLaunch, the client walks you through a five-step setup flow. This process binds the client to your organization and determines which populations it will work with. The entire flow takes about two minutes.
 
-<!-- screenshot: First launch setup window showing step indicators -->
+![FinWave Desktop on first launch — setup wizard showing the step indicator and the "Select Organization" panel.](/screenshots/desktop/desktop/02-setup-org-binding.png)
 
 ## Step 1: Authenticate
 
 You are prompted to log in with your finwave email and password. Sign in with the account you normally use to access finwave.
 
-<!-- screenshot: Login screen -->
+![Login screen — sign in with your finwave email and password.](/screenshots/desktop/desktop/01-login.png)
 
 ## Step 2: Select your organization
 
@@ -39,7 +39,7 @@ After authentication, you see a list of organizations your account belongs to. S
 
 If your account belongs to only one organization, it is selected automatically and you proceed to the next step.
 
-<!-- screenshot: Organization selection screen with list of orgs -->
+![Organization selection — pick the organization this installation will serve.](/screenshots/desktop/desktop/02-setup-org-binding.png)
 
 ## Step 3: Confirm binding
 
@@ -77,7 +77,7 @@ The client is now bound to your organization. You will see:
 - A summary of the organization's data (populations, image counts, encounter counts)
 - The main interface, ready for you to begin [Discovery](/desktop/discovery/discovery/)
 
-<!-- screenshot: Completed setup showing org-branded main screen -->
+![Completed setup — the workspace shows the organization name in the title bar, the assigned population, and a sidebar with Sync, Settings, Activity Log, Detection Models, and Documentation entries.](/screenshots/desktop/desktop/03-workspace-landing.png)
 
 ## What happens after setup
 

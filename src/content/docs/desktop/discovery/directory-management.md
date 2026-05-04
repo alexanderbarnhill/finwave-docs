@@ -22,6 +22,8 @@ In this guide you will learn:
 
 ## The Directories view
 
+![Directories view — each registered directory shows its path, state, file/image counts, and last scan date. Empty in this screenshot; once you've added directories the table populates per row.](/screenshots/desktop/desktop/07-directories.png)
+
 The Directories section (accessible from the sidebar) shows every directory registered with the client. Each entry displays the directory path, its status, file count, image count, and the last scan date.
 
 ## Directory states

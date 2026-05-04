@@ -33,7 +33,7 @@ If your image data lives in Azure Blob Storage rather than on a local drive, you
 
 Go to **Settings** in the sidebar and find the **Azure Storage Connections** section.
 
-<!-- screenshot: Azure storage connection form in Settings -->
+![App Settings page — Version & Updates and Server Connection cards above the Membership card; the Azure Storage Connections section sits further down the same page.](/screenshots/desktop/desktop/04-settings.png)
 
 Each connection requires:
 

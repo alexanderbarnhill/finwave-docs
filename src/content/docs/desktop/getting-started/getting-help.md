@@ -30,7 +30,7 @@ Use the activity log to:
 - Confirm that a scan or sync completed successfully
 - Share diagnostic details when reporting issues
 
-<!-- screenshot: Activity log showing recent sync entries -->
+![Activity Log page (empty state) — entries appear here as scans and syncs run, with timestamps and operation IDs you can copy when filing an issue.](/screenshots/desktop/desktop/09-activity-log.png)
 
 :::tip
 When reporting an issue, copy the relevant activity log entries. They contain timestamps, error details, and operation IDs that help diagnose problems quickly.

@@ -30,7 +30,7 @@ The sync page shows a **card grid** with one card per population. Each card disp
 - **Manifest list** -- each approved manifest with its version, scan job name, encounter count, and image count
 - **Action buttons** per manifest: Review, Ensure Individuals, Reset, and Sync
 
-<!-- screenshot: Sync page showing population cards with manifest rows -->
+![Sync page in its empty state — once you have approved manifests, each population gets its own card with a syncing indicator, status counts, and per-manifest action buttons.](/screenshots/desktop/desktop/06-sync-empty.png)
 
 A **global status bar** at the top shows server connection, API key status, and the concurrency selector (1-4 parallel uploads).
 

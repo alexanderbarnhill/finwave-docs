@@ -30,6 +30,8 @@ All of this happens locally. No data leaves your machine during discovery.
 
 ## Creating a scan job
 
+![Scan jobs list (empty state) — once you create a scan job from this page or the sidebar, runs appear here with their progress bar, completion status, and links to the resulting manifest.](/screenshots/desktop/desktop/05-scan-jobs-empty.png)
+
 You create a scan job from the workspace or the sidebar. You select one or more root directories through a folder picker and optionally filter by file type. Common patterns include:
 
 - A single top-level "Photos" folder with year, date, or location subfolders
