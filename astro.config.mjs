@@ -18,6 +18,10 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: 'Onboarding',
+          autogenerate: { directory: 'onboarding' },
+        },
+        {
           label: 'Web Application',
           items: [
             {

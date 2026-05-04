@@ -1,4 +1,25 @@
 pages:
+  # ── Onboarding (top-level, contributor-facing) ──
+  - output: onboarding/index.md
+    title: "Onboarding"
+    description: "Guides for contributors getting their data into finwave"
+    type: human
+    model: null
+    spec: null
+    section: null
+    audience: "contributors"
+    order: 1
+
+  - output: onboarding/azure-storage-explorer.md
+    title: "Uploading via Azure Storage Explorer"
+    description: "Install Microsoft's Azure Storage Explorer and upload your files using the SAS link we sent you"
+    type: tutorial
+    model: null
+    spec: null
+    section: null
+    audience: "contributors"
+    order: 2
+
   # ── Web Application — Getting Started ──
   - output: web/getting-started/welcome.md
     title: "Welcome to finwave"
