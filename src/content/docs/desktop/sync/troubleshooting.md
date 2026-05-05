@@ -11,6 +11,7 @@ quickRef:
   - "'Photographer not resolved': open manifest editor → Resolve Photographers → link/create/reject"
   - "Incomplete reasons: missing date / missing location / missing GPS / photographer not resolved — fix in pre-sync review or manifest"
   - "Missing images after sync: Reset → Sync. Already-uploaded come back as Complete instantly; missing get uploaded"
+  - "'N files moved or renamed since the last scan' banner: re-run discovery on the originating scan job; sync skips files that no longer exist on disk"
   - "Cloud discovery 'failed' on big datasets often means polling timed out but worker is still chunking — check worker logs"
 ---
 
@@ -76,6 +77,22 @@ Check the pre-sync review for the specific reason shown next to each incomplete 
 | missing location name | Set a location override in the manifest editor |
 | missing GPS | Edit GPS coordinates in the pre-sync review or set a GPS override |
 | photographer not resolved | Resolve the photographer (see above) |
+
+## "N files moved or renamed since the last scan"
+
+Both the pre-sync review page and the sync page show an amber banner when one or more files referenced by an approved manifest no longer exist on disk -- typically because you renamed or moved them after running discovery.
+
+**Why it matters:** Sync does not fail loudly on a missing source file. It skips the file and the encounter ends up partially synced (some images uploaded, the renamed ones missing). The banner is the only place that flags this proactively.
+
+**Fix:**
+1. Click **Re-run discovery** on the banner -- this opens the originating scan job
+2. Run the scan job again so the new filenames are picked up
+3. Return to the manifest editor, regenerate the manifest version, and re-materialize
+4. Re-approve any encounters that need it, then sync
+
+:::note
+The banner counts files, not encounters -- one renamed file in an encounter with ten images shows as "1 file moved." On the sync page, the count is aggregated across every approved manifest you can sync.
+:::
 
 ## Missing images after sync
 

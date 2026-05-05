@@ -74,6 +74,10 @@ When using the spreadsheet source, you choose which columns contain the latitude
 | File name | Extracts individual IDs from file names using a path pattern |
 | IPTC | Extracts IDs from the Caption or Keywords IPTC fields |
 
+:::tip
+Manifest-level rules apply to the whole scan. If discovery misses an individual on a single encounter (typo, mixed case, individual not in the folder name), you can add or remove individuals on that encounter directly in the [pre-sync review chip grid](/desktop/onboarding/pre-sync-review/#editing-known-individuals) without touching the manifest rules.
+:::
+
 ## Path patterns
 
 When a field source is set to "folder name" or "file name," you define a **path pattern** that tells the client which part of the path contains the relevant data. Path patterns use a segment-based syntax to match directory levels and extract values.

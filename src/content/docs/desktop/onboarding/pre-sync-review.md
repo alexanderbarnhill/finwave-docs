@@ -10,7 +10,8 @@ quickRef:
   - "Incomplete encounters show specific reason ('missing GPS', 'photographer not resolved') — fix in manifest editor or inline"
   - "Three license options: Public, Public + Attribution, Private within Organization"
   - "Approve All requires all pending encounters to have a license — assign in bulk first"
-  - "Inline editing for date/location/GPS/photographer/notes — fixing missing data auto-promotes Incomplete to Pending"
+  - "Inline editing for date/location/GPS/photographer/notes; known individuals edited as chips (Enter/comma to add, × to remove). Fixing missing data auto-promotes Incomplete to Pending"
+  - "Banner appears at the top if any source files have been moved/renamed/deleted since the last discovery scan — sync will skip those files until you re-run discovery"
   - "Photographer-to-org auto-apply: if a photographer is in an org, their encounters can auto-assign to it"
   - "Filter by All / Pending / Approved / Denied; header shows status counts and approval %"
 ---
@@ -92,8 +93,37 @@ Click an encounter to expand its detail view. You can edit:
 - GPS coordinates (latitude/longitude)
 - Photographer name
 - Internal notes
+- **Known individuals** (see below)
 
 Changes are saved immediately. If editing fixes a completeness issue (e.g., adding missing GPS), the encounter is promoted from Incomplete to Pending.
+
+### Editing known individuals
+
+Each encounter has a list of known individuals -- the animals the contributor reports were present. The discovery pass extracts these from folder names, file names, or IPTC keywords (per the manifest's [Individuals source](/desktop/discovery/manifest-editing/#individuals)). When that misses one, you can add it directly in the review row:
+
+- **Add** -- type a name into the chip input and press <kbd>Enter</kbd> or <kbd>,</kbd>. The name becomes a chip.
+- **Remove** -- click the × on a chip.
+- Multiple chips can be entered in one save.
+
+When you save the encounter, the desktop app sends the chip list to the server, which performs a **get-or-create** against the population's catalog: existing IDs are matched and reused; new names are created as catalog entries on the next sync. The new individuals are persisted as **Attested** evidence on the encounter -- the contributor's claim, not an ML prediction.
+
+:::tip
+The chip grid is the right tool when discovery already ran but missed an individual (typo in folder name, mixed-case mismatch, individual added after a folder was named, etc.). If your *whole* manifest is mis-extracting individuals, fix the rule in the [manifest editor](/desktop/discovery/manifest-editing/) instead and re-materialize -- the chip grid is per-encounter only.
+:::
+
+## Files moved or renamed since the last scan
+
+If you renamed, moved, or deleted source files after running discovery, the review page surfaces an amber banner at the top of the page:
+
+> **N files moved or renamed since the last scan.** *Sync will skip these files until discovery runs again.* &nbsp;&nbsp; **[Re-run discovery]**
+
+This is detection-on-open: every time you open the review page, the desktop app checks each file the manifest references and counts the ones that no longer exist on disk. The banner only appears when at least one file is missing.
+
+Click **Re-run discovery** to jump back to the originating scan job, where you can run the scan again. After discovery finishes, return to the manifest editor, regenerate the manifest, and re-materialize -- the new filenames will be picked up.
+
+:::caution
+Sync does not fail loudly when a file is missing -- it skips silently and the encounter ends up partially synced. The banner is the only place in the UI that flags this proactively, so it is worth fixing before you click Sync.
+:::
 
 ## Filtering
 
