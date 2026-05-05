@@ -6,10 +6,11 @@ sidebar:
 quickRef:
   - "What it is: the primary scoping unit. Encounters, individuals, annotations, and analyses all belong to one population"
   - "Maps to a real-world study population: species + region + identified animals"
+  - "Browse + join populations at /populations — every population on finwave is listed there with a state badge per card"
+  - "Four states: Member (green) / Open to join (blue, one click) / Request to join (amber, admin approves) / Request pending (grey, awaiting review)"
+  - "Don't 'Create a new population' to join an existing study — that creates a brand-new one. Use Join / Request to join on the existing card instead"
   - "Anyone can request to create one. System admin approval required. Requester becomes first population admin"
-  - "Join policies: Open (anyone joins), Request-based (admin approves), or invitation-only via admin"
   - "Four population roles: Viewer, Expert, Professional, Administrator. Each inherits everything below"
-  - "Independent from organizations — orgs contribute data but population membership is its own thing"
   - "Users can be in multiple populations with different roles in each — no cross-pollination"
   - "ML models are trained and evaluated per-population — moving an encounter cross-population doesn't carry annotations the same way"
 ---
@@ -35,12 +36,33 @@ Once approved, the requesting user becomes the population's first administrator 
 
 ## Joining a population
 
-Populations can be configured with different join policies:
+Every population on finwave is listed at **[/populations](/web/getting-started/welcome/)** -- the populations index page. Each card shows a **state badge** in the top-right corner indicating your current relationship to that population, plus a primary action button driven by that state.
 
-- **Open** -- any user can join directly
-- **Request-based** -- users submit a join request that must be approved by a population administrator
+### The four states
 
-Population administrators can also directly invite users and assign them a role.
+| Badge | What it means | What to click |
+|---|---|---|
+| 🟢 **Member** | You're already a member. | **Open population** — switches your workspace into it. |
+| 🔵 **Open to join** | The population accepts public sign-ups; no admin approval needed. | **Join population** — one click and you're in. |
+| 🟠 **Request to join** | Admin-gated: an administrator has to approve you. | **Request to join** — opens a short form for an optional message. |
+| ⚪ **Request pending** | You've already submitted a request and it's awaiting review. | Disabled. Wait for the admin to respond. |
+
+### What happens after submitting a request
+
+For request-gated populations, the population's administrators receive a notification with your message. They review and either approve (you become a member with a Viewer role by default) or reject. You'll get an email either way. If you don't hear back within a few days, contact the population administrator directly — there's no auto-escalation.
+
+:::caution[Don't create a new population to join an existing study]
+Creating a population is for starting a **brand-new** tracked population (new species, new region, etc.). If the working group you want to contribute to already has a population on finwave, find their card on the `/populations` page and use **Join** or **Request to join** instead. Creating a duplicate splits the catalog and the encounters across two populations that researchers then have to merge.
+:::
+
+### Other ways to become a member
+
+- **Direct invitation** — a population administrator adds you. You'll receive an email and the population shows up immediately under "Your populations" in the workspace switcher (top-left of the sidebar).
+- **Role assignment** — when an administrator adds you (via invite or by approving a request), they pick a role: Viewer, Expert, Professional, or Administrator. See [Roles & Permissions](/web/core-concepts/roles-permissions/) for what each role can do.
+
+### Switching between your populations
+
+Once you're a member of one or more populations, the **workspace switcher** in the top-left corner of the app lets you flip between them. Almost every screen in finwave is scoped to the active population, so the switcher is the single most important navigation control.
 
 ## Population membership and roles
 

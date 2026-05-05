@@ -6,7 +6,7 @@ sidebar:
 quickRef:
   - "Time budget: ~10 minutes from zero to a submitted encounter processing in the ML pipeline"
   - "Step 1: sign up at app.finwave.io, verify email, sign in. Account is independent of any population"
-  - "Step 2: join a population — by admin invitation, or self-join request for populations that allow it"
+  - "Step 2: join a population from the /populations page — state badge per card tells you Member / Open to join (one click) / Request to join (admin-gated) / Pending"
   - "Step 3: Encounters → New Encounter. Three required: date, location (pin or coordinates), at least one image"
   - "Step 4: ML pipeline runs automatically — Detection → Classification → Identification, typically minutes"
   - "Photos may take a minute or two to populate after upload — gallery + ML stream in async, not instant"
@@ -31,10 +31,18 @@ Your account is independent of any population. Once it exists, you can be invite
 
 ## 2. Join a population
 
-You need to be a member of at least one population before you can do useful work. There are two ways this happens:
+You need to be a member of at least one population before you can do useful work. The fastest path is the **[/populations](/web/core-concepts/populations/#joining-a-population)** index page — every population on finwave is listed there, each with a state badge that tells you exactly how to get in:
 
-- **Invitation** — a population administrator adds you. You'll receive an email and the population will appear in the population switcher at the top of the sidebar.
-- **Self-join** — for populations that allow public sign-up, you can request to join from the population's landing page. An administrator approves the request.
+- 🔵 **Open to join** — click **Join population**. You're in immediately, no admin approval needed.
+- 🟠 **Request to join** — click **Request to join**, optionally add a short message. An administrator reviews and approves.
+- 🟢 **Member** — you're already in. Click **Open population** to switch your workspace into it.
+- ⚪ **Request pending** — you've already submitted a request; wait for the admin to respond.
+
+If you were sent an **email invitation**, the population appears in your workspace switcher (top-left of the sidebar) automatically — you don't need to visit `/populations` first.
+
+:::caution[Looking to contribute? Don't click "Create a new population"]
+The "Create a new population" button is for starting a brand-new tracked population (new species, new region). If the working group that pointed you at finwave already has a population on the platform, find their card on `/populations` and use **Join** or **Request to join** on it.
+:::
 
 If you're not sure which population to join, ask the person who pointed you at finwave. Most working groups have a designated administrator.
 
