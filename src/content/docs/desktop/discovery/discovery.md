@@ -30,7 +30,9 @@ All of this happens locally. No data leaves your machine during discovery.
 
 ## Creating a scan job
 
-![Scan jobs list (empty state) — once you create a scan job from this page or the sidebar, runs appear here with their progress bar, completion status, and links to the resulting manifest.](/screenshots/desktop/desktop/05-scan-jobs-empty.png)
+The scan jobs page lists every scan you've run, with status and file counts:
+
+![Scan jobs list with completed and in-progress runs — each card shows directory path, file count, total size, last-updated timestamp, and per-row actions for opening the manifest, viewing details, or deleting.](/screenshots/desktop/desktop/05b-scan-jobs-populated.png)
 
 You create a scan job from the workspace or the sidebar. You select one or more root directories through a folder picker and optionally filter by file type. Common patterns include:
 
