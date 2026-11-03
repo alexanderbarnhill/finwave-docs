@@ -5,7 +5,7 @@ sidebar:
   order: 4
 quickRef:
   - "Reachable at /organization/{id}/settings (or /administration/organizations/{id} from platform admin)"
-  - "Organization-administrator only — non-admins are bounced to the public profile with a snackbar"
+  - "Organization-administrator only — non-admins are bounced to the organization profile with a snackbar"
   - "Seven sections in a sidebar: Logo, Banner, Profile, Members, Permits, Data Preferences, Danger"
   - "Section state is local to the page — there's no URL fragment for the active section, so deep-links land on Logo by default"
   - "Admin gate is checked via the userOrganizationService.isUserAdministrator endpoint before any settings render"
@@ -33,8 +33,8 @@ In either case the component receives the organization id from the route param a
 Before showing any editable settings, the page calls `userOrganizationService.isUserAdministrator(organizationId)`. While that's resolving, the page is in an `authorizing` state and shows nothing editable. The result drives what happens next:
 
 - **You are an org admin** → the loader fetches the organization profile and the section sidebar renders
-- **You are not an org admin** → a snackbar reads "Only organization administrators can change these settings." and the router navigates you to `/organization/{id}` (the public profile)
-- **The check fails (network or server error)** → a different snackbar reads "Could not verify your access to this organization." and you're bounced to the public profile the same way
+- **You are not an org admin** → a snackbar reads "Only organization administrators can change these settings." and the router navigates you to `/organization/{id}` (the organization profile)
+- **The check fails (network or server error)** → a different snackbar reads "Could not verify your access to this organization." and you're bounced to the organization profile the same way
 
 This is a hard client-side gate — non-admins never see the editable forms at all.
 
@@ -44,7 +44,7 @@ The settings sidebar has seven sections. Selecting one swaps the right pane to t
 
 | Section | Component | What it covers |
 |---|---|---|
-| **Logo** | `app-org-settings-logo` | Square logo image used in the public profile, organization cards, and footer placements |
+| **Logo** | `app-org-settings-logo` | Square logo image used on the organization profile, organization cards, and footer placements |
 | **Banner** | `app-org-settings-banner` | Wide banner image used on the org profile and public-page representations |
 | **Profile** | `app-org-settings-profile` | Core identity fields — name, description, contact info |
 | **Members** | `app-org-settings-members` | Add and remove organization members and administrators |

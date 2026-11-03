@@ -42,7 +42,7 @@ Acknowledgement can be updated and resent at any time — for example if the ini
 
 Once the organization profile is reasonably complete, a finwave administrator records a **verify** or **reject** decision:
 
-- **Verified** — The finwave team has reviewed the organization's registration and recorded the identifying details. The verified badge appears on the organization's public profile.
+- **Verified** — The finwave team has reviewed the organization's registration and recorded the identifying details. The verified badge appears on the organization's profile, which any signed-in finwave user can view.
 - **Rejected** — The finwave team could not verify the organization at this time (e.g. missing details, not a registered entity in its jurisdiction). A rejected organization can be re-acknowledged to reopen review.
 
 In either case, the organization's administrators receive an email with the decision. The email may include a note from the finwave team explaining the outcome.

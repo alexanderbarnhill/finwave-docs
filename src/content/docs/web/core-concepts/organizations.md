@@ -29,7 +29,7 @@ When you submit an encounter, you can associate it with one of your organization
 
 Any registered user can create an organization. Once created, other users can request to join, or the organization administrator can invite them directly.
 
-Organizations have a profile page that shows their name, description, logo, member list, and the populations they contribute to.
+Organizations have a profile page that shows their name, description, logo, member list, and the populations they contribute to. Organization profiles are visible to signed-in finwave users only; they are not public web pages.
 
 ## Organization roles
 
